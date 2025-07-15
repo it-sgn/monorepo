@@ -1,0 +1,244 @@
+syntax = "proto3";
+
+// package employers.service;
+package employers.service.v1;
+
+import "google/api/annotations.proto";
+import "openapiv3/annotations.proto";
+
+option go_package = "api/employers/service/v1;v1";
+// option go_package = "api/ums/v1;v1";
+// option go_package = "api/sys/v1;v1";
+// option go_package = "api/sms/v1;v1";
+// option java_multiple_files = true;
+// option java_package = "api.employers.service";
+
+option (openapi.v3.document) = {
+    info: {
+        title: "Employers service",
+        version: "0.0.1",
+        contact: {
+            name: "fuadhs",
+            url: "http://localhost:8000",
+            email: "fuadhasan2@gmail.com"
+        },
+        description: "Employers service";
+    },
+};
+
+service Employers {
+	rpc CreateEmployers (CreateEmployersRequest) returns (CreateEmployersReply){
+		option (google.api.http) = {
+		post: "/v1/employers"
+		body: "*"
+	  };
+	};
+	rpc UpdateEmployers (UpdateEmployersRequest) returns (UpdateEmployersReply){
+	  option (google.api.http) = {
+      put: "/v1/employers/{id}"
+      body: "*"
+     };
+	};
+	rpc DeleteEmployers (DeleteEmployersRequest) returns (DeleteEmployersReply){
+		option (google.api.http) = {
+        delete: "/v1/employers/{id}"
+      };
+	};
+	rpc GetEmployersID (GetEmployersIDRequest) returns (GetEmployersIDReply){
+		option (google.api.http) = {
+		get: "/v1/employers/{id}"
+	 };
+	};
+  rpc GetEmployersDetail (GetEmployerDetailRequest) returns (GetEmployersDetailResponse){
+		option (google.api.http) = {
+		get: "/v1/employer/{id}"
+	 };
+	};
+	rpc ListEmployers (ListEmployersRequest) returns (ListEmployersReply){
+    option (google.api.http) = {
+		get: "/v1/employer/list"
+	 };
+  };
+  rpc ListEmployersNext (ListEmployersTokenReq) returns (ListEmployersReplyNextToken){
+    option (google.api.http) = {
+		get: "/v1/employers/listnext"
+	 };
+  };
+
+}
+
+// Definisi untuk objek kode_finger
+message Finger {
+  string id = 1;
+  string fingercode = 2;
+  string finger0 = 3;
+  string finger1 = 4;
+  string finger2 = 5;
+  string finger3 = 6;
+  string finger4 = 7;
+  string finger5 = 8;
+  string finger6 = 9;
+  string finger7 = 10;
+  string finger8 = 11;
+  string finger9 = 12;
+  string created_at = 13;
+  string updated_at = 14;
+}
+
+// Definisi untuk objek department
+message Department {
+  string departcode = 1;
+  string departname = 2;
+}
+
+message EmployersRecord {
+  int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string Karya_code = 4;
+  string Karya_name = 5;
+  string disp_name = 6;
+  string pass_mesin = 7;
+  string rfid_card = 8;
+  repeated Finger finger = 9;
+  repeated Department department = 10;
+  int32 status = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+
+message CreateEmployersRequest {
+  int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string Karya_code = 4;
+  string Karya_name = 5;
+  string disp_name = 6;
+  string pass_mesin = 7;
+  string rfid_card = 8;
+  string kode_finger = 9; 
+  string departcode = 10;
+  int32 status = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+message CreateEmployersReply {
+  int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string Karya_code = 4;
+  string Karya_name = 5;
+  string disp_name = 6;
+  string pass_mesin = 7;
+  string rfid_card = 8;
+  string kode_finger = 9; 
+  string departcode = 10;
+  int32 status = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+
+message UpdateEmployersRequest {
+	int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string Karya_code = 4;
+  string Karya_name = 5;
+  string disp_name = 6;
+  string pass_mesin = 7;
+  string rfid_card = 8;
+  string kode_finger = 9; 
+  string departcode = 10;
+  int32 status = 11;
+  string created_at = 12;
+  string updated_at = 13;
+	// EmployersRecord employers = 2;
+}
+message UpdateEmployersReply {
+	// EmployersRecord employers = 1;
+  int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string Karya_code = 4;
+  string Karya_name = 5;
+  string disp_name = 6;
+  string pass_mesin = 7;
+  string rfid_card = 8;
+  string kode_finger = 9; 
+  string departcode = 10;
+  int32 status = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+
+message DeleteEmployersRequest {
+	int64 id = 1;
+}
+message DeleteEmployersReply {
+	 bool success = 1;
+}
+
+message GetEmployersIDRequest {
+	int64 id = 1;
+}
+message GetEmployersIDReply {
+  int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string Karya_code = 4;
+  string Karya_name = 5;
+  string disp_name = 6;
+  string pass_mesin = 7;
+  string rfid_card = 8;
+  string kode_finger = 9; 
+  // KodeFinger kode_finger = 9; 
+  string departcode = 10;
+  int32 status = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+
+message GetEmployerDetailRequest{
+	int64 id = 1;
+}
+message GetEmployersDetailResponse{
+  int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string Karya_code = 4;
+  string Karya_name = 5;
+  string disp_name = 6;
+  string pass_mesin = 7;
+  string rfid_card = 8;
+  // string kode_finger = 9; 
+  // KodeFinger kode_finger = 9; 
+  // string department_id = 10;
+  repeated Finger finger = 9;
+  repeated Department department = 10;
+  int32 status = 11;
+  string created_at = 12;
+  string updated_at = 13;
+}
+  
+
+
+message ListEmployersRequest {
+  uint32 pn = 1;
+  uint32 pSize = 2;
+}
+message ListEmployersReply {
+  int32 total = 1;
+  repeated EmployersRecord employers = 2;
+}
+
+message ListEmployersTokenReq {
+  int32 page_size = 1;
+  string page_token = 2;
+}
+message ListEmployersReplyNextToken {
+    // repeated EmployersRecord results = 1;
+    repeated EmployersRecord employers = 1;
+    string next_token = 2;
+}
+
+ 

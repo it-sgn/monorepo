@@ -1,0 +1,1118 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: Employers service
+    description: Employers service
+    contact:
+        name: fuadhs
+        url: http://localhost:8000
+        email: fuadhasan2@gmail.com
+    version: 0.0.1
+paths:
+    /v1/department:
+        post:
+            tags:
+                - Department
+            operationId: Department_CreateDepartment
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateDepartmentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateDepartmentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/department/list:
+        get:
+            tags:
+                - Department
+            operationId: Department_ListDepartment
+            parameters:
+                - name: pn
+                  in: query
+                  schema:
+                    type: integer
+                    format: uint32
+                - name: pSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: uint32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListDepartmentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/department/listnext:
+        get:
+            tags:
+                - Department
+            operationId: Department_ListDepartmentNext
+            parameters:
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListDepartmentResponseNextToken'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/department/{departCode}:
+        get:
+            tags:
+                - Department
+            operationId: Department_GetDepartmentCode
+            parameters:
+                - name: departCode
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetDepartmentCodeResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/department/{id}:
+        get:
+            tags:
+                - Department
+            operationId: Department_GetDepartmentID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetDepartmentIDResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        put:
+            tags:
+                - Department
+            operationId: Department_UpdateDepartment
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateDepartmentRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateDepartmentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - Department
+            operationId: Department_DeleteDepartment
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteDepartmentResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/employer/list:
+        get:
+            tags:
+                - Employers
+            operationId: Employers_ListEmployers
+            parameters:
+                - name: pn
+                  in: query
+                  schema:
+                    type: integer
+                    format: uint32
+                - name: pSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: uint32
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListEmployersReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/employer/{id}:
+        get:
+            tags:
+                - Employers
+            operationId: Employers_GetEmployersDetail
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetEmployersDetailResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/employers:
+        post:
+            tags:
+                - Employers
+            operationId: Employers_CreateEmployers
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateEmployersRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateEmployersReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/employers/listnext:
+        get:
+            tags:
+                - Employers
+            operationId: Employers_ListEmployersNext
+            parameters:
+                - name: pageSize
+                  in: query
+                  schema:
+                    type: integer
+                    format: int32
+                - name: pageToken
+                  in: query
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/ListEmployersReplyNextToken'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/employers/{id}:
+        get:
+            tags:
+                - Employers
+            operationId: Employers_GetEmployersID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetEmployersIDReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        put:
+            tags:
+                - Employers
+            operationId: Employers_UpdateEmployers
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateEmployersRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateEmployersReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        delete:
+            tags:
+                - Employers
+            operationId: Employers_DeleteEmployers
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteEmployersReply'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/finger/{fingercode}:
+        get:
+            tags:
+                - Biometric
+            operationId: Biometric_GetFingerByKode
+            parameters:
+                - name: fingercode
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetFingerByKodeResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/finger/{id}:
+        get:
+            tags:
+                - Biometric
+            operationId: Biometric_GetFingerByID
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/GetFingerByIDResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/fingers:
+        put:
+            tags:
+                - Biometric
+            operationId: Biometric_UpdateFinger
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/UpdateFingerRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/UpdateFingerResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+        post:
+            tags:
+                - Biometric
+            operationId: Biometric_CreateFinger
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/CreateFingerRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/CreateFingerResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+    /v1/fingers/{id}:
+        delete:
+            tags:
+                - Biometric
+            operationId: Biometric_DeleteFinger
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/DeleteFingerResponse'
+                default:
+                    description: Default error response
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/Status'
+components:
+    schemas:
+        CreateDepartmentRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                departCode:
+                    type: string
+                departName:
+                    type: string
+                status:
+                    type: string
+                ket:
+                    type: string
+        CreateDepartmentResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                departCode:
+                    type: string
+                departName:
+                    type: string
+                status:
+                    type: string
+                ket:
+                    type: string
+        CreateEmployersReply:
+            type: object
+            properties:
+                id:
+                    type: string
+                nosap:
+                    type: string
+                nip:
+                    type: string
+                KaryaCode:
+                    type: string
+                KaryaName:
+                    type: string
+                dispName:
+                    type: string
+                passMesin:
+                    type: string
+                rfidCard:
+                    type: string
+                kodeFinger:
+                    type: string
+                departcode:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        CreateEmployersRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                nosap:
+                    type: string
+                nip:
+                    type: string
+                KaryaCode:
+                    type: string
+                KaryaName:
+                    type: string
+                dispName:
+                    type: string
+                passMesin:
+                    type: string
+                rfidCard:
+                    type: string
+                kodeFinger:
+                    type: string
+                departcode:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        CreateFingerRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                fingercode:
+                    type: string
+                finger0:
+                    type: string
+                finger1:
+                    type: string
+                finger2:
+                    type: string
+                finger3:
+                    type: string
+                finger4:
+                    type: string
+                finger5:
+                    type: string
+                finger6:
+                    type: string
+                finger7:
+                    type: string
+                finger8:
+                    type: string
+                finger9:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        CreateFingerResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                fingercode:
+                    type: string
+                finger0:
+                    type: string
+                finger1:
+                    type: string
+                finger2:
+                    type: string
+                finger3:
+                    type: string
+                finger4:
+                    type: string
+                finger5:
+                    type: string
+                finger6:
+                    type: string
+                finger7:
+                    type: string
+                finger8:
+                    type: string
+                finger9:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        DeleteDepartmentResponse:
+            type: object
+            properties:
+                success:
+                    type: boolean
+        DeleteEmployersReply:
+            type: object
+            properties:
+                success:
+                    type: boolean
+        DeleteFingerResponse:
+            type: object
+            properties:
+                success:
+                    type: boolean
+        Department:
+            type: object
+            properties:
+                departcode:
+                    type: string
+                departname:
+                    type: string
+            description: Definisi untuk objek department
+        DepartmentRecord:
+            type: object
+            properties:
+                id:
+                    type: string
+                departCode:
+                    type: string
+                departName:
+                    type: string
+                status:
+                    type: string
+                ket:
+                    type: string
+        EmployersRecord:
+            type: object
+            properties:
+                id:
+                    type: string
+                nosap:
+                    type: string
+                nip:
+                    type: string
+                KaryaCode:
+                    type: string
+                KaryaName:
+                    type: string
+                dispName:
+                    type: string
+                passMesin:
+                    type: string
+                rfidCard:
+                    type: string
+                finger:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Finger'
+                department:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Department'
+                status:
+                    type: integer
+                    format: int32
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        Finger:
+            type: object
+            properties:
+                id:
+                    type: string
+                fingercode:
+                    type: string
+                finger0:
+                    type: string
+                finger1:
+                    type: string
+                finger2:
+                    type: string
+                finger3:
+                    type: string
+                finger4:
+                    type: string
+                finger5:
+                    type: string
+                finger6:
+                    type: string
+                finger7:
+                    type: string
+                finger8:
+                    type: string
+                finger9:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+            description: Definisi untuk objek kode_finger
+        GetDepartmentCodeResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                departCode:
+                    type: string
+                departName:
+                    type: string
+                status:
+                    type: string
+                ket:
+                    type: string
+        GetDepartmentIDResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                departCode:
+                    type: string
+                departName:
+                    type: string
+                status:
+                    type: string
+                ket:
+                    type: string
+        GetEmployersDetailResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                nosap:
+                    type: string
+                nip:
+                    type: string
+                KaryaCode:
+                    type: string
+                KaryaName:
+                    type: string
+                dispName:
+                    type: string
+                passMesin:
+                    type: string
+                rfidCard:
+                    type: string
+                finger:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Finger'
+                    description: "string kode_finger = 9; \n KodeFinger kode_finger = 9; \n string department_id = 10;"
+                department:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/Department'
+                status:
+                    type: integer
+                    format: int32
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        GetEmployersIDReply:
+            type: object
+            properties:
+                id:
+                    type: string
+                nosap:
+                    type: string
+                nip:
+                    type: string
+                KaryaCode:
+                    type: string
+                KaryaName:
+                    type: string
+                dispName:
+                    type: string
+                passMesin:
+                    type: string
+                rfidCard:
+                    type: string
+                kodeFinger:
+                    type: string
+                departcode:
+                    type: string
+                    description: KodeFinger kode_finger = 9;
+                status:
+                    type: integer
+                    format: int32
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        GetFingerByIDResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                fingercode:
+                    type: string
+                finger0:
+                    type: string
+                finger1:
+                    type: string
+                finger2:
+                    type: string
+                finger3:
+                    type: string
+                finger4:
+                    type: string
+                finger5:
+                    type: string
+                finger6:
+                    type: string
+                finger7:
+                    type: string
+                finger8:
+                    type: string
+                finger9:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        GetFingerByKodeResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                fingercode:
+                    type: string
+                finger0:
+                    type: string
+                finger1:
+                    type: string
+                finger2:
+                    type: string
+                finger3:
+                    type: string
+                finger4:
+                    type: string
+                finger5:
+                    type: string
+                finger6:
+                    type: string
+                finger7:
+                    type: string
+                finger8:
+                    type: string
+                finger9:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        GoogleProtobufAny:
+            type: object
+            properties:
+                '@type':
+                    type: string
+                    description: The type of the serialized message.
+            additionalProperties: true
+            description: Contains an arbitrary serialized message along with a @type that describes the type of the serialized message.
+        ListDepartmentResponse:
+            type: object
+            properties:
+                total:
+                    type: integer
+                    format: int32
+                Department:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/DepartmentRecord'
+        ListDepartmentResponseNextToken:
+            type: object
+            properties:
+                Department:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/DepartmentRecord'
+                    description: repeated DepartmentRecord results = 1;
+                nextToken:
+                    type: string
+        ListEmployersReply:
+            type: object
+            properties:
+                total:
+                    type: integer
+                    format: int32
+                employers:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/EmployersRecord'
+        ListEmployersReplyNextToken:
+            type: object
+            properties:
+                employers:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/EmployersRecord'
+                    description: repeated EmployersRecord results = 1;
+                nextToken:
+                    type: string
+        Status:
+            type: object
+            properties:
+                code:
+                    type: integer
+                    description: The status code, which should be an enum value of [google.rpc.Code][google.rpc.Code].
+                    format: int32
+                message:
+                    type: string
+                    description: A developer-facing error message, which should be in English. Any user-facing error message should be localized and sent in the [google.rpc.Status.details][google.rpc.Status.details] field, or localized by the client.
+                details:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/GoogleProtobufAny'
+                    description: A list of messages that carry the error details.  There is a common set of message types for APIs to use.
+            description: 'The `Status` type defines a logical error model that is suitable for different programming environments, including REST APIs and RPC APIs. It is used by [gRPC](https://github.com/grpc). Each `Status` message contains three pieces of data: error code, error message, and error details. You can find out more about this error model and how to work with it in the [API Design Guide](https://cloud.google.com/apis/design/errors).'
+        UpdateDepartmentRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                departCode:
+                    type: string
+                departName:
+                    type: string
+                status:
+                    type: string
+                ket:
+                    type: string
+        UpdateDepartmentResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: DepartmentRecord Department = 1;
+                departCode:
+                    type: string
+                departName:
+                    type: string
+                status:
+                    type: string
+                ket:
+                    type: string
+        UpdateEmployersReply:
+            type: object
+            properties:
+                id:
+                    type: string
+                    description: EmployersRecord employers = 1;
+                nosap:
+                    type: string
+                nip:
+                    type: string
+                KaryaCode:
+                    type: string
+                KaryaName:
+                    type: string
+                dispName:
+                    type: string
+                passMesin:
+                    type: string
+                rfidCard:
+                    type: string
+                kodeFinger:
+                    type: string
+                departcode:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        UpdateEmployersRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                nosap:
+                    type: string
+                nip:
+                    type: string
+                KaryaCode:
+                    type: string
+                KaryaName:
+                    type: string
+                dispName:
+                    type: string
+                passMesin:
+                    type: string
+                rfidCard:
+                    type: string
+                kodeFinger:
+                    type: string
+                departcode:
+                    type: string
+                status:
+                    type: integer
+                    format: int32
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        UpdateFingerRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                fingercode:
+                    type: string
+                finger0:
+                    type: string
+                finger1:
+                    type: string
+                finger2:
+                    type: string
+                finger3:
+                    type: string
+                finger4:
+                    type: string
+                finger5:
+                    type: string
+                finger6:
+                    type: string
+                finger7:
+                    type: string
+                finger8:
+                    type: string
+                finger9:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+        UpdateFingerResponse:
+            type: object
+            properties:
+                id:
+                    type: string
+                fingercode:
+                    type: string
+                finger0:
+                    type: string
+                finger1:
+                    type: string
+                finger2:
+                    type: string
+                finger3:
+                    type: string
+                finger4:
+                    type: string
+                finger5:
+                    type: string
+                finger6:
+                    type: string
+                finger7:
+                    type: string
+                finger8:
+                    type: string
+                finger9:
+                    type: string
+                createdAt:
+                    type: string
+                updatedAt:
+                    type: string
+tags:
+    - name: Biometric
+    - name: Department
+    - name: Employers

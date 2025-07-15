@@ -1,0 +1,150 @@
+syntax = "proto3";
+
+// package Department.service;
+package department.service.v1;
+
+import "google/api/annotations.proto";
+import "openapiv3/annotations.proto";
+
+option go_package = "api/department/service/v1;v1";
+// option java_multiple_files = true;
+// option java_package = "api.department.service";
+
+option (openapi.v3.document) = {
+    info: {
+        title: "Department service",
+        version: "0.0.1",
+        contact: {
+            name: "fuadhs",
+            url: "http://localhost:8002",
+            email: "fuadhasan2@gmail.com"
+        },
+        description: "Department service";
+    },
+};
+
+service Department {
+	rpc CreateDepartment (CreateDepartmentRequest) returns (CreateDepartmentResponse){
+		option (google.api.http) = {
+		post: "/v1/department"
+		body: "*"
+	  };
+	};
+	rpc UpdateDepartment (UpdateDepartmentRequest) returns (UpdateDepartmentResponse){
+	  option (google.api.http) = {
+      put: "/v1/department/{id}"
+      body: "*"
+     };
+	};
+	rpc DeleteDepartment (DeleteDepartmentRequest) returns (DeleteDepartmentResponse){
+		option (google.api.http) = {
+        delete: "/v1/department/{id}"
+      };
+	};
+	rpc GetDepartmentID (GetDepartmentIDRequest) returns (GetDepartmentIDResponse){
+		option (google.api.http) = {
+		get: "/v1/department/{id}"
+	 };
+	};
+	rpc GetDepartmentCode (GetDepartmentCodeRequest) returns (GetDepartmentCodeResponse){
+		option (google.api.http) = {
+		get: "/v1/department/{depart_code}"
+	 };
+	};  
+	rpc ListDepartment (ListDepartmentRequest) returns (ListDepartmentResponse){
+    option (google.api.http) = {
+		get: "/v1/department/list"
+	 };
+  };
+  rpc ListDepartmentNext (ListDepartmentTokenReq) returns (ListDepartmentResponseNextToken){
+    option (google.api.http) = {
+		get: "/v1/department/listnext"
+	 };
+  };
+  //KodeFinger
+}
+message DepartmentRecord{
+  int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string status = 4;
+  string ket = 5;
+}
+
+message CreateDepartmentRequest {
+  int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string status = 4;
+  string ket = 5;
+}
+message CreateDepartmentResponse {
+  int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string status = 4;
+  string ket = 5;
+}
+
+message UpdateDepartmentRequest {
+	int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string status = 4;
+  string ket = 5;
+}
+message UpdateDepartmentResponse {
+	// DepartmentRecord Department = 1;
+  int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string status = 4;
+  string ket = 5;
+}
+
+message DeleteDepartmentRequest {
+	int64 id = 1;
+}
+message DeleteDepartmentResponse {
+	 bool success = 1;
+}
+
+message GetDepartmentIDRequest {
+	int64 id = 1;
+}
+message GetDepartmentIDResponse {
+  int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string status = 4;
+  string ket = 5;
+}
+
+message GetDepartmentCodeRequest {
+	string depart_code = 1;
+}
+message GetDepartmentCodeResponse {
+  int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string status = 4;
+  string ket = 5;
+}
+
+message ListDepartmentRequest {
+  uint32 pn = 1;
+  uint32 pSize = 2;
+}
+message ListDepartmentResponse {
+  int32 total = 1;
+  repeated DepartmentRecord Department = 2;
+}
+
+message ListDepartmentTokenReq {
+  int32 page_size = 1;
+  string page_token = 2;
+}
+message ListDepartmentResponseNextToken {
+    repeated DepartmentRecord Department = 1;
+    string next_token = 2;
+}
