@@ -11,7 +11,7 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	// "github.com/go-kratos/beer-shop/pkg/page_token"
 
-	biometricV1 "mall-go/api/biometric/service/v1"
+	biometricV1 "mall-go/api/biometrics/service/v1"
 	departmentV1 "mall-go/api/department/service/v1"
 )
 

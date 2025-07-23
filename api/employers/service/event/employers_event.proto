@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package employers.event;
+
+option go_package = "api/employers/event;event";
+
+message EmployerUpdated {
+  int64 id = 1;
+  string nosap = 2;
+  string nip = 3;
+  string karyacode = 4;
+  string karyaname = 5;
+  string disp_name = 6;
+  string depart_code = 7;
+  int32 status = 8;
+  string updated_by = 9;
+}
+
+message EmployerDeleted {
+  int64 id = 1;
+  string nosap = 2;
+  string deleted_by = 3;
+}

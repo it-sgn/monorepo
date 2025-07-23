@@ -24,7 +24,8 @@ func wireApp(confServer *conf.Server, confData *conf.Data, registry *conf.Regist
 	if err != nil {
 		return nil, nil, err
 	}
-	departmentRepo := data.NewDepartmentRepo(dataData, logger)
+	redisClient := data.NewRedisClient(confData, logger)
+	departmentRepo := data.NewDepartmentRepo(dataData, logger, redisClient)
 	departmentUsecase := biz.NewDepartmentUsecase(departmentRepo, logger)
 	departmentService := service.NewDepartmentService(departmentUsecase, logger)
 	httpServer := server.NewHTTPServer(confServer, departmentService, logger)

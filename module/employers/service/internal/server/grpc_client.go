@@ -3,7 +3,7 @@ package server
 import (
 	"context"
 
-	biometricV1 "mall-go/api/biometric/service/v1"
+	biometricV1 "mall-go/api/biometrics/service/v1"
 	departmentV1 "mall-go/api/department/service/v1"
 
 	"github.com/go-kratos/kratos/v2/registry"

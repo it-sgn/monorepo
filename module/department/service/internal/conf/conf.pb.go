@@ -2,7 +2,7 @@
 // versions:
 // 	protoc-gen-go v1.36.6
 // 	protoc        v4.25.3
-// source: module/employers/service/internal/conf/conf.proto
+// source: module/department/service/internal/conf/conf.proto
 
 package conf
 
@@ -33,7 +33,7 @@ type Bootstrap struct {
 
 func (x *Bootstrap) Reset() {
 	*x = Bootstrap{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[0]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[0]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -45,7 +45,7 @@ func (x *Bootstrap) String() string {
 func (*Bootstrap) ProtoMessage() {}
 
 func (x *Bootstrap) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[0]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[0]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +58,7 @@ func (x *Bootstrap) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Bootstrap.ProtoReflect.Descriptor instead.
 func (*Bootstrap) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{0}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *Bootstrap) GetServer() *Server {
@@ -91,7 +91,7 @@ type Trace struct {
 
 func (x *Trace) Reset() {
 	*x = Trace{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[1]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[1]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -103,7 +103,7 @@ func (x *Trace) String() string {
 func (*Trace) ProtoMessage() {}
 
 func (x *Trace) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[1]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[1]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -116,7 +116,7 @@ func (x *Trace) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Trace.ProtoReflect.Descriptor instead.
 func (*Trace) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{1}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *Trace) GetEndpoint() string {
@@ -136,7 +136,7 @@ type Server struct {
 
 func (x *Server) Reset() {
 	*x = Server{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[2]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[2]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -148,7 +148,7 @@ func (x *Server) String() string {
 func (*Server) ProtoMessage() {}
 
 func (x *Server) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[2]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[2]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -161,7 +161,7 @@ func (x *Server) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Server.ProtoReflect.Descriptor instead.
 func (*Server) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{2}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *Server) GetHttp() *Server_HTTP {
@@ -188,7 +188,7 @@ type Data struct {
 
 func (x *Data) Reset() {
 	*x = Data{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[3]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[3]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -200,7 +200,7 @@ func (x *Data) String() string {
 func (*Data) ProtoMessage() {}
 
 func (x *Data) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[3]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[3]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -213,7 +213,7 @@ func (x *Data) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Data.ProtoReflect.Descriptor instead.
 func (*Data) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{3}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *Data) GetDatabase() *Data_Database {
@@ -239,7 +239,7 @@ type Registry struct {
 
 func (x *Registry) Reset() {
 	*x = Registry{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[4]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[4]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -251,7 +251,7 @@ func (x *Registry) String() string {
 func (*Registry) ProtoMessage() {}
 
 func (x *Registry) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[4]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[4]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -264,7 +264,7 @@ func (x *Registry) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Registry.ProtoReflect.Descriptor instead.
 func (*Registry) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{4}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *Registry) GetConsul() *Registry_Consul {
@@ -285,7 +285,7 @@ type Server_HTTP struct {
 
 func (x *Server_HTTP) Reset() {
 	*x = Server_HTTP{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[5]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[5]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -297,7 +297,7 @@ func (x *Server_HTTP) String() string {
 func (*Server_HTTP) ProtoMessage() {}
 
 func (x *Server_HTTP) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[5]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[5]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -310,7 +310,7 @@ func (x *Server_HTTP) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Server_HTTP.ProtoReflect.Descriptor instead.
 func (*Server_HTTP) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{2, 0}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{2, 0}
 }
 
 func (x *Server_HTTP) GetNetwork() string {
@@ -345,7 +345,7 @@ type Server_GRPC struct {
 
 func (x *Server_GRPC) Reset() {
 	*x = Server_GRPC{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[6]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[6]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -357,7 +357,7 @@ func (x *Server_GRPC) String() string {
 func (*Server_GRPC) ProtoMessage() {}
 
 func (x *Server_GRPC) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[6]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[6]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -370,7 +370,7 @@ func (x *Server_GRPC) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Server_GRPC.ProtoReflect.Descriptor instead.
 func (*Server_GRPC) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{2, 1}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{2, 1}
 }
 
 func (x *Server_GRPC) GetNetwork() string {
@@ -404,7 +404,7 @@ type Data_Database struct {
 
 func (x *Data_Database) Reset() {
 	*x = Data_Database{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[7]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[7]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -416,7 +416,7 @@ func (x *Data_Database) String() string {
 func (*Data_Database) ProtoMessage() {}
 
 func (x *Data_Database) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[7]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[7]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -429,7 +429,7 @@ func (x *Data_Database) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Data_Database.ProtoReflect.Descriptor instead.
 func (*Data_Database) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{3, 0}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{3, 0}
 }
 
 func (x *Data_Database) GetDriver() string {
@@ -450,15 +450,16 @@ type Data_Redis struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Network       string                 `protobuf:"bytes,1,opt,name=network,proto3" json:"network,omitempty"`
 	Addr          string                 `protobuf:"bytes,2,opt,name=addr,proto3" json:"addr,omitempty"`
-	ReadTimeout   *durationpb.Duration   `protobuf:"bytes,3,opt,name=read_timeout,json=readTimeout,proto3" json:"read_timeout,omitempty"`
-	WriteTimeout  *durationpb.Duration   `protobuf:"bytes,4,opt,name=write_timeout,json=writeTimeout,proto3" json:"write_timeout,omitempty"`
+	Password      string                 `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	ReadTimeout   *durationpb.Duration   `protobuf:"bytes,4,opt,name=read_timeout,json=readTimeout,proto3" json:"read_timeout,omitempty"`
+	WriteTimeout  *durationpb.Duration   `protobuf:"bytes,5,opt,name=write_timeout,json=writeTimeout,proto3" json:"write_timeout,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
 
 func (x *Data_Redis) Reset() {
 	*x = Data_Redis{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[8]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[8]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -470,7 +471,7 @@ func (x *Data_Redis) String() string {
 func (*Data_Redis) ProtoMessage() {}
 
 func (x *Data_Redis) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[8]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[8]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -483,7 +484,7 @@ func (x *Data_Redis) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Data_Redis.ProtoReflect.Descriptor instead.
 func (*Data_Redis) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{3, 1}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{3, 1}
 }
 
 func (x *Data_Redis) GetNetwork() string {
@@ -496,6 +497,13 @@ func (x *Data_Redis) GetNetwork() string {
 func (x *Data_Redis) GetAddr() string {
 	if x != nil {
 		return x.Addr
+	}
+	return ""
+}
+
+func (x *Data_Redis) GetPassword() string {
+	if x != nil {
+		return x.Password
 	}
 	return ""
 }
@@ -524,7 +532,7 @@ type Registry_Consul struct {
 
 func (x *Registry_Consul) Reset() {
 	*x = Registry_Consul{}
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[9]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[9]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -536,7 +544,7 @@ func (x *Registry_Consul) String() string {
 func (*Registry_Consul) ProtoMessage() {}
 
 func (x *Registry_Consul) ProtoReflect() protoreflect.Message {
-	mi := &file_module_employers_service_internal_conf_conf_proto_msgTypes[9]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[9]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -549,7 +557,7 @@ func (x *Registry_Consul) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use Registry_Consul.ProtoReflect.Descriptor instead.
 func (*Registry_Consul) Descriptor() ([]byte, []int) {
-	return file_module_employers_service_internal_conf_conf_proto_rawDescGZIP(), []int{4, 0}
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{4, 0}
 }
 
 func (x *Registry_Consul) GetAddress() string {
@@ -566,11 +574,11 @@ func (x *Registry_Consul) GetScheme() string {
 	return ""
 }
 
-var File_module_employers_service_internal_conf_conf_proto protoreflect.FileDescriptor
+var File_module_department_service_internal_conf_conf_proto protoreflect.FileDescriptor
 
-const file_module_employers_service_internal_conf_conf_proto_rawDesc = "" +
+const file_module_department_service_internal_conf_conf_proto_rawDesc = "" +
 	"\n" +
-	"1module/employers/service/internal/conf/conf.proto\x12\x1auser.service.internal.conf\x1a\x1egoogle/protobuf/duration.proto\"\xb6\x01\n" +
+	"2module/department/service/internal/conf/conf.proto\x12\x1auser.service.internal.conf\x1a\x1egoogle/protobuf/duration.proto\"\xb6\x01\n" +
 	"\tBootstrap\x12:\n" +
 	"\x06server\x18\x01 \x01(\v2\".user.service.internal.conf.ServerR\x06server\x124\n" +
 	"\x04data\x18\x02 \x01(\v2 .user.service.internal.conf.DataR\x04data\x127\n" +
@@ -587,18 +595,19 @@ const file_module_employers_service_internal_conf_conf_proto_rawDesc = "" +
 	"\x04GRPC\x12\x18\n" +
 	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
 	"\x04addr\x18\x02 \x01(\tR\x04addr\x123\n" +
-	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\xfd\x02\n" +
+	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\x99\x03\n" +
 	"\x04Data\x12E\n" +
 	"\bdatabase\x18\x01 \x01(\v2).user.service.internal.conf.Data.DatabaseR\bdatabase\x12<\n" +
 	"\x05redis\x18\x02 \x01(\v2&.user.service.internal.conf.Data.RedisR\x05redis\x1a:\n" +
 	"\bDatabase\x12\x16\n" +
 	"\x06driver\x18\x01 \x01(\tR\x06driver\x12\x16\n" +
-	"\x06source\x18\x02 \x01(\tR\x06source\x1a\xb3\x01\n" +
+	"\x06source\x18\x02 \x01(\tR\x06source\x1a\xcf\x01\n" +
 	"\x05Redis\x12\x18\n" +
 	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
-	"\x04addr\x18\x02 \x01(\tR\x04addr\x12<\n" +
-	"\fread_timeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\vreadTimeout\x12>\n" +
-	"\rwrite_timeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\fwriteTimeout\"\x8b\x01\n" +
+	"\x04addr\x18\x02 \x01(\tR\x04addr\x12\x1a\n" +
+	"\bpassword\x18\x03 \x01(\tR\bpassword\x12<\n" +
+	"\fread_timeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\vreadTimeout\x12>\n" +
+	"\rwrite_timeout\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\fwriteTimeout\"\x8b\x01\n" +
 	"\bRegistry\x12C\n" +
 	"\x06consul\x18\x01 \x01(\v2+.user.service.internal.conf.Registry.ConsulR\x06consul\x1a:\n" +
 	"\x06Consul\x12\x18\n" +
@@ -606,19 +615,19 @@ const file_module_employers_service_internal_conf_conf_proto_rawDesc = "" +
 	"\x06scheme\x18\x02 \x01(\tR\x06schemeB5Z3mall-go/module/employers/service/internal/conf;confb\x06proto3"
 
 var (
-	file_module_employers_service_internal_conf_conf_proto_rawDescOnce sync.Once
-	file_module_employers_service_internal_conf_conf_proto_rawDescData []byte
+	file_module_department_service_internal_conf_conf_proto_rawDescOnce sync.Once
+	file_module_department_service_internal_conf_conf_proto_rawDescData []byte
 )
 
-func file_module_employers_service_internal_conf_conf_proto_rawDescGZIP() []byte {
-	file_module_employers_service_internal_conf_conf_proto_rawDescOnce.Do(func() {
-		file_module_employers_service_internal_conf_conf_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_module_employers_service_internal_conf_conf_proto_rawDesc), len(file_module_employers_service_internal_conf_conf_proto_rawDesc)))
+func file_module_department_service_internal_conf_conf_proto_rawDescGZIP() []byte {
+	file_module_department_service_internal_conf_conf_proto_rawDescOnce.Do(func() {
+		file_module_department_service_internal_conf_conf_proto_rawDescData = protoimpl.X.CompressGZIP(unsafe.Slice(unsafe.StringData(file_module_department_service_internal_conf_conf_proto_rawDesc), len(file_module_department_service_internal_conf_conf_proto_rawDesc)))
 	})
-	return file_module_employers_service_internal_conf_conf_proto_rawDescData
+	return file_module_department_service_internal_conf_conf_proto_rawDescData
 }
 
-var file_module_employers_service_internal_conf_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
-var file_module_employers_service_internal_conf_conf_proto_goTypes = []any{
+var file_module_department_service_internal_conf_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_module_department_service_internal_conf_conf_proto_goTypes = []any{
 	(*Bootstrap)(nil),           // 0: user.service.internal.conf.Bootstrap
 	(*Trace)(nil),               // 1: user.service.internal.conf.Trace
 	(*Server)(nil),              // 2: user.service.internal.conf.Server
@@ -631,7 +640,7 @@ var file_module_employers_service_internal_conf_conf_proto_goTypes = []any{
 	(*Registry_Consul)(nil),     // 9: user.service.internal.conf.Registry.Consul
 	(*durationpb.Duration)(nil), // 10: google.protobuf.Duration
 }
-var file_module_employers_service_internal_conf_conf_proto_depIdxs = []int32{
+var file_module_department_service_internal_conf_conf_proto_depIdxs = []int32{
 	2,  // 0: user.service.internal.conf.Bootstrap.server:type_name -> user.service.internal.conf.Server
 	3,  // 1: user.service.internal.conf.Bootstrap.data:type_name -> user.service.internal.conf.Data
 	1,  // 2: user.service.internal.conf.Bootstrap.trace:type_name -> user.service.internal.conf.Trace
@@ -651,26 +660,26 @@ var file_module_employers_service_internal_conf_conf_proto_depIdxs = []int32{
 	0,  // [0:12] is the sub-list for field type_name
 }
 
-func init() { file_module_employers_service_internal_conf_conf_proto_init() }
-func file_module_employers_service_internal_conf_conf_proto_init() {
-	if File_module_employers_service_internal_conf_conf_proto != nil {
+func init() { file_module_department_service_internal_conf_conf_proto_init() }
+func file_module_department_service_internal_conf_conf_proto_init() {
+	if File_module_department_service_internal_conf_conf_proto != nil {
 		return
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
 		File: protoimpl.DescBuilder{
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
-			RawDescriptor: unsafe.Slice(unsafe.StringData(file_module_employers_service_internal_conf_conf_proto_rawDesc), len(file_module_employers_service_internal_conf_conf_proto_rawDesc)),
+			RawDescriptor: unsafe.Slice(unsafe.StringData(file_module_department_service_internal_conf_conf_proto_rawDesc), len(file_module_department_service_internal_conf_conf_proto_rawDesc)),
 			NumEnums:      0,
 			NumMessages:   10,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
-		GoTypes:           file_module_employers_service_internal_conf_conf_proto_goTypes,
-		DependencyIndexes: file_module_employers_service_internal_conf_conf_proto_depIdxs,
-		MessageInfos:      file_module_employers_service_internal_conf_conf_proto_msgTypes,
+		GoTypes:           file_module_department_service_internal_conf_conf_proto_goTypes,
+		DependencyIndexes: file_module_department_service_internal_conf_conf_proto_depIdxs,
+		MessageInfos:      file_module_department_service_internal_conf_conf_proto_msgTypes,
 	}.Build()
-	File_module_employers_service_internal_conf_conf_proto = out.File
-	file_module_employers_service_internal_conf_conf_proto_goTypes = nil
-	file_module_employers_service_internal_conf_conf_proto_depIdxs = nil
+	File_module_department_service_internal_conf_conf_proto = out.File
+	file_module_department_service_internal_conf_conf_proto_goTypes = nil
+	file_module_department_service_internal_conf_conf_proto_depIdxs = nil
 }

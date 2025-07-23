@@ -450,8 +450,9 @@ type Data_Redis struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Network       string                 `protobuf:"bytes,1,opt,name=network,proto3" json:"network,omitempty"`
 	Addr          string                 `protobuf:"bytes,2,opt,name=addr,proto3" json:"addr,omitempty"`
-	ReadTimeout   *durationpb.Duration   `protobuf:"bytes,3,opt,name=read_timeout,json=readTimeout,proto3" json:"read_timeout,omitempty"`
-	WriteTimeout  *durationpb.Duration   `protobuf:"bytes,4,opt,name=write_timeout,json=writeTimeout,proto3" json:"write_timeout,omitempty"`
+	Password      string                 `protobuf:"bytes,3,opt,name=password,proto3" json:"password,omitempty"`
+	ReadTimeout   *durationpb.Duration   `protobuf:"bytes,4,opt,name=read_timeout,json=readTimeout,proto3" json:"read_timeout,omitempty"`
+	WriteTimeout  *durationpb.Duration   `protobuf:"bytes,5,opt,name=write_timeout,json=writeTimeout,proto3" json:"write_timeout,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -496,6 +497,13 @@ func (x *Data_Redis) GetNetwork() string {
 func (x *Data_Redis) GetAddr() string {
 	if x != nil {
 		return x.Addr
+	}
+	return ""
+}
+
+func (x *Data_Redis) GetPassword() string {
+	if x != nil {
+		return x.Password
 	}
 	return ""
 }
@@ -570,16 +578,16 @@ var File_module_employers_service_internal_conf_conf_proto protoreflect.FileDesc
 
 const file_module_employers_service_internal_conf_conf_proto_rawDesc = "" +
 	"\n" +
-	"1module/employers/service/internal/conf/conf.proto\x12\x1auser.service.internal.conf\x1a\x1egoogle/protobuf/duration.proto\"\xb6\x01\n" +
-	"\tBootstrap\x12:\n" +
-	"\x06server\x18\x01 \x01(\v2\".user.service.internal.conf.ServerR\x06server\x124\n" +
-	"\x04data\x18\x02 \x01(\v2 .user.service.internal.conf.DataR\x04data\x127\n" +
-	"\x05trace\x18\x03 \x01(\v2!.user.service.internal.conf.TraceR\x05trace\"#\n" +
+	"1module/employers/service/internal/conf/conf.proto\x12\x1femployers.service.internal.conf\x1a\x1egoogle/protobuf/duration.proto\"\xc5\x01\n" +
+	"\tBootstrap\x12?\n" +
+	"\x06server\x18\x01 \x01(\v2'.employers.service.internal.conf.ServerR\x06server\x129\n" +
+	"\x04data\x18\x02 \x01(\v2%.employers.service.internal.conf.DataR\x04data\x12<\n" +
+	"\x05trace\x18\x03 \x01(\v2&.employers.service.internal.conf.TraceR\x05trace\"#\n" +
 	"\x05Trace\x12\x1a\n" +
-	"\bendpoint\x18\x01 \x01(\tR\bendpoint\"\xd8\x02\n" +
-	"\x06Server\x12;\n" +
-	"\x04http\x18\x01 \x01(\v2'.user.service.internal.conf.Server.HTTPR\x04http\x12;\n" +
-	"\x04grpc\x18\x02 \x01(\v2'.user.service.internal.conf.Server.GRPCR\x04grpc\x1ai\n" +
+	"\bendpoint\x18\x01 \x01(\tR\bendpoint\"\xe2\x02\n" +
+	"\x06Server\x12@\n" +
+	"\x04http\x18\x01 \x01(\v2,.employers.service.internal.conf.Server.HTTPR\x04http\x12@\n" +
+	"\x04grpc\x18\x02 \x01(\v2,.employers.service.internal.conf.Server.GRPCR\x04grpc\x1ai\n" +
 	"\x04HTTP\x12\x18\n" +
 	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
 	"\x04addr\x18\x02 \x01(\tR\x04addr\x123\n" +
@@ -587,20 +595,21 @@ const file_module_employers_service_internal_conf_conf_proto_rawDesc = "" +
 	"\x04GRPC\x12\x18\n" +
 	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
 	"\x04addr\x18\x02 \x01(\tR\x04addr\x123\n" +
-	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\xfd\x02\n" +
-	"\x04Data\x12E\n" +
-	"\bdatabase\x18\x01 \x01(\v2).user.service.internal.conf.Data.DatabaseR\bdatabase\x12<\n" +
-	"\x05redis\x18\x02 \x01(\v2&.user.service.internal.conf.Data.RedisR\x05redis\x1a:\n" +
+	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\xa3\x03\n" +
+	"\x04Data\x12J\n" +
+	"\bdatabase\x18\x01 \x01(\v2..employers.service.internal.conf.Data.DatabaseR\bdatabase\x12A\n" +
+	"\x05redis\x18\x02 \x01(\v2+.employers.service.internal.conf.Data.RedisR\x05redis\x1a:\n" +
 	"\bDatabase\x12\x16\n" +
 	"\x06driver\x18\x01 \x01(\tR\x06driver\x12\x16\n" +
-	"\x06source\x18\x02 \x01(\tR\x06source\x1a\xb3\x01\n" +
+	"\x06source\x18\x02 \x01(\tR\x06source\x1a\xcf\x01\n" +
 	"\x05Redis\x12\x18\n" +
 	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
-	"\x04addr\x18\x02 \x01(\tR\x04addr\x12<\n" +
-	"\fread_timeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\vreadTimeout\x12>\n" +
-	"\rwrite_timeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\fwriteTimeout\"\x8b\x01\n" +
-	"\bRegistry\x12C\n" +
-	"\x06consul\x18\x01 \x01(\v2+.user.service.internal.conf.Registry.ConsulR\x06consul\x1a:\n" +
+	"\x04addr\x18\x02 \x01(\tR\x04addr\x12\x1a\n" +
+	"\bpassword\x18\x03 \x01(\tR\bpassword\x12<\n" +
+	"\fread_timeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\vreadTimeout\x12>\n" +
+	"\rwrite_timeout\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\fwriteTimeout\"\x90\x01\n" +
+	"\bRegistry\x12H\n" +
+	"\x06consul\x18\x01 \x01(\v20.employers.service.internal.conf.Registry.ConsulR\x06consul\x1a:\n" +
 	"\x06Consul\x12\x18\n" +
 	"\aaddress\x18\x01 \x01(\tR\aaddress\x12\x16\n" +
 	"\x06scheme\x18\x02 \x01(\tR\x06schemeB5Z3mall-go/module/employers/service/internal/conf;confb\x06proto3"
@@ -619,31 +628,31 @@ func file_module_employers_service_internal_conf_conf_proto_rawDescGZIP() []byte
 
 var file_module_employers_service_internal_conf_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
 var file_module_employers_service_internal_conf_conf_proto_goTypes = []any{
-	(*Bootstrap)(nil),           // 0: user.service.internal.conf.Bootstrap
-	(*Trace)(nil),               // 1: user.service.internal.conf.Trace
-	(*Server)(nil),              // 2: user.service.internal.conf.Server
-	(*Data)(nil),                // 3: user.service.internal.conf.Data
-	(*Registry)(nil),            // 4: user.service.internal.conf.Registry
-	(*Server_HTTP)(nil),         // 5: user.service.internal.conf.Server.HTTP
-	(*Server_GRPC)(nil),         // 6: user.service.internal.conf.Server.GRPC
-	(*Data_Database)(nil),       // 7: user.service.internal.conf.Data.Database
-	(*Data_Redis)(nil),          // 8: user.service.internal.conf.Data.Redis
-	(*Registry_Consul)(nil),     // 9: user.service.internal.conf.Registry.Consul
+	(*Bootstrap)(nil),           // 0: employers.service.internal.conf.Bootstrap
+	(*Trace)(nil),               // 1: employers.service.internal.conf.Trace
+	(*Server)(nil),              // 2: employers.service.internal.conf.Server
+	(*Data)(nil),                // 3: employers.service.internal.conf.Data
+	(*Registry)(nil),            // 4: employers.service.internal.conf.Registry
+	(*Server_HTTP)(nil),         // 5: employers.service.internal.conf.Server.HTTP
+	(*Server_GRPC)(nil),         // 6: employers.service.internal.conf.Server.GRPC
+	(*Data_Database)(nil),       // 7: employers.service.internal.conf.Data.Database
+	(*Data_Redis)(nil),          // 8: employers.service.internal.conf.Data.Redis
+	(*Registry_Consul)(nil),     // 9: employers.service.internal.conf.Registry.Consul
 	(*durationpb.Duration)(nil), // 10: google.protobuf.Duration
 }
 var file_module_employers_service_internal_conf_conf_proto_depIdxs = []int32{
-	2,  // 0: user.service.internal.conf.Bootstrap.server:type_name -> user.service.internal.conf.Server
-	3,  // 1: user.service.internal.conf.Bootstrap.data:type_name -> user.service.internal.conf.Data
-	1,  // 2: user.service.internal.conf.Bootstrap.trace:type_name -> user.service.internal.conf.Trace
-	5,  // 3: user.service.internal.conf.Server.http:type_name -> user.service.internal.conf.Server.HTTP
-	6,  // 4: user.service.internal.conf.Server.grpc:type_name -> user.service.internal.conf.Server.GRPC
-	7,  // 5: user.service.internal.conf.Data.database:type_name -> user.service.internal.conf.Data.Database
-	8,  // 6: user.service.internal.conf.Data.redis:type_name -> user.service.internal.conf.Data.Redis
-	9,  // 7: user.service.internal.conf.Registry.consul:type_name -> user.service.internal.conf.Registry.Consul
-	10, // 8: user.service.internal.conf.Server.HTTP.timeout:type_name -> google.protobuf.Duration
-	10, // 9: user.service.internal.conf.Server.GRPC.timeout:type_name -> google.protobuf.Duration
-	10, // 10: user.service.internal.conf.Data.Redis.read_timeout:type_name -> google.protobuf.Duration
-	10, // 11: user.service.internal.conf.Data.Redis.write_timeout:type_name -> google.protobuf.Duration
+	2,  // 0: employers.service.internal.conf.Bootstrap.server:type_name -> employers.service.internal.conf.Server
+	3,  // 1: employers.service.internal.conf.Bootstrap.data:type_name -> employers.service.internal.conf.Data
+	1,  // 2: employers.service.internal.conf.Bootstrap.trace:type_name -> employers.service.internal.conf.Trace
+	5,  // 3: employers.service.internal.conf.Server.http:type_name -> employers.service.internal.conf.Server.HTTP
+	6,  // 4: employers.service.internal.conf.Server.grpc:type_name -> employers.service.internal.conf.Server.GRPC
+	7,  // 5: employers.service.internal.conf.Data.database:type_name -> employers.service.internal.conf.Data.Database
+	8,  // 6: employers.service.internal.conf.Data.redis:type_name -> employers.service.internal.conf.Data.Redis
+	9,  // 7: employers.service.internal.conf.Registry.consul:type_name -> employers.service.internal.conf.Registry.Consul
+	10, // 8: employers.service.internal.conf.Server.HTTP.timeout:type_name -> google.protobuf.Duration
+	10, // 9: employers.service.internal.conf.Server.GRPC.timeout:type_name -> google.protobuf.Duration
+	10, // 10: employers.service.internal.conf.Data.Redis.read_timeout:type_name -> google.protobuf.Duration
+	10, // 11: employers.service.internal.conf.Data.Redis.write_timeout:type_name -> google.protobuf.Duration
 	12, // [12:12] is the sub-list for method output_type
 	12, // [12:12] is the sub-list for method input_type
 	12, // [12:12] is the sub-list for extension type_name

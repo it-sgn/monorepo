@@ -3,7 +3,7 @@ package data
 import (
 	"context"
 
-	biometricV1 "mall-go/api/biometric/service/v1"
+	biometricV1 "mall-go/api/biometrics/service/v1"
 	departmentV1 "mall-go/api/department/service/v1"
 
 	"mall-go/module/employers/service/internal/conf"
@@ -13,6 +13,7 @@ import (
 	"github.com/go-kratos/kratos/v2/log"
 	"github.com/go-kratos/kratos/v2/registry"
 	"github.com/go-kratos/kratos/v2/transport/grpc"
+	"github.com/go-redis/redis/v8"
 
 	// _ "github.com/go-sql-driver/mysql"
 	"github.com/google/wire"
@@ -21,13 +22,12 @@ import (
 	"github.com/pkg/errors"
 )
 
-var ProviderSet = wire.NewSet(NewData, NewEntClient, NewEmployersRepo)
+var ProviderSet = wire.NewSet(NewData, NewEntClient, NewEmployersRepo, NewRedisClient)
 
 // Data .
 type Data struct {
-	db  *model.Client
-	log *log.Helper
-	// rdb *redis.Client
+	db               *model.Client
+	log              *log.Helper
 	BiometricClient  biometricV1.BiometricClient
 	DepartmentClient departmentV1.DepartmentClient
 }
@@ -56,17 +56,6 @@ func NewEntClient(conf *conf.Data, logger log.Logger) *model.Client {
 	}
 	return client
 }
-
-// // NewData .
-// func NewData(entClient *model.Client, logger log.Logger) (*Data, func(), error) {
-// 	cleanup := func() {
-// 		log.NewHelper(logger).Info("closing the data resources")
-// 	}
-// 	return &Data{
-// 		db:  entClient,
-// 		log: log.NewHelper(logger),
-// 	}, cleanup, nil
-// }
 
 // NewData .
 func NewData(entClient *model.Client, logger log.Logger, r registry.Discovery) (*Data, func(), error) {
@@ -104,6 +93,27 @@ func NewData(entClient *model.Client, logger log.Logger, r registry.Discovery) (
 		BiometricClient:  biometricV1.NewBiometricClient(connBio),
 		DepartmentClient: departmentV1.NewDepartmentClient(connDept),
 	}, cleanup, nil
+}
+
+func NewRedisClient(c *conf.Data, logger log.Logger) *redis.Client {
+	l := log.NewHelper(logger)
+	if c.Redis == nil {
+		l.Fatalf("Redis configuration is missing in conf.Data")
+	}
+
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     c.Redis.Addr,
+		Password: c.Redis.Password,
+		DB:       0, // Assuming Db is int32 or similar in conf, cast to int
+	})
+
+	// Ping the Redis server to ensure connection is established
+	err := rdb.Ping(context.Background()).Err()
+	if err != nil {
+		l.Fatalf("failed to connect to redis: %v", err)
+	}
+	l.Info("Redis client connected successfully")
+	return rdb
 }
 
 func WithTx(ctx context.Context, client *model.Client, fn func(tx *model.Tx) error) error {

@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package system.event;
+
+option go_package = "api/system/event;event";
+
+message ServiceReady {
+  string service_name = 1;  // "department", "biometric", etc.
+  int64 ready_at_unix = 2;  // timestamp
+}

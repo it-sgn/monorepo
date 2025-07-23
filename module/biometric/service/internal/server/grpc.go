@@ -4,7 +4,7 @@ import (
 	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/validate"
 
-	biov1 "mall-go/api/biometric/service/v1"
+	biov1 "mall-go/api/biometrics/service/v1"
 	// v1 "mall-go/api/employers/service/v1"
 	"mall-go/module/biometric/service/internal/conf"
 	"mall-go/module/biometric/service/internal/service"

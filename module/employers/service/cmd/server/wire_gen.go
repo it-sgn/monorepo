@@ -27,7 +27,8 @@ func wireApp(confServer *conf.Server, confData *conf.Data, registry *conf.Regist
 	}
 	biometricClient := server.NewBiometricClient(discovery)
 	departmentClient := server.NewDepartmentClient(discovery)
-	employersRepo := data.NewEmployersRepo(dataData, biometricClient, departmentClient, logger)
+	redisClient := data.NewRedisClient(confData, logger)
+	employersRepo := data.NewEmployersRepo(dataData, biometricClient, departmentClient, logger, redisClient)
 	employersUsecase := biz.NewEmployersUsecase(employersRepo, logger, departmentClient, biometricClient)
 	employersService := service.NewEmployersService(employersUsecase, logger)
 	httpServer := server.NewHTTPServer(confServer, employersService, logger)

@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package biometrics.event;
+
+option go_package = "api/biometrics/event;event";
+
+message BiometricUpdated {
+  int64 id = 1;
+  string fingercode = 2;
+  string finger0 = 3;
+  string finger1 = 4;
+  string finger2 = 5;
+  string finger3 = 6;
+  string finger4 = 7;
+  string finger5 = 8;
+  string finger6 = 9;
+  string finger7 = 10;
+  string finger8 = 11;
+  string finger9 = 12;
+  string updated_by = 13;
+}
+
+message BiometricDeleted {
+  int64 id = 1;
+  string fingercode = 2;
+  string deleted_by = 3;
+}

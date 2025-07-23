@@ -1,7 +1,7 @@
 package server
 
 import (
-	bioV1 "mall-go/api/biometric/service/v1"
+	bioV1 "mall-go/api/biometrics/service/v1"
 	// empv1 "mall-go/api/employers/service/v1"
 	"mall-go/module/biometric/service/internal/service"
 

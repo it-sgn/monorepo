@@ -8,6 +8,8 @@ import (
 	"mall-go/module/biometric/service/internal/data/model/migrate"
 
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/go-redis/redis/v8"
+
 	// _ "github.com/go-sql-driver/mysql"
 	"github.com/google/wire"
 
@@ -15,7 +17,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-var ProviderSet = wire.NewSet(NewData, NewEntClient, NewBiometricRepo)
+var ProviderSet = wire.NewSet(NewData, NewEntClient, NewBiometricRepo, NewRedisClient)
 
 // Data .
 type Data struct {
@@ -35,9 +37,7 @@ func NewEntClient(conf *conf.Data, logger log.Logger) *model.Client {
 		l.Fatalf("failed opening connection to db: %v", err)
 	}
 	client = client.Debug()
-	// if err := client.Schema.Create(context.Background(), migrate.WithForeignKeys(false)); err != nil {
-	// 	l.Fatalf("failed creating schema resources: %v", err)
-	// }
+
 	ctx := context.Background()
 	// Run migration.
 	err = client.Schema.Create(
@@ -60,6 +60,27 @@ func NewData(entClient *model.Client, logger log.Logger) (*Data, func(), error) 
 		db:  entClient,
 		log: log.NewHelper(logger),
 	}, cleanup, nil
+}
+
+func NewRedisClient(c *conf.Data, logger log.Logger) *redis.Client {
+	l := log.NewHelper(logger)
+	if c.Redis == nil {
+		l.Fatalf("Redis configuration is missing in conf.Data")
+	}
+
+	rdb := redis.NewClient(&redis.Options{
+		Addr:     c.Redis.Addr,
+		Password: c.Redis.Password,
+		DB:       0, // Assuming Db is int32 or similar in conf, cast to int
+	})
+
+	// Ping the Redis server to ensure connection is established
+	err := rdb.Ping(context.Background()).Err()
+	if err != nil {
+		l.Fatalf("failed to connect to redis: %v", err)
+	}
+	l.Info("Redis client connected successfully")
+	return rdb
 }
 
 func WithTx(ctx context.Context, client *model.Client, fn func(tx *model.Tx) error) error {

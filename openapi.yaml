@@ -923,7 +923,6 @@ components:
                     type: array
                     items:
                         $ref: '#/components/schemas/DepartmentRecord'
-                    description: repeated DepartmentRecord results = 1;
                 nextToken:
                     type: string
         ListEmployersReply:

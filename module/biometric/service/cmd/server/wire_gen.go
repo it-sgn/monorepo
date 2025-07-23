@@ -24,7 +24,8 @@ func wireApp(confServer *conf.Server, confData *conf.Data, registry *conf.Regist
 	if err != nil {
 		return nil, nil, err
 	}
-	biometricRepo := data.NewBiometricRepo(dataData, logger)
+	redisClient := data.NewRedisClient(confData, logger)
+	biometricRepo := data.NewBiometricRepo(dataData, logger, redisClient)
 	biometricUsecase := biz.NewBiometricUsecase(biometricRepo, logger)
 	biometricService := service.NewBiometricService(biometricUsecase, logger)
 	httpServer := server.NewHTTPServer(confServer, biometricService, logger)

@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+package department.event;
+
+option go_package = "api/department/event;event";
+
+
+message DepartmentUpdated {
+  int64 id = 1;
+  string depart_code = 2;
+  string depart_name = 3;
+  string ket = 4;
+  string updated_by = 5;
+}
+
+message DepartmentDeleted {
+  int64 id = 1;
+  string depart_code = 2;
+  string deleted_by = 3;
+}

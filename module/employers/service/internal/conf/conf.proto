@@ -1,5 +1,5 @@
 syntax = "proto3";
-package user.service.internal.conf;
+package employers.service.internal.conf;
 
 // option go_package = "mall-go/module/app/service/internal/conf;conf";
 option go_package = "mall-go/module/employers/service/internal/conf;conf";
@@ -38,8 +38,9 @@ message Data {
   message Redis {
     string network = 1;
     string addr = 2;
-    google.protobuf.Duration read_timeout = 3;
-    google.protobuf.Duration write_timeout = 4;
+    string password = 3;
+    google.protobuf.Duration read_timeout = 4;
+    google.protobuf.Duration write_timeout = 5;
   }
   Database database = 1;
   Redis redis = 2;

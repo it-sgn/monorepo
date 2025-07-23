@@ -891,10 +891,9 @@ func (x *ListDepartmentTokenReq) GetPageToken() string {
 }
 
 type ListDepartmentResponseNextToken struct {
-	state protoimpl.MessageState `protogen:"open.v1"`
-	// repeated DepartmentRecord results = 1;
-	Department    []*DepartmentRecord `protobuf:"bytes,1,rep,name=Department,proto3" json:"Department,omitempty"`
-	NextToken     string              `protobuf:"bytes,2,opt,name=next_token,json=nextToken,proto3" json:"next_token,omitempty"`
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Department    []*DepartmentRecord    `protobuf:"bytes,1,rep,name=Department,proto3" json:"Department,omitempty"`
+	NextToken     string                 `protobuf:"bytes,2,opt,name=next_token,json=nextToken,proto3" json:"next_token,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }

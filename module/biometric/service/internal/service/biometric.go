@@ -6,7 +6,7 @@ import (
 	// v1 "mall-go/api/service/employers/service"
 
 	"context"
-	v1 "mall-go/api/biometric/service/v1"
+	v1 "mall-go/api/biometrics/service/v1"
 	"mall-go/module/biometric/service/internal/biz"
 
 	"github.com/go-kratos/kratos/v2/log"
