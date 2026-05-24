@@ -12,6 +12,8 @@ var (
 	// BiometricColumns holds the columns for the "biometric" table.
 	BiometricColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt64, Increment: true},
+		{Name: "created_by", Type: field.TypeString, Nullable: true},
+		{Name: "updated_by", Type: field.TypeString, Nullable: true},
 		{Name: "create_time", Type: field.TypeTime},
 		{Name: "update_time", Type: field.TypeTime},
 		{Name: "delete_time", Type: field.TypeTime, Nullable: true},

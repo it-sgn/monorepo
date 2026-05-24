@@ -1,0 +1,264 @@
+syntax = "proto3";
+
+package organization.service.v1;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto";
+import "openapiv3/annotations.proto";
+
+option go_package = "api/organization/v1;v1";
+
+option (openapi.v3.document) = {
+    info: {
+        title: "Organization service",
+        version: "0.0.1",
+        contact: {
+            name: "fuadhs",
+            url: "http://localhost:8002",
+            email: "fuadhasan2@gmail.com"
+        },
+        description: "Organization service";
+    },
+};
+// ===============================
+// Organization Service
+// ===============================
+
+service OrganizationService {
+  // --- Position (Jabatan) ---
+  rpc CreatePosition(CreatePositionRequest) returns (PositionResponse) {
+    option (google.api.http) = {
+      post: "/v1/positions"
+      body: "*"
+    };
+  }
+
+  //Update jabatan 
+  rpc UpdatePosition(UpdatePositionRequest)returns(PositionResponse){
+    option (google.api.http)={
+      put: "/v1/position/{id}"
+      body: "*"
+    };
+  }
+   //Update jabatan 
+  rpc DeletePosition(DeletePositionRequest)returns(DeletePositionResponse){
+    option (google.api.http)={
+      delete: "/v1/position/{id}"
+    };
+  }
+ //get jabatan by id
+  rpc GetPositionID(GetPositionIDRequest) returns (PositionResponse) {
+    option (google.api.http) = {
+      get: "/v1/positions/{id}"
+    };
+  }
+ //get jabatan by by code
+  rpc GetPosition(GetPositionRequest) returns (PositionResponse) {
+    option (google.api.http) = {
+      get: "/v1/positions/{position_code}"
+    };
+  }
+ //list jabatan
+  rpc ListPositions(google.protobuf.Empty) returns (ListPositionsResponse) {
+    option (google.api.http) = {
+      get: "/v1/positions"
+    };
+  }
+
+  // --- Assignment ---
+  rpc AssignPosition(AssignPositionRequest) returns (AssignmentResponse) {
+    option (google.api.http) = {
+      post: "/v1/positions/assign"
+      body: "*"
+    };
+  }
+
+  rpc GetAssignment(GetAssignmentRequest) returns (AssignmentResponse) {
+    option (google.api.http) = {
+      get: "/v1/assignments/{employee_id}"
+    };
+  }
+
+  rpc ListAssignments(google.protobuf.Empty) returns (ListAssignmentsResponse) {
+    option (google.api.http) = {
+      get: "/v1/assignments"
+    };
+  }
+  rpc DeleteAssignment(DeleteAssignmentRequest) returns (DeleteAssignmentResponse) {
+    option (google.api.http) = {
+      delete: "/v1/assignments/{id}"
+    };
+  }
+  // --- Perusahaan ---
+  rpc CreatePerusahaan(CreatePerusahaanRequest) returns (PerusahaanResponse){};
+  rpc UpdatePerusahaan(UpdatePerusahaanRequest) returns(PerusahaanResponse){};
+  rpc DeletePerusahaan(DeletePerusahaanRequest) returns(DeletePerusahaanResponse){};
+  rpc GetPerusahaan(GetPerusahaanRequest)returns(PerusahaanResponse){};
+  rpc GetCabang(GetCabangRequest)returns(PerusahaanResponse){};
+  rpc ListPerusahaan(ListPerusahaanRequest) returns(ListPerusahaanResponse){};
+}
+// ===============================
+// Message Definitions
+// ===============================
+// --- Perusahaan ---  
+message Perusahaan {
+  int64 id = 1;
+  string kode_perusahaan = 2;
+  string nama_perusahaan = 3;
+  string kode_cabang = 4;
+  string cabang = 5;
+  string alamat = 6;
+  string telp = 7;
+  string email = 8;
+}
+// ===============================
+// Message Definitions
+// ===============================
+message CreatePerusahaanRequest{
+  string kode_perusahaan = 1;
+  string nama_perusahaan = 2;
+  string kode_cabang = 3;
+  string cabang = 4;
+  string alamat = 5;
+  string telp = 6;
+  string email = 7;
+  string logo = 8;
+}
+
+message UpdatePerusahaanRequest{
+  int64 id = 1;
+  string kode_perusahaan = 2;
+  string nama_perusahaan = 3;
+  string kode_cabang = 4;
+  string cabang = 5;
+  string alamat = 6;
+  string telp = 7;
+  string email = 8;
+}
+
+message PerusahaanResponse{
+  Perusahaan result =1; 
+}
+
+message DeletePerusahaanRequest{
+  int64 id =1;
+}
+message DeletePerusahaanResponse{
+  bool success = 1;
+}
+
+message GetPerusahaanRequest{
+  string kode_perusahaan =1;
+}
+message GetCabangRequest{
+  string kode_cabang =1;
+}
+message ListPerusahaanRequest{
+  int64 pn = 1;
+  int64 psize = 2;
+}
+
+message ListPerusahaanResponse {
+  int64 total = 1;
+  repeated Position positions = 2;
+}
+
+// --- Position (Jabatan) ---
+message Position {
+  int64 id = 1;
+  string position_code = 2;
+  string name = 3;
+  string role_name = 4;           // Role di Keycloak
+  string department_code = 5;
+  string reports_to_position_id = 6; // Jabatan atasan
+  google.protobuf.Timestamp created_at = 7;
+  google.protobuf.Timestamp updated_at = 8;
+  string created_by = 9;
+  string updated_by = 10;
+}
+
+message CreatePositionRequest {
+  string position_code = 1;
+  string name = 2;
+  string role_name = 3;
+  string department_code = 4;
+  string reports_to_position_id = 5;
+}
+
+message UpdatePositionRequest{
+  int64 id = 1;
+  string position_code = 2;
+  string name = 3;
+  string role_name = 4;
+  string department_code = 5;
+  string reports_to_position_id = 6;
+}
+
+message DeletePositionRequest{
+  int64 id = 1;
+}
+message DeletePositionResponse{
+  bool success = 1;
+}
+
+
+message GetPositionRequest {
+  string position_code = 1;
+}
+message GetPositionIDRequest {
+  int64 id = 1;
+}
+message PositionResponse {
+  Position position = 1;
+}
+
+message ListPositionRequest{
+  int64 pn = 1;
+  int64 psize = 2;
+}
+
+message ListPositionsResponse {
+  int64 total = 1;
+  repeated Position positions = 2;
+}
+
+// --- Position Assignment ---
+message Assignment {
+  int64 id = 1;
+  string employee_id = 2;
+  int64 position_id = 3;
+  string start_date = 4;
+  string end_date = 5;
+  string created_at = 6;
+  // google.protobuf.Timestamp start_date = 4;
+  // google.protobuf.Timestamp end_date = 5;
+  // google.protobuf.Timestamp created_at = 6;
+}
+
+message AssignPositionRequest {
+  string employee_id = 1;
+  string position_id = 2;
+  string start_date = 3;
+}
+
+message GetAssignmentRequest {
+  string employee_id = 1;
+}
+
+message AssignmentResponse {
+  Assignment assignment = 1;
+  // bool success = 1;
+  // string message = 2;
+}
+
+message ListAssignmentsResponse {
+  repeated Assignment assignments = 1;
+}
+
+message DeleteAssignmentRequest{
+  int64 id = 1;
+}
+message DeleteAssignmentResponse{
+  bool success = 1;
+}

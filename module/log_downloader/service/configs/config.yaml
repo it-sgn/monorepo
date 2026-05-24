@@ -1,0 +1,122 @@
+server:
+  http:
+    addr: 0.0.0.0:8004
+    timeout: 1s
+  grpc:
+    addr: 0.0.0.0:9004
+    timeout: 1s
+data:
+  database:
+    driver: postgres
+    source: "host=127.0.0.1 user=admin password=admin123 dbname=attendance port=5432 sslmode=disable TimeZone=Asia/Jakarta"
+  redis:
+    addr: 127.0.0.1:6379
+    db: 0
+    read_timeout: 0.2s
+    write_timeout: 0.2s
+  kafka:
+    addrs:
+      - 127.0.0.1:19092
+    topic: 'department'
+    groupId: 'department.v1'
+    username: superuser
+    password: secretpassword
+devices:
+  - ip: 192.168.80.26
+  - ip: 192.168.80.27
+  - ip: 192.168.80.28
+  - ip: 192.168.80.29
+  - ip: 192.168.80.19
+  # - ip: 192.168.1.233
+    # - ip: 36.89.142.91        
+
+job:
+  jobs:
+    - name: device_1_5min
+      # schedule: '*/1 7,14,22 * * *'
+      schedule: '@every 5m'
+
+    - name: device_1_3hour
+      schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+    - name: device_2_5min
+      # schedule: '*/5 7,14,22 * * *'
+      schedule: '@every 5m'
+
+    - name: device_2_3hour
+      schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+    - name: device_3_5min
+      # schedule: '*/5 7,14,22 * * *'
+      schedule: '@every 5m'
+
+    - name: device_3_3hour
+      schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+    - name: device_4_5min
+      # schedule: '*/5 7,14,22 * * *'
+      schedule: '@every 5m'
+
+    - name: device_4_3hour
+      schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+    - name: device_5_5min
+      # schedule: '*/5 7,14,22 * * *'
+      schedule: '@every 5m'
+
+    - name: device_5_3hour
+      schedule: '0 0,3,6,9,12,15,18,21 * * *'  
+#     - name: device_1_5min
+#       schedule: '*/5 7,14,22 * * *'
+#     - name: device_1_3hour
+#       schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+#     - name: device_2_5min
+#       schedule: '*/5 7,14,22 * * *'
+#     - name: device_2_3hour
+#       schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+#     - name: device_3_5min
+#       schedule: '*/5 7,14,22 * * *'
+#     - name: device_3_3hour
+#       schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+#     - name: device_4_5min
+#       schedule: '*/5 7,14,22 * * *'
+#     - name: device_4_3hour
+#       schedule: '0 0,3,6,9,12,15,18,21 * * *'
+
+#     - name: device_5_5min
+#       schedule: '*/5 7,14,22 * * *'
+#     - name: device_5_3hour
+#       schedule: '0 0,3,6,9,12,15,18,21 * * *'
+#     - name: one
+#       schedule: '@every 10s'
+#     - name: two
+#       schedule: '@every 3m'
+#     - name: device_1
+#       schedule: '@every 1m'
+#     - name: device_2
+#       schedule: '@every 1m'
+#     - name: device_3
+#       schedule: '@every 1m'   
+#     - name: device_4
+#       schedule: '@every 1m'                  
+#     - name: device_5
+#       schedule: '@every 1m' 
+# # job:
+# #   jobs:
+#     - name: one
+#       schedule: '@every 10s'
+#     - name: two
+#       schedule: '@every 10s'
+#     - name: device_1
+#       schedule: '@every 1m'
+#     - name: device_2
+#       schedule: '@every 1m'
+#     - name: device_3
+#       schedule: '@every 1m'   
+#     - name: device_4
+#       schedule: '@every 1m'                  
+#     - name: device_5
+#       schedule: '@every 1m'       

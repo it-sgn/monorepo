@@ -42,8 +42,14 @@ message Data {
     google.protobuf.Duration read_timeout = 4;
     google.protobuf.Duration write_timeout = 5;
   }
+  message Kafka {
+    repeated string brokers = 1; // Bisa lebih dari 1 broker
+    string topic = 2;            // Topic untuk publish/consume
+    string group_id = 3;         // Group ID untuk consumer
+  }
   Database database = 1;
   Redis redis = 2;
+  Kafka kafka = 3; 
 }
 
 message Registry {

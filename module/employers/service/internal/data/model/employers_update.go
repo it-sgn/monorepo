@@ -23,198 +23,266 @@ type EmployersUpdate struct {
 }
 
 // Where appends a list predicates to the EmployersUpdate builder.
-func (eu *EmployersUpdate) Where(ps ...predicate.Employers) *EmployersUpdate {
-	eu.mutation.Where(ps...)
-	return eu
+func (_u *EmployersUpdate) Where(ps ...predicate.Employers) *EmployersUpdate {
+	_u.mutation.Where(ps...)
+	return _u
+}
+
+// SetCreatedBy sets the "created_by" field.
+func (_u *EmployersUpdate) SetCreatedBy(v string) *EmployersUpdate {
+	_u.mutation.SetCreatedBy(v)
+	return _u
+}
+
+// SetNillableCreatedBy sets the "created_by" field if the given value is not nil.
+func (_u *EmployersUpdate) SetNillableCreatedBy(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetCreatedBy(*v)
+	}
+	return _u
+}
+
+// ClearCreatedBy clears the value of the "created_by" field.
+func (_u *EmployersUpdate) ClearCreatedBy() *EmployersUpdate {
+	_u.mutation.ClearCreatedBy()
+	return _u
+}
+
+// SetUpdatedBy sets the "updated_by" field.
+func (_u *EmployersUpdate) SetUpdatedBy(v string) *EmployersUpdate {
+	_u.mutation.SetUpdatedBy(v)
+	return _u
+}
+
+// SetNillableUpdatedBy sets the "updated_by" field if the given value is not nil.
+func (_u *EmployersUpdate) SetNillableUpdatedBy(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetUpdatedBy(*v)
+	}
+	return _u
+}
+
+// ClearUpdatedBy clears the value of the "updated_by" field.
+func (_u *EmployersUpdate) ClearUpdatedBy() *EmployersUpdate {
+	_u.mutation.ClearUpdatedBy()
+	return _u
 }
 
 // SetUpdateTime sets the "update_time" field.
-func (eu *EmployersUpdate) SetUpdateTime(t time.Time) *EmployersUpdate {
-	eu.mutation.SetUpdateTime(t)
-	return eu
+func (_u *EmployersUpdate) SetUpdateTime(v time.Time) *EmployersUpdate {
+	_u.mutation.SetUpdateTime(v)
+	return _u
 }
 
 // SetDeleteTime sets the "delete_time" field.
-func (eu *EmployersUpdate) SetDeleteTime(t time.Time) *EmployersUpdate {
-	eu.mutation.SetDeleteTime(t)
-	return eu
+func (_u *EmployersUpdate) SetDeleteTime(v time.Time) *EmployersUpdate {
+	_u.mutation.SetDeleteTime(v)
+	return _u
 }
 
 // SetNillableDeleteTime sets the "delete_time" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableDeleteTime(t *time.Time) *EmployersUpdate {
-	if t != nil {
-		eu.SetDeleteTime(*t)
+func (_u *EmployersUpdate) SetNillableDeleteTime(v *time.Time) *EmployersUpdate {
+	if v != nil {
+		_u.SetDeleteTime(*v)
 	}
-	return eu
+	return _u
 }
 
 // ClearDeleteTime clears the value of the "delete_time" field.
-func (eu *EmployersUpdate) ClearDeleteTime() *EmployersUpdate {
-	eu.mutation.ClearDeleteTime()
-	return eu
+func (_u *EmployersUpdate) ClearDeleteTime() *EmployersUpdate {
+	_u.mutation.ClearDeleteTime()
+	return _u
 }
 
 // SetNosap sets the "nosap" field.
-func (eu *EmployersUpdate) SetNosap(s string) *EmployersUpdate {
-	eu.mutation.SetNosap(s)
-	return eu
+func (_u *EmployersUpdate) SetNosap(v string) *EmployersUpdate {
+	_u.mutation.SetNosap(v)
+	return _u
 }
 
 // SetNillableNosap sets the "nosap" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableNosap(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetNosap(*s)
+func (_u *EmployersUpdate) SetNillableNosap(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetNosap(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetNip sets the "nip" field.
-func (eu *EmployersUpdate) SetNip(s string) *EmployersUpdate {
-	eu.mutation.SetNip(s)
-	return eu
+func (_u *EmployersUpdate) SetNip(v string) *EmployersUpdate {
+	_u.mutation.SetNip(v)
+	return _u
 }
 
 // SetNillableNip sets the "nip" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableNip(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetNip(*s)
+func (_u *EmployersUpdate) SetNillableNip(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetNip(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetKaryacode sets the "karyacode" field.
-func (eu *EmployersUpdate) SetKaryacode(s string) *EmployersUpdate {
-	eu.mutation.SetKaryacode(s)
-	return eu
+func (_u *EmployersUpdate) SetKaryacode(v string) *EmployersUpdate {
+	_u.mutation.SetKaryacode(v)
+	return _u
 }
 
 // SetNillableKaryacode sets the "karyacode" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableKaryacode(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetKaryacode(*s)
+func (_u *EmployersUpdate) SetNillableKaryacode(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetKaryacode(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetKaryaname sets the "karyaname" field.
-func (eu *EmployersUpdate) SetKaryaname(s string) *EmployersUpdate {
-	eu.mutation.SetKaryaname(s)
-	return eu
+func (_u *EmployersUpdate) SetKaryaname(v string) *EmployersUpdate {
+	_u.mutation.SetKaryaname(v)
+	return _u
 }
 
 // SetNillableKaryaname sets the "karyaname" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableKaryaname(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetKaryaname(*s)
+func (_u *EmployersUpdate) SetNillableKaryaname(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetKaryaname(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetDispName sets the "disp_name" field.
-func (eu *EmployersUpdate) SetDispName(s string) *EmployersUpdate {
-	eu.mutation.SetDispName(s)
-	return eu
+func (_u *EmployersUpdate) SetDispName(v string) *EmployersUpdate {
+	_u.mutation.SetDispName(v)
+	return _u
 }
 
 // SetNillableDispName sets the "disp_name" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableDispName(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetDispName(*s)
+func (_u *EmployersUpdate) SetNillableDispName(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetDispName(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetPassMesin sets the "pass_mesin" field.
-func (eu *EmployersUpdate) SetPassMesin(s string) *EmployersUpdate {
-	eu.mutation.SetPassMesin(s)
-	return eu
+func (_u *EmployersUpdate) SetPassMesin(v string) *EmployersUpdate {
+	_u.mutation.SetPassMesin(v)
+	return _u
 }
 
 // SetNillablePassMesin sets the "pass_mesin" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillablePassMesin(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetPassMesin(*s)
+func (_u *EmployersUpdate) SetNillablePassMesin(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetPassMesin(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetRfidCard sets the "rfid_card" field.
-func (eu *EmployersUpdate) SetRfidCard(s string) *EmployersUpdate {
-	eu.mutation.SetRfidCard(s)
-	return eu
+func (_u *EmployersUpdate) SetRfidCard(v string) *EmployersUpdate {
+	_u.mutation.SetRfidCard(v)
+	return _u
 }
 
 // SetNillableRfidCard sets the "rfid_card" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableRfidCard(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetRfidCard(*s)
+func (_u *EmployersUpdate) SetNillableRfidCard(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetRfidCard(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetKodeFinger sets the "kode_finger" field.
-func (eu *EmployersUpdate) SetKodeFinger(s string) *EmployersUpdate {
-	eu.mutation.SetKodeFinger(s)
-	return eu
+func (_u *EmployersUpdate) SetKodeFinger(v string) *EmployersUpdate {
+	_u.mutation.SetKodeFinger(v)
+	return _u
 }
 
 // SetNillableKodeFinger sets the "kode_finger" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableKodeFinger(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetKodeFinger(*s)
+func (_u *EmployersUpdate) SetNillableKodeFinger(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetKodeFinger(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetDepartCode sets the "depart_code" field.
-func (eu *EmployersUpdate) SetDepartCode(s string) *EmployersUpdate {
-	eu.mutation.SetDepartCode(s)
-	return eu
+func (_u *EmployersUpdate) SetDepartCode(v string) *EmployersUpdate {
+	_u.mutation.SetDepartCode(v)
+	return _u
 }
 
 // SetNillableDepartCode sets the "depart_code" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableDepartCode(s *string) *EmployersUpdate {
-	if s != nil {
-		eu.SetDepartCode(*s)
+func (_u *EmployersUpdate) SetNillableDepartCode(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetDepartCode(*v)
 	}
-	return eu
+	return _u
 }
 
 // SetStatus sets the "status" field.
-func (eu *EmployersUpdate) SetStatus(i int32) *EmployersUpdate {
-	eu.mutation.ResetStatus()
-	eu.mutation.SetStatus(i)
-	return eu
+func (_u *EmployersUpdate) SetStatus(v int32) *EmployersUpdate {
+	_u.mutation.ResetStatus()
+	_u.mutation.SetStatus(v)
+	return _u
 }
 
 // SetNillableStatus sets the "status" field if the given value is not nil.
-func (eu *EmployersUpdate) SetNillableStatus(i *int32) *EmployersUpdate {
-	if i != nil {
-		eu.SetStatus(*i)
+func (_u *EmployersUpdate) SetNillableStatus(v *int32) *EmployersUpdate {
+	if v != nil {
+		_u.SetStatus(*v)
 	}
-	return eu
+	return _u
 }
 
-// AddStatus adds i to the "status" field.
-func (eu *EmployersUpdate) AddStatus(i int32) *EmployersUpdate {
-	eu.mutation.AddStatus(i)
-	return eu
+// AddStatus adds value to the "status" field.
+func (_u *EmployersUpdate) AddStatus(v int32) *EmployersUpdate {
+	_u.mutation.AddStatus(v)
+	return _u
+}
+
+// SetKodePerusahaan sets the "kode_perusahaan" field.
+func (_u *EmployersUpdate) SetKodePerusahaan(v string) *EmployersUpdate {
+	_u.mutation.SetKodePerusahaan(v)
+	return _u
+}
+
+// SetNillableKodePerusahaan sets the "kode_perusahaan" field if the given value is not nil.
+func (_u *EmployersUpdate) SetNillableKodePerusahaan(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetKodePerusahaan(*v)
+	}
+	return _u
+}
+
+// SetKodeCabang sets the "kode_cabang" field.
+func (_u *EmployersUpdate) SetKodeCabang(v string) *EmployersUpdate {
+	_u.mutation.SetKodeCabang(v)
+	return _u
+}
+
+// SetNillableKodeCabang sets the "kode_cabang" field if the given value is not nil.
+func (_u *EmployersUpdate) SetNillableKodeCabang(v *string) *EmployersUpdate {
+	if v != nil {
+		_u.SetKodeCabang(*v)
+	}
+	return _u
 }
 
 // Mutation returns the EmployersMutation object of the builder.
-func (eu *EmployersUpdate) Mutation() *EmployersMutation {
-	return eu.mutation
+func (_u *EmployersUpdate) Mutation() *EmployersMutation {
+	return _u.mutation
 }
 
 // Save executes the query and returns the number of nodes affected by the update operation.
-func (eu *EmployersUpdate) Save(ctx context.Context) (int, error) {
-	eu.defaults()
-	return withHooks(ctx, eu.sqlSave, eu.mutation, eu.hooks)
+func (_u *EmployersUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
+	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
 // SaveX is like Save, but panics if an error occurs.
-func (eu *EmployersUpdate) SaveX(ctx context.Context) int {
-	affected, err := eu.Save(ctx)
+func (_u *EmployersUpdate) SaveX(ctx context.Context) int {
+	affected, err := _u.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -222,78 +290,96 @@ func (eu *EmployersUpdate) SaveX(ctx context.Context) int {
 }
 
 // Exec executes the query.
-func (eu *EmployersUpdate) Exec(ctx context.Context) error {
-	_, err := eu.Save(ctx)
+func (_u *EmployersUpdate) Exec(ctx context.Context) error {
+	_, err := _u.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (eu *EmployersUpdate) ExecX(ctx context.Context) {
-	if err := eu.Exec(ctx); err != nil {
+func (_u *EmployersUpdate) ExecX(ctx context.Context) {
+	if err := _u.Exec(ctx); err != nil {
 		panic(err)
 	}
 }
 
 // defaults sets the default values of the builder before save.
-func (eu *EmployersUpdate) defaults() {
-	if _, ok := eu.mutation.UpdateTime(); !ok {
+func (_u *EmployersUpdate) defaults() {
+	if _, ok := _u.mutation.UpdateTime(); !ok {
 		v := employers.UpdateDefaultUpdateTime()
-		eu.mutation.SetUpdateTime(v)
+		_u.mutation.SetUpdateTime(v)
 	}
 }
 
-func (eu *EmployersUpdate) sqlSave(ctx context.Context) (n int, err error) {
+func (_u *EmployersUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	_spec := sqlgraph.NewUpdateSpec(employers.Table, employers.Columns, sqlgraph.NewFieldSpec(employers.FieldID, field.TypeInt64))
-	if ps := eu.mutation.predicates; len(ps) > 0 {
+	if ps := _u.mutation.predicates; len(ps) > 0 {
 		_spec.Predicate = func(selector *sql.Selector) {
 			for i := range ps {
 				ps[i](selector)
 			}
 		}
 	}
-	if value, ok := eu.mutation.UpdateTime(); ok {
+	if value, ok := _u.mutation.CreatedBy(); ok {
+		_spec.SetField(employers.FieldCreatedBy, field.TypeString, value)
+	}
+	if _u.mutation.CreatedByCleared() {
+		_spec.ClearField(employers.FieldCreatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdatedBy(); ok {
+		_spec.SetField(employers.FieldUpdatedBy, field.TypeString, value)
+	}
+	if _u.mutation.UpdatedByCleared() {
+		_spec.ClearField(employers.FieldUpdatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdateTime(); ok {
 		_spec.SetField(employers.FieldUpdateTime, field.TypeTime, value)
 	}
-	if value, ok := eu.mutation.DeleteTime(); ok {
+	if value, ok := _u.mutation.DeleteTime(); ok {
 		_spec.SetField(employers.FieldDeleteTime, field.TypeTime, value)
 	}
-	if eu.mutation.DeleteTimeCleared() {
+	if _u.mutation.DeleteTimeCleared() {
 		_spec.ClearField(employers.FieldDeleteTime, field.TypeTime)
 	}
-	if value, ok := eu.mutation.Nosap(); ok {
+	if value, ok := _u.mutation.Nosap(); ok {
 		_spec.SetField(employers.FieldNosap, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.Nip(); ok {
+	if value, ok := _u.mutation.Nip(); ok {
 		_spec.SetField(employers.FieldNip, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.Karyacode(); ok {
+	if value, ok := _u.mutation.Karyacode(); ok {
 		_spec.SetField(employers.FieldKaryacode, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.Karyaname(); ok {
+	if value, ok := _u.mutation.Karyaname(); ok {
 		_spec.SetField(employers.FieldKaryaname, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.DispName(); ok {
+	if value, ok := _u.mutation.DispName(); ok {
 		_spec.SetField(employers.FieldDispName, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.PassMesin(); ok {
+	if value, ok := _u.mutation.PassMesin(); ok {
 		_spec.SetField(employers.FieldPassMesin, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.RfidCard(); ok {
+	if value, ok := _u.mutation.RfidCard(); ok {
 		_spec.SetField(employers.FieldRfidCard, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.KodeFinger(); ok {
+	if value, ok := _u.mutation.KodeFinger(); ok {
 		_spec.SetField(employers.FieldKodeFinger, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.DepartCode(); ok {
+	if value, ok := _u.mutation.DepartCode(); ok {
 		_spec.SetField(employers.FieldDepartCode, field.TypeString, value)
 	}
-	if value, ok := eu.mutation.Status(); ok {
+	if value, ok := _u.mutation.Status(); ok {
 		_spec.SetField(employers.FieldStatus, field.TypeInt32, value)
 	}
-	if value, ok := eu.mutation.AddedStatus(); ok {
+	if value, ok := _u.mutation.AddedStatus(); ok {
 		_spec.AddField(employers.FieldStatus, field.TypeInt32, value)
 	}
-	if n, err = sqlgraph.UpdateNodes(ctx, eu.driver, _spec); err != nil {
+	if value, ok := _u.mutation.KodePerusahaan(); ok {
+		_spec.SetField(employers.FieldKodePerusahaan, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.KodeCabang(); ok {
+		_spec.SetField(employers.FieldKodeCabang, field.TypeString, value)
+	}
+	if _node, err = sqlgraph.UpdateNodes(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
 			err = &NotFoundError{employers.Label}
 		} else if sqlgraph.IsConstraintError(err) {
@@ -301,8 +387,8 @@ func (eu *EmployersUpdate) sqlSave(ctx context.Context) (n int, err error) {
 		}
 		return 0, err
 	}
-	eu.mutation.done = true
-	return n, nil
+	_u.mutation.done = true
+	return _node, nil
 }
 
 // EmployersUpdateOne is the builder for updating a single Employers entity.
@@ -313,206 +399,274 @@ type EmployersUpdateOne struct {
 	mutation *EmployersMutation
 }
 
+// SetCreatedBy sets the "created_by" field.
+func (_u *EmployersUpdateOne) SetCreatedBy(v string) *EmployersUpdateOne {
+	_u.mutation.SetCreatedBy(v)
+	return _u
+}
+
+// SetNillableCreatedBy sets the "created_by" field if the given value is not nil.
+func (_u *EmployersUpdateOne) SetNillableCreatedBy(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetCreatedBy(*v)
+	}
+	return _u
+}
+
+// ClearCreatedBy clears the value of the "created_by" field.
+func (_u *EmployersUpdateOne) ClearCreatedBy() *EmployersUpdateOne {
+	_u.mutation.ClearCreatedBy()
+	return _u
+}
+
+// SetUpdatedBy sets the "updated_by" field.
+func (_u *EmployersUpdateOne) SetUpdatedBy(v string) *EmployersUpdateOne {
+	_u.mutation.SetUpdatedBy(v)
+	return _u
+}
+
+// SetNillableUpdatedBy sets the "updated_by" field if the given value is not nil.
+func (_u *EmployersUpdateOne) SetNillableUpdatedBy(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetUpdatedBy(*v)
+	}
+	return _u
+}
+
+// ClearUpdatedBy clears the value of the "updated_by" field.
+func (_u *EmployersUpdateOne) ClearUpdatedBy() *EmployersUpdateOne {
+	_u.mutation.ClearUpdatedBy()
+	return _u
+}
+
 // SetUpdateTime sets the "update_time" field.
-func (euo *EmployersUpdateOne) SetUpdateTime(t time.Time) *EmployersUpdateOne {
-	euo.mutation.SetUpdateTime(t)
-	return euo
+func (_u *EmployersUpdateOne) SetUpdateTime(v time.Time) *EmployersUpdateOne {
+	_u.mutation.SetUpdateTime(v)
+	return _u
 }
 
 // SetDeleteTime sets the "delete_time" field.
-func (euo *EmployersUpdateOne) SetDeleteTime(t time.Time) *EmployersUpdateOne {
-	euo.mutation.SetDeleteTime(t)
-	return euo
+func (_u *EmployersUpdateOne) SetDeleteTime(v time.Time) *EmployersUpdateOne {
+	_u.mutation.SetDeleteTime(v)
+	return _u
 }
 
 // SetNillableDeleteTime sets the "delete_time" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableDeleteTime(t *time.Time) *EmployersUpdateOne {
-	if t != nil {
-		euo.SetDeleteTime(*t)
+func (_u *EmployersUpdateOne) SetNillableDeleteTime(v *time.Time) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetDeleteTime(*v)
 	}
-	return euo
+	return _u
 }
 
 // ClearDeleteTime clears the value of the "delete_time" field.
-func (euo *EmployersUpdateOne) ClearDeleteTime() *EmployersUpdateOne {
-	euo.mutation.ClearDeleteTime()
-	return euo
+func (_u *EmployersUpdateOne) ClearDeleteTime() *EmployersUpdateOne {
+	_u.mutation.ClearDeleteTime()
+	return _u
 }
 
 // SetNosap sets the "nosap" field.
-func (euo *EmployersUpdateOne) SetNosap(s string) *EmployersUpdateOne {
-	euo.mutation.SetNosap(s)
-	return euo
+func (_u *EmployersUpdateOne) SetNosap(v string) *EmployersUpdateOne {
+	_u.mutation.SetNosap(v)
+	return _u
 }
 
 // SetNillableNosap sets the "nosap" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableNosap(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetNosap(*s)
+func (_u *EmployersUpdateOne) SetNillableNosap(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetNosap(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetNip sets the "nip" field.
-func (euo *EmployersUpdateOne) SetNip(s string) *EmployersUpdateOne {
-	euo.mutation.SetNip(s)
-	return euo
+func (_u *EmployersUpdateOne) SetNip(v string) *EmployersUpdateOne {
+	_u.mutation.SetNip(v)
+	return _u
 }
 
 // SetNillableNip sets the "nip" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableNip(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetNip(*s)
+func (_u *EmployersUpdateOne) SetNillableNip(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetNip(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetKaryacode sets the "karyacode" field.
-func (euo *EmployersUpdateOne) SetKaryacode(s string) *EmployersUpdateOne {
-	euo.mutation.SetKaryacode(s)
-	return euo
+func (_u *EmployersUpdateOne) SetKaryacode(v string) *EmployersUpdateOne {
+	_u.mutation.SetKaryacode(v)
+	return _u
 }
 
 // SetNillableKaryacode sets the "karyacode" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableKaryacode(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetKaryacode(*s)
+func (_u *EmployersUpdateOne) SetNillableKaryacode(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetKaryacode(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetKaryaname sets the "karyaname" field.
-func (euo *EmployersUpdateOne) SetKaryaname(s string) *EmployersUpdateOne {
-	euo.mutation.SetKaryaname(s)
-	return euo
+func (_u *EmployersUpdateOne) SetKaryaname(v string) *EmployersUpdateOne {
+	_u.mutation.SetKaryaname(v)
+	return _u
 }
 
 // SetNillableKaryaname sets the "karyaname" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableKaryaname(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetKaryaname(*s)
+func (_u *EmployersUpdateOne) SetNillableKaryaname(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetKaryaname(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetDispName sets the "disp_name" field.
-func (euo *EmployersUpdateOne) SetDispName(s string) *EmployersUpdateOne {
-	euo.mutation.SetDispName(s)
-	return euo
+func (_u *EmployersUpdateOne) SetDispName(v string) *EmployersUpdateOne {
+	_u.mutation.SetDispName(v)
+	return _u
 }
 
 // SetNillableDispName sets the "disp_name" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableDispName(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetDispName(*s)
+func (_u *EmployersUpdateOne) SetNillableDispName(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetDispName(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetPassMesin sets the "pass_mesin" field.
-func (euo *EmployersUpdateOne) SetPassMesin(s string) *EmployersUpdateOne {
-	euo.mutation.SetPassMesin(s)
-	return euo
+func (_u *EmployersUpdateOne) SetPassMesin(v string) *EmployersUpdateOne {
+	_u.mutation.SetPassMesin(v)
+	return _u
 }
 
 // SetNillablePassMesin sets the "pass_mesin" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillablePassMesin(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetPassMesin(*s)
+func (_u *EmployersUpdateOne) SetNillablePassMesin(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetPassMesin(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetRfidCard sets the "rfid_card" field.
-func (euo *EmployersUpdateOne) SetRfidCard(s string) *EmployersUpdateOne {
-	euo.mutation.SetRfidCard(s)
-	return euo
+func (_u *EmployersUpdateOne) SetRfidCard(v string) *EmployersUpdateOne {
+	_u.mutation.SetRfidCard(v)
+	return _u
 }
 
 // SetNillableRfidCard sets the "rfid_card" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableRfidCard(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetRfidCard(*s)
+func (_u *EmployersUpdateOne) SetNillableRfidCard(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetRfidCard(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetKodeFinger sets the "kode_finger" field.
-func (euo *EmployersUpdateOne) SetKodeFinger(s string) *EmployersUpdateOne {
-	euo.mutation.SetKodeFinger(s)
-	return euo
+func (_u *EmployersUpdateOne) SetKodeFinger(v string) *EmployersUpdateOne {
+	_u.mutation.SetKodeFinger(v)
+	return _u
 }
 
 // SetNillableKodeFinger sets the "kode_finger" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableKodeFinger(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetKodeFinger(*s)
+func (_u *EmployersUpdateOne) SetNillableKodeFinger(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetKodeFinger(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetDepartCode sets the "depart_code" field.
-func (euo *EmployersUpdateOne) SetDepartCode(s string) *EmployersUpdateOne {
-	euo.mutation.SetDepartCode(s)
-	return euo
+func (_u *EmployersUpdateOne) SetDepartCode(v string) *EmployersUpdateOne {
+	_u.mutation.SetDepartCode(v)
+	return _u
 }
 
 // SetNillableDepartCode sets the "depart_code" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableDepartCode(s *string) *EmployersUpdateOne {
-	if s != nil {
-		euo.SetDepartCode(*s)
+func (_u *EmployersUpdateOne) SetNillableDepartCode(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetDepartCode(*v)
 	}
-	return euo
+	return _u
 }
 
 // SetStatus sets the "status" field.
-func (euo *EmployersUpdateOne) SetStatus(i int32) *EmployersUpdateOne {
-	euo.mutation.ResetStatus()
-	euo.mutation.SetStatus(i)
-	return euo
+func (_u *EmployersUpdateOne) SetStatus(v int32) *EmployersUpdateOne {
+	_u.mutation.ResetStatus()
+	_u.mutation.SetStatus(v)
+	return _u
 }
 
 // SetNillableStatus sets the "status" field if the given value is not nil.
-func (euo *EmployersUpdateOne) SetNillableStatus(i *int32) *EmployersUpdateOne {
-	if i != nil {
-		euo.SetStatus(*i)
+func (_u *EmployersUpdateOne) SetNillableStatus(v *int32) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetStatus(*v)
 	}
-	return euo
+	return _u
 }
 
-// AddStatus adds i to the "status" field.
-func (euo *EmployersUpdateOne) AddStatus(i int32) *EmployersUpdateOne {
-	euo.mutation.AddStatus(i)
-	return euo
+// AddStatus adds value to the "status" field.
+func (_u *EmployersUpdateOne) AddStatus(v int32) *EmployersUpdateOne {
+	_u.mutation.AddStatus(v)
+	return _u
+}
+
+// SetKodePerusahaan sets the "kode_perusahaan" field.
+func (_u *EmployersUpdateOne) SetKodePerusahaan(v string) *EmployersUpdateOne {
+	_u.mutation.SetKodePerusahaan(v)
+	return _u
+}
+
+// SetNillableKodePerusahaan sets the "kode_perusahaan" field if the given value is not nil.
+func (_u *EmployersUpdateOne) SetNillableKodePerusahaan(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetKodePerusahaan(*v)
+	}
+	return _u
+}
+
+// SetKodeCabang sets the "kode_cabang" field.
+func (_u *EmployersUpdateOne) SetKodeCabang(v string) *EmployersUpdateOne {
+	_u.mutation.SetKodeCabang(v)
+	return _u
+}
+
+// SetNillableKodeCabang sets the "kode_cabang" field if the given value is not nil.
+func (_u *EmployersUpdateOne) SetNillableKodeCabang(v *string) *EmployersUpdateOne {
+	if v != nil {
+		_u.SetKodeCabang(*v)
+	}
+	return _u
 }
 
 // Mutation returns the EmployersMutation object of the builder.
-func (euo *EmployersUpdateOne) Mutation() *EmployersMutation {
-	return euo.mutation
+func (_u *EmployersUpdateOne) Mutation() *EmployersMutation {
+	return _u.mutation
 }
 
 // Where appends a list predicates to the EmployersUpdate builder.
-func (euo *EmployersUpdateOne) Where(ps ...predicate.Employers) *EmployersUpdateOne {
-	euo.mutation.Where(ps...)
-	return euo
+func (_u *EmployersUpdateOne) Where(ps ...predicate.Employers) *EmployersUpdateOne {
+	_u.mutation.Where(ps...)
+	return _u
 }
 
 // Select allows selecting one or more fields (columns) of the returned entity.
 // The default is selecting all fields defined in the entity schema.
-func (euo *EmployersUpdateOne) Select(field string, fields ...string) *EmployersUpdateOne {
-	euo.fields = append([]string{field}, fields...)
-	return euo
+func (_u *EmployersUpdateOne) Select(field string, fields ...string) *EmployersUpdateOne {
+	_u.fields = append([]string{field}, fields...)
+	return _u
 }
 
 // Save executes the query and returns the updated Employers entity.
-func (euo *EmployersUpdateOne) Save(ctx context.Context) (*Employers, error) {
-	euo.defaults()
-	return withHooks(ctx, euo.sqlSave, euo.mutation, euo.hooks)
+func (_u *EmployersUpdateOne) Save(ctx context.Context) (*Employers, error) {
+	_u.defaults()
+	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
 // SaveX is like Save, but panics if an error occurs.
-func (euo *EmployersUpdateOne) SaveX(ctx context.Context) *Employers {
-	node, err := euo.Save(ctx)
+func (_u *EmployersUpdateOne) SaveX(ctx context.Context) *Employers {
+	node, err := _u.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -520,34 +674,34 @@ func (euo *EmployersUpdateOne) SaveX(ctx context.Context) *Employers {
 }
 
 // Exec executes the query on the entity.
-func (euo *EmployersUpdateOne) Exec(ctx context.Context) error {
-	_, err := euo.Save(ctx)
+func (_u *EmployersUpdateOne) Exec(ctx context.Context) error {
+	_, err := _u.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (euo *EmployersUpdateOne) ExecX(ctx context.Context) {
-	if err := euo.Exec(ctx); err != nil {
+func (_u *EmployersUpdateOne) ExecX(ctx context.Context) {
+	if err := _u.Exec(ctx); err != nil {
 		panic(err)
 	}
 }
 
 // defaults sets the default values of the builder before save.
-func (euo *EmployersUpdateOne) defaults() {
-	if _, ok := euo.mutation.UpdateTime(); !ok {
+func (_u *EmployersUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdateTime(); !ok {
 		v := employers.UpdateDefaultUpdateTime()
-		euo.mutation.SetUpdateTime(v)
+		_u.mutation.SetUpdateTime(v)
 	}
 }
 
-func (euo *EmployersUpdateOne) sqlSave(ctx context.Context) (_node *Employers, err error) {
+func (_u *EmployersUpdateOne) sqlSave(ctx context.Context) (_node *Employers, err error) {
 	_spec := sqlgraph.NewUpdateSpec(employers.Table, employers.Columns, sqlgraph.NewFieldSpec(employers.FieldID, field.TypeInt64))
-	id, ok := euo.mutation.ID()
+	id, ok := _u.mutation.ID()
 	if !ok {
 		return nil, &ValidationError{Name: "id", err: errors.New(`model: missing "Employers.id" for update`)}
 	}
 	_spec.Node.ID.Value = id
-	if fields := euo.fields; len(fields) > 0 {
+	if fields := _u.fields; len(fields) > 0 {
 		_spec.Node.Columns = make([]string, 0, len(fields))
 		_spec.Node.Columns = append(_spec.Node.Columns, employers.FieldID)
 		for _, f := range fields {
@@ -559,59 +713,77 @@ func (euo *EmployersUpdateOne) sqlSave(ctx context.Context) (_node *Employers, e
 			}
 		}
 	}
-	if ps := euo.mutation.predicates; len(ps) > 0 {
+	if ps := _u.mutation.predicates; len(ps) > 0 {
 		_spec.Predicate = func(selector *sql.Selector) {
 			for i := range ps {
 				ps[i](selector)
 			}
 		}
 	}
-	if value, ok := euo.mutation.UpdateTime(); ok {
+	if value, ok := _u.mutation.CreatedBy(); ok {
+		_spec.SetField(employers.FieldCreatedBy, field.TypeString, value)
+	}
+	if _u.mutation.CreatedByCleared() {
+		_spec.ClearField(employers.FieldCreatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdatedBy(); ok {
+		_spec.SetField(employers.FieldUpdatedBy, field.TypeString, value)
+	}
+	if _u.mutation.UpdatedByCleared() {
+		_spec.ClearField(employers.FieldUpdatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdateTime(); ok {
 		_spec.SetField(employers.FieldUpdateTime, field.TypeTime, value)
 	}
-	if value, ok := euo.mutation.DeleteTime(); ok {
+	if value, ok := _u.mutation.DeleteTime(); ok {
 		_spec.SetField(employers.FieldDeleteTime, field.TypeTime, value)
 	}
-	if euo.mutation.DeleteTimeCleared() {
+	if _u.mutation.DeleteTimeCleared() {
 		_spec.ClearField(employers.FieldDeleteTime, field.TypeTime)
 	}
-	if value, ok := euo.mutation.Nosap(); ok {
+	if value, ok := _u.mutation.Nosap(); ok {
 		_spec.SetField(employers.FieldNosap, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.Nip(); ok {
+	if value, ok := _u.mutation.Nip(); ok {
 		_spec.SetField(employers.FieldNip, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.Karyacode(); ok {
+	if value, ok := _u.mutation.Karyacode(); ok {
 		_spec.SetField(employers.FieldKaryacode, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.Karyaname(); ok {
+	if value, ok := _u.mutation.Karyaname(); ok {
 		_spec.SetField(employers.FieldKaryaname, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.DispName(); ok {
+	if value, ok := _u.mutation.DispName(); ok {
 		_spec.SetField(employers.FieldDispName, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.PassMesin(); ok {
+	if value, ok := _u.mutation.PassMesin(); ok {
 		_spec.SetField(employers.FieldPassMesin, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.RfidCard(); ok {
+	if value, ok := _u.mutation.RfidCard(); ok {
 		_spec.SetField(employers.FieldRfidCard, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.KodeFinger(); ok {
+	if value, ok := _u.mutation.KodeFinger(); ok {
 		_spec.SetField(employers.FieldKodeFinger, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.DepartCode(); ok {
+	if value, ok := _u.mutation.DepartCode(); ok {
 		_spec.SetField(employers.FieldDepartCode, field.TypeString, value)
 	}
-	if value, ok := euo.mutation.Status(); ok {
+	if value, ok := _u.mutation.Status(); ok {
 		_spec.SetField(employers.FieldStatus, field.TypeInt32, value)
 	}
-	if value, ok := euo.mutation.AddedStatus(); ok {
+	if value, ok := _u.mutation.AddedStatus(); ok {
 		_spec.AddField(employers.FieldStatus, field.TypeInt32, value)
 	}
-	_node = &Employers{config: euo.config}
+	if value, ok := _u.mutation.KodePerusahaan(); ok {
+		_spec.SetField(employers.FieldKodePerusahaan, field.TypeString, value)
+	}
+	if value, ok := _u.mutation.KodeCabang(); ok {
+		_spec.SetField(employers.FieldKodeCabang, field.TypeString, value)
+	}
+	_node = &Employers{config: _u.config}
 	_spec.Assign = _node.assignValues
 	_spec.ScanValues = _node.scanValues
-	if err = sqlgraph.UpdateNode(ctx, euo.driver, _spec); err != nil {
+	if err = sqlgraph.UpdateNode(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
 			err = &NotFoundError{employers.Label}
 		} else if sqlgraph.IsConstraintError(err) {
@@ -619,6 +791,6 @@ func (euo *EmployersUpdateOne) sqlSave(ctx context.Context) (_node *Employers, e
 		}
 		return nil, err
 	}
-	euo.mutation.done = true
+	_u.mutation.done = true
 	return _node, nil
 }

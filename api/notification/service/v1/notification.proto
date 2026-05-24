@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package notification.v1;
+
+import "google/api/annotations.proto";
+
+option go_package = "api/notification/service/v1;v1";
+
+// option go_package = "mall-go/api/notification/service/v1;v1";
+// option java_multiple_files = true;
+// option java_package = "api.notification.service.v1";
+
+service Notification {
+	rpc CreateNotification (CreateNotificationRequest) returns (CreateNotificationReply){
+	  option (google.api.http) = {
+      post: "/v1/notification"
+      body: "*"
+    };
+	};
+	rpc UpdateNotification (UpdateNotificationRequest) returns (UpdateNotificationReply);
+	rpc DeleteNotification (DeleteNotificationRequest) returns (DeleteNotificationReply);
+	rpc GetNotification (GetNotificationRequest) returns (GetNotificationReply);
+	rpc ListNotification (ListNotificationRequest) returns (ListNotificationReply);
+}
+
+message CreateNotificationRequest {
+	 string id = 1;
+}
+message CreateNotificationReply {
+	 string id = 1;
+}
+
+message UpdateNotificationRequest {}
+message UpdateNotificationReply {}
+
+message DeleteNotificationRequest {}
+message DeleteNotificationReply {}
+
+message GetNotificationRequest {}
+message GetNotificationReply {}
+
+message ListNotificationRequest {}
+message ListNotificationReply {}

@@ -182,6 +182,7 @@ type Data struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Database      *Data_Database         `protobuf:"bytes,1,opt,name=database,proto3" json:"database,omitempty"`
 	Redis         *Data_Redis            `protobuf:"bytes,2,opt,name=redis,proto3" json:"redis,omitempty"`
+	Kafka         *Data_Kafka            `protobuf:"bytes,3,opt,name=kafka,proto3" json:"kafka,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -226,6 +227,13 @@ func (x *Data) GetDatabase() *Data_Database {
 func (x *Data) GetRedis() *Data_Redis {
 	if x != nil {
 		return x.Redis
+	}
+	return nil
+}
+
+func (x *Data) GetKafka() *Data_Kafka {
+	if x != nil {
+		return x.Kafka
 	}
 	return nil
 }
@@ -522,6 +530,66 @@ func (x *Data_Redis) GetWriteTimeout() *durationpb.Duration {
 	return nil
 }
 
+type Data_Kafka struct {
+	state         protoimpl.MessageState `protogen:"open.v1"`
+	Brokers       []string               `protobuf:"bytes,1,rep,name=brokers,proto3" json:"brokers,omitempty"`                // Bisa lebih dari 1 broker
+	Topic         string                 `protobuf:"bytes,2,opt,name=topic,proto3" json:"topic,omitempty"`                    // Topic untuk publish/consume
+	GroupId       string                 `protobuf:"bytes,3,opt,name=group_id,json=groupId,proto3" json:"group_id,omitempty"` // Group ID untuk consumer
+	unknownFields protoimpl.UnknownFields
+	sizeCache     protoimpl.SizeCache
+}
+
+func (x *Data_Kafka) Reset() {
+	*x = Data_Kafka{}
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[9]
+	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+	ms.StoreMessageInfo(mi)
+}
+
+func (x *Data_Kafka) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*Data_Kafka) ProtoMessage() {}
+
+func (x *Data_Kafka) ProtoReflect() protoreflect.Message {
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[9]
+	if x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use Data_Kafka.ProtoReflect.Descriptor instead.
+func (*Data_Kafka) Descriptor() ([]byte, []int) {
+	return file_module_department_service_internal_conf_conf_proto_rawDescGZIP(), []int{3, 2}
+}
+
+func (x *Data_Kafka) GetBrokers() []string {
+	if x != nil {
+		return x.Brokers
+	}
+	return nil
+}
+
+func (x *Data_Kafka) GetTopic() string {
+	if x != nil {
+		return x.Topic
+	}
+	return ""
+}
+
+func (x *Data_Kafka) GetGroupId() string {
+	if x != nil {
+		return x.GroupId
+	}
+	return ""
+}
+
 type Registry_Consul struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Address       string                 `protobuf:"bytes,1,opt,name=address,proto3" json:"address,omitempty"`
@@ -532,7 +600,7 @@ type Registry_Consul struct {
 
 func (x *Registry_Consul) Reset() {
 	*x = Registry_Consul{}
-	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[9]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[10]
 	ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 	ms.StoreMessageInfo(mi)
 }
@@ -544,7 +612,7 @@ func (x *Registry_Consul) String() string {
 func (*Registry_Consul) ProtoMessage() {}
 
 func (x *Registry_Consul) ProtoReflect() protoreflect.Message {
-	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[9]
+	mi := &file_module_department_service_internal_conf_conf_proto_msgTypes[10]
 	if x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -595,10 +663,11 @@ const file_module_department_service_internal_conf_conf_proto_rawDesc = "" +
 	"\x04GRPC\x12\x18\n" +
 	"\anetwork\x18\x01 \x01(\tR\anetwork\x12\x12\n" +
 	"\x04addr\x18\x02 \x01(\tR\x04addr\x123\n" +
-	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\x99\x03\n" +
+	"\atimeout\x18\x03 \x01(\v2\x19.google.protobuf.DurationR\atimeout\"\xab\x04\n" +
 	"\x04Data\x12E\n" +
 	"\bdatabase\x18\x01 \x01(\v2).user.service.internal.conf.Data.DatabaseR\bdatabase\x12<\n" +
-	"\x05redis\x18\x02 \x01(\v2&.user.service.internal.conf.Data.RedisR\x05redis\x1a:\n" +
+	"\x05redis\x18\x02 \x01(\v2&.user.service.internal.conf.Data.RedisR\x05redis\x12<\n" +
+	"\x05kafka\x18\x03 \x01(\v2&.user.service.internal.conf.Data.KafkaR\x05kafka\x1a:\n" +
 	"\bDatabase\x12\x16\n" +
 	"\x06driver\x18\x01 \x01(\tR\x06driver\x12\x16\n" +
 	"\x06source\x18\x02 \x01(\tR\x06source\x1a\xcf\x01\n" +
@@ -607,7 +676,11 @@ const file_module_department_service_internal_conf_conf_proto_rawDesc = "" +
 	"\x04addr\x18\x02 \x01(\tR\x04addr\x12\x1a\n" +
 	"\bpassword\x18\x03 \x01(\tR\bpassword\x12<\n" +
 	"\fread_timeout\x18\x04 \x01(\v2\x19.google.protobuf.DurationR\vreadTimeout\x12>\n" +
-	"\rwrite_timeout\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\fwriteTimeout\"\x8b\x01\n" +
+	"\rwrite_timeout\x18\x05 \x01(\v2\x19.google.protobuf.DurationR\fwriteTimeout\x1aR\n" +
+	"\x05Kafka\x12\x18\n" +
+	"\abrokers\x18\x01 \x03(\tR\abrokers\x12\x14\n" +
+	"\x05topic\x18\x02 \x01(\tR\x05topic\x12\x19\n" +
+	"\bgroup_id\x18\x03 \x01(\tR\agroupId\"\x8b\x01\n" +
 	"\bRegistry\x12C\n" +
 	"\x06consul\x18\x01 \x01(\v2+.user.service.internal.conf.Registry.ConsulR\x06consul\x1a:\n" +
 	"\x06Consul\x12\x18\n" +
@@ -626,7 +699,7 @@ func file_module_department_service_internal_conf_conf_proto_rawDescGZIP() []byt
 	return file_module_department_service_internal_conf_conf_proto_rawDescData
 }
 
-var file_module_department_service_internal_conf_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 10)
+var file_module_department_service_internal_conf_conf_proto_msgTypes = make([]protoimpl.MessageInfo, 11)
 var file_module_department_service_internal_conf_conf_proto_goTypes = []any{
 	(*Bootstrap)(nil),           // 0: user.service.internal.conf.Bootstrap
 	(*Trace)(nil),               // 1: user.service.internal.conf.Trace
@@ -637,8 +710,9 @@ var file_module_department_service_internal_conf_conf_proto_goTypes = []any{
 	(*Server_GRPC)(nil),         // 6: user.service.internal.conf.Server.GRPC
 	(*Data_Database)(nil),       // 7: user.service.internal.conf.Data.Database
 	(*Data_Redis)(nil),          // 8: user.service.internal.conf.Data.Redis
-	(*Registry_Consul)(nil),     // 9: user.service.internal.conf.Registry.Consul
-	(*durationpb.Duration)(nil), // 10: google.protobuf.Duration
+	(*Data_Kafka)(nil),          // 9: user.service.internal.conf.Data.Kafka
+	(*Registry_Consul)(nil),     // 10: user.service.internal.conf.Registry.Consul
+	(*durationpb.Duration)(nil), // 11: google.protobuf.Duration
 }
 var file_module_department_service_internal_conf_conf_proto_depIdxs = []int32{
 	2,  // 0: user.service.internal.conf.Bootstrap.server:type_name -> user.service.internal.conf.Server
@@ -648,16 +722,17 @@ var file_module_department_service_internal_conf_conf_proto_depIdxs = []int32{
 	6,  // 4: user.service.internal.conf.Server.grpc:type_name -> user.service.internal.conf.Server.GRPC
 	7,  // 5: user.service.internal.conf.Data.database:type_name -> user.service.internal.conf.Data.Database
 	8,  // 6: user.service.internal.conf.Data.redis:type_name -> user.service.internal.conf.Data.Redis
-	9,  // 7: user.service.internal.conf.Registry.consul:type_name -> user.service.internal.conf.Registry.Consul
-	10, // 8: user.service.internal.conf.Server.HTTP.timeout:type_name -> google.protobuf.Duration
-	10, // 9: user.service.internal.conf.Server.GRPC.timeout:type_name -> google.protobuf.Duration
-	10, // 10: user.service.internal.conf.Data.Redis.read_timeout:type_name -> google.protobuf.Duration
-	10, // 11: user.service.internal.conf.Data.Redis.write_timeout:type_name -> google.protobuf.Duration
-	12, // [12:12] is the sub-list for method output_type
-	12, // [12:12] is the sub-list for method input_type
-	12, // [12:12] is the sub-list for extension type_name
-	12, // [12:12] is the sub-list for extension extendee
-	0,  // [0:12] is the sub-list for field type_name
+	9,  // 7: user.service.internal.conf.Data.kafka:type_name -> user.service.internal.conf.Data.Kafka
+	10, // 8: user.service.internal.conf.Registry.consul:type_name -> user.service.internal.conf.Registry.Consul
+	11, // 9: user.service.internal.conf.Server.HTTP.timeout:type_name -> google.protobuf.Duration
+	11, // 10: user.service.internal.conf.Server.GRPC.timeout:type_name -> google.protobuf.Duration
+	11, // 11: user.service.internal.conf.Data.Redis.read_timeout:type_name -> google.protobuf.Duration
+	11, // 12: user.service.internal.conf.Data.Redis.write_timeout:type_name -> google.protobuf.Duration
+	13, // [13:13] is the sub-list for method output_type
+	13, // [13:13] is the sub-list for method input_type
+	13, // [13:13] is the sub-list for extension type_name
+	13, // [13:13] is the sub-list for extension extendee
+	0,  // [0:13] is the sub-list for field type_name
 }
 
 func init() { file_module_department_service_internal_conf_conf_proto_init() }
@@ -671,7 +746,7 @@ func file_module_department_service_internal_conf_conf_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: unsafe.Slice(unsafe.StringData(file_module_department_service_internal_conf_conf_proto_rawDesc), len(file_module_department_service_internal_conf_conf_proto_rawDesc)),
 			NumEnums:      0,
-			NumMessages:   10,
+			NumMessages:   11,
 			NumExtensions: 0,
 			NumServices:   0,
 		},

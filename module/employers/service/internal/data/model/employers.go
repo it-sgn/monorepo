@@ -17,6 +17,10 @@ type Employers struct {
 	config `json:"-"`
 	// ID of the ent.
 	ID int64 `json:"id,omitempty"`
+	// CreatedBy holds the value of the "created_by" field.
+	CreatedBy string `json:"created_by,omitempty"`
+	// UpdatedBy holds the value of the "updated_by" field.
+	UpdatedBy string `json:"updated_by,omitempty"`
 	// CreateTime holds the value of the "create_time" field.
 	CreateTime time.Time `json:"create_time,omitempty"`
 	// UpdateTime holds the value of the "update_time" field.
@@ -42,7 +46,11 @@ type Employers struct {
 	// DepartCode holds the value of the "depart_code" field.
 	DepartCode string `json:"depart_code,omitempty"`
 	// Status holds the value of the "status" field.
-	Status       int32 `json:"status,omitempty"`
+	Status int32 `json:"status,omitempty"`
+	// KodePerusahaan holds the value of the "kode_perusahaan" field.
+	KodePerusahaan string `json:"kode_perusahaan,omitempty"`
+	// KodeCabang holds the value of the "kode_cabang" field.
+	KodeCabang   string `json:"kode_cabang,omitempty"`
 	selectValues sql.SelectValues
 }
 
@@ -53,7 +61,7 @@ func (*Employers) scanValues(columns []string) ([]any, error) {
 		switch columns[i] {
 		case employers.FieldID, employers.FieldStatus:
 			values[i] = new(sql.NullInt64)
-		case employers.FieldNosap, employers.FieldNip, employers.FieldKaryacode, employers.FieldKaryaname, employers.FieldDispName, employers.FieldPassMesin, employers.FieldRfidCard, employers.FieldKodeFinger, employers.FieldDepartCode:
+		case employers.FieldCreatedBy, employers.FieldUpdatedBy, employers.FieldNosap, employers.FieldNip, employers.FieldKaryacode, employers.FieldKaryaname, employers.FieldDispName, employers.FieldPassMesin, employers.FieldRfidCard, employers.FieldKodeFinger, employers.FieldDepartCode, employers.FieldKodePerusahaan, employers.FieldKodeCabang:
 			values[i] = new(sql.NullString)
 		case employers.FieldCreateTime, employers.FieldUpdateTime, employers.FieldDeleteTime:
 			values[i] = new(sql.NullTime)
@@ -66,7 +74,7 @@ func (*Employers) scanValues(columns []string) ([]any, error) {
 
 // assignValues assigns the values that were returned from sql.Rows (after scanning)
 // to the Employers fields.
-func (e *Employers) assignValues(columns []string, values []any) error {
+func (_m *Employers) assignValues(columns []string, values []any) error {
 	if m, n := len(values), len(columns); m < n {
 		return fmt.Errorf("mismatch number of scan values: %d != %d", m, n)
 	}
@@ -77,92 +85,116 @@ func (e *Employers) assignValues(columns []string, values []any) error {
 			if !ok {
 				return fmt.Errorf("unexpected type %T for field id", value)
 			}
-			e.ID = int64(value.Int64)
+			_m.ID = int64(value.Int64)
+		case employers.FieldCreatedBy:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field created_by", values[i])
+			} else if value.Valid {
+				_m.CreatedBy = value.String
+			}
+		case employers.FieldUpdatedBy:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field updated_by", values[i])
+			} else if value.Valid {
+				_m.UpdatedBy = value.String
+			}
 		case employers.FieldCreateTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field create_time", values[i])
 			} else if value.Valid {
-				e.CreateTime = value.Time
+				_m.CreateTime = value.Time
 			}
 		case employers.FieldUpdateTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field update_time", values[i])
 			} else if value.Valid {
-				e.UpdateTime = value.Time
+				_m.UpdateTime = value.Time
 			}
 		case employers.FieldDeleteTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field delete_time", values[i])
 			} else if value.Valid {
-				e.DeleteTime = value.Time
+				_m.DeleteTime = value.Time
 			}
 		case employers.FieldNosap:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field nosap", values[i])
 			} else if value.Valid {
-				e.Nosap = new(string)
-				*e.Nosap = value.String
+				_m.Nosap = new(string)
+				*_m.Nosap = value.String
 			}
 		case employers.FieldNip:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field nip", values[i])
 			} else if value.Valid {
-				e.Nip = new(string)
-				*e.Nip = value.String
+				_m.Nip = new(string)
+				*_m.Nip = value.String
 			}
 		case employers.FieldKaryacode:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field karyacode", values[i])
 			} else if value.Valid {
-				e.Karyacode = new(string)
-				*e.Karyacode = value.String
+				_m.Karyacode = new(string)
+				*_m.Karyacode = value.String
 			}
 		case employers.FieldKaryaname:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field karyaname", values[i])
 			} else if value.Valid {
-				e.Karyaname = value.String
+				_m.Karyaname = value.String
 			}
 		case employers.FieldDispName:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field disp_name", values[i])
 			} else if value.Valid {
-				e.DispName = value.String
+				_m.DispName = value.String
 			}
 		case employers.FieldPassMesin:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field pass_mesin", values[i])
 			} else if value.Valid {
-				e.PassMesin = new(string)
-				*e.PassMesin = value.String
+				_m.PassMesin = new(string)
+				*_m.PassMesin = value.String
 			}
 		case employers.FieldRfidCard:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field rfid_card", values[i])
 			} else if value.Valid {
-				e.RfidCard = new(string)
-				*e.RfidCard = value.String
+				_m.RfidCard = new(string)
+				*_m.RfidCard = value.String
 			}
 		case employers.FieldKodeFinger:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field kode_finger", values[i])
 			} else if value.Valid {
-				e.KodeFinger = value.String
+				_m.KodeFinger = value.String
 			}
 		case employers.FieldDepartCode:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field depart_code", values[i])
 			} else if value.Valid {
-				e.DepartCode = value.String
+				_m.DepartCode = value.String
 			}
 		case employers.FieldStatus:
 			if value, ok := values[i].(*sql.NullInt64); !ok {
 				return fmt.Errorf("unexpected type %T for field status", values[i])
 			} else if value.Valid {
-				e.Status = int32(value.Int64)
+				_m.Status = int32(value.Int64)
+			}
+		case employers.FieldKodePerusahaan:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field kode_perusahaan", values[i])
+			} else if value.Valid {
+				_m.KodePerusahaan = value.String
+			}
+		case employers.FieldKodeCabang:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field kode_cabang", values[i])
+			} else if value.Valid {
+				_m.KodeCabang = value.String
 			}
 		default:
-			e.selectValues.Set(columns[i], values[i])
+			_m.selectValues.Set(columns[i], values[i])
 		}
 	}
 	return nil
@@ -170,81 +202,93 @@ func (e *Employers) assignValues(columns []string, values []any) error {
 
 // Value returns the ent.Value that was dynamically selected and assigned to the Employers.
 // This includes values selected through modifiers, order, etc.
-func (e *Employers) Value(name string) (ent.Value, error) {
-	return e.selectValues.Get(name)
+func (_m *Employers) Value(name string) (ent.Value, error) {
+	return _m.selectValues.Get(name)
 }
 
 // Update returns a builder for updating this Employers.
 // Note that you need to call Employers.Unwrap() before calling this method if this Employers
 // was returned from a transaction, and the transaction was committed or rolled back.
-func (e *Employers) Update() *EmployersUpdateOne {
-	return NewEmployersClient(e.config).UpdateOne(e)
+func (_m *Employers) Update() *EmployersUpdateOne {
+	return NewEmployersClient(_m.config).UpdateOne(_m)
 }
 
 // Unwrap unwraps the Employers entity that was returned from a transaction after it was closed,
 // so that all future queries will be executed through the driver which created the transaction.
-func (e *Employers) Unwrap() *Employers {
-	_tx, ok := e.config.driver.(*txDriver)
+func (_m *Employers) Unwrap() *Employers {
+	_tx, ok := _m.config.driver.(*txDriver)
 	if !ok {
 		panic("model: Employers is not a transactional entity")
 	}
-	e.config.driver = _tx.drv
-	return e
+	_m.config.driver = _tx.drv
+	return _m
 }
 
 // String implements the fmt.Stringer.
-func (e *Employers) String() string {
+func (_m *Employers) String() string {
 	var builder strings.Builder
 	builder.WriteString("Employers(")
-	builder.WriteString(fmt.Sprintf("id=%v, ", e.ID))
+	builder.WriteString(fmt.Sprintf("id=%v, ", _m.ID))
+	builder.WriteString("created_by=")
+	builder.WriteString(_m.CreatedBy)
+	builder.WriteString(", ")
+	builder.WriteString("updated_by=")
+	builder.WriteString(_m.UpdatedBy)
+	builder.WriteString(", ")
 	builder.WriteString("create_time=")
-	builder.WriteString(e.CreateTime.Format(time.ANSIC))
+	builder.WriteString(_m.CreateTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("update_time=")
-	builder.WriteString(e.UpdateTime.Format(time.ANSIC))
+	builder.WriteString(_m.UpdateTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("delete_time=")
-	builder.WriteString(e.DeleteTime.Format(time.ANSIC))
+	builder.WriteString(_m.DeleteTime.Format(time.ANSIC))
 	builder.WriteString(", ")
-	if v := e.Nosap; v != nil {
+	if v := _m.Nosap; v != nil {
 		builder.WriteString("nosap=")
 		builder.WriteString(*v)
 	}
 	builder.WriteString(", ")
-	if v := e.Nip; v != nil {
+	if v := _m.Nip; v != nil {
 		builder.WriteString("nip=")
 		builder.WriteString(*v)
 	}
 	builder.WriteString(", ")
-	if v := e.Karyacode; v != nil {
+	if v := _m.Karyacode; v != nil {
 		builder.WriteString("karyacode=")
 		builder.WriteString(*v)
 	}
 	builder.WriteString(", ")
 	builder.WriteString("karyaname=")
-	builder.WriteString(e.Karyaname)
+	builder.WriteString(_m.Karyaname)
 	builder.WriteString(", ")
 	builder.WriteString("disp_name=")
-	builder.WriteString(e.DispName)
+	builder.WriteString(_m.DispName)
 	builder.WriteString(", ")
-	if v := e.PassMesin; v != nil {
+	if v := _m.PassMesin; v != nil {
 		builder.WriteString("pass_mesin=")
 		builder.WriteString(*v)
 	}
 	builder.WriteString(", ")
-	if v := e.RfidCard; v != nil {
+	if v := _m.RfidCard; v != nil {
 		builder.WriteString("rfid_card=")
 		builder.WriteString(*v)
 	}
 	builder.WriteString(", ")
 	builder.WriteString("kode_finger=")
-	builder.WriteString(e.KodeFinger)
+	builder.WriteString(_m.KodeFinger)
 	builder.WriteString(", ")
 	builder.WriteString("depart_code=")
-	builder.WriteString(e.DepartCode)
+	builder.WriteString(_m.DepartCode)
 	builder.WriteString(", ")
 	builder.WriteString("status=")
-	builder.WriteString(fmt.Sprintf("%v", e.Status))
+	builder.WriteString(fmt.Sprintf("%v", _m.Status))
+	builder.WriteString(", ")
+	builder.WriteString("kode_perusahaan=")
+	builder.WriteString(_m.KodePerusahaan)
+	builder.WriteString(", ")
+	builder.WriteString("kode_cabang=")
+	builder.WriteString(_m.KodeCabang)
 	builder.WriteByte(')')
 	return builder.String()
 }

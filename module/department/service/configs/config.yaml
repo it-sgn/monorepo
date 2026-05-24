@@ -8,8 +8,13 @@ server:
 data:
   database:
     driver: postgres
-    source: "host=127.0.0.1 user=admin password=admin123 dbname=department port=5432 sslmode=disable TimeZone=Asia/Jakarta"
+    source: "host=192.168.90.5 user=postgres password=4dm1n166 dbname=karyawan port=5432 sslmode=disable TimeZone=Asia/Jakarta"
   redis:
-    addr: 127.0.0.1:6379
+    addr: 192.168.1.220:6379
     read_timeout: 0.2s
     write_timeout: 0.2s
+  kafka:
+    brokers:
+      - "localhost:19092"
+    topic: "department.events"
+    group_id: "department-consumer-group"

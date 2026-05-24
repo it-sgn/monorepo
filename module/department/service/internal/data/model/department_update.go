@@ -23,119 +23,119 @@ type DepartmentUpdate struct {
 }
 
 // Where appends a list predicates to the DepartmentUpdate builder.
-func (du *DepartmentUpdate) Where(ps ...predicate.Department) *DepartmentUpdate {
-	du.mutation.Where(ps...)
-	return du
+func (_u *DepartmentUpdate) Where(ps ...predicate.Department) *DepartmentUpdate {
+	_u.mutation.Where(ps...)
+	return _u
 }
 
 // SetUpdateTime sets the "update_time" field.
-func (du *DepartmentUpdate) SetUpdateTime(t time.Time) *DepartmentUpdate {
-	du.mutation.SetUpdateTime(t)
-	return du
+func (_u *DepartmentUpdate) SetUpdateTime(v time.Time) *DepartmentUpdate {
+	_u.mutation.SetUpdateTime(v)
+	return _u
 }
 
 // SetDeleteTime sets the "delete_time" field.
-func (du *DepartmentUpdate) SetDeleteTime(t time.Time) *DepartmentUpdate {
-	du.mutation.SetDeleteTime(t)
-	return du
+func (_u *DepartmentUpdate) SetDeleteTime(v time.Time) *DepartmentUpdate {
+	_u.mutation.SetDeleteTime(v)
+	return _u
 }
 
 // SetNillableDeleteTime sets the "delete_time" field if the given value is not nil.
-func (du *DepartmentUpdate) SetNillableDeleteTime(t *time.Time) *DepartmentUpdate {
-	if t != nil {
-		du.SetDeleteTime(*t)
+func (_u *DepartmentUpdate) SetNillableDeleteTime(v *time.Time) *DepartmentUpdate {
+	if v != nil {
+		_u.SetDeleteTime(*v)
 	}
-	return du
+	return _u
 }
 
 // ClearDeleteTime clears the value of the "delete_time" field.
-func (du *DepartmentUpdate) ClearDeleteTime() *DepartmentUpdate {
-	du.mutation.ClearDeleteTime()
-	return du
+func (_u *DepartmentUpdate) ClearDeleteTime() *DepartmentUpdate {
+	_u.mutation.ClearDeleteTime()
+	return _u
 }
 
 // SetDepartCode sets the "depart_code" field.
-func (du *DepartmentUpdate) SetDepartCode(s string) *DepartmentUpdate {
-	du.mutation.SetDepartCode(s)
-	return du
+func (_u *DepartmentUpdate) SetDepartCode(v string) *DepartmentUpdate {
+	_u.mutation.SetDepartCode(v)
+	return _u
 }
 
 // SetNillableDepartCode sets the "depart_code" field if the given value is not nil.
-func (du *DepartmentUpdate) SetNillableDepartCode(s *string) *DepartmentUpdate {
-	if s != nil {
-		du.SetDepartCode(*s)
+func (_u *DepartmentUpdate) SetNillableDepartCode(v *string) *DepartmentUpdate {
+	if v != nil {
+		_u.SetDepartCode(*v)
 	}
-	return du
+	return _u
 }
 
 // ClearDepartCode clears the value of the "depart_code" field.
-func (du *DepartmentUpdate) ClearDepartCode() *DepartmentUpdate {
-	du.mutation.ClearDepartCode()
-	return du
+func (_u *DepartmentUpdate) ClearDepartCode() *DepartmentUpdate {
+	_u.mutation.ClearDepartCode()
+	return _u
 }
 
 // SetDepartName sets the "depart_name" field.
-func (du *DepartmentUpdate) SetDepartName(s string) *DepartmentUpdate {
-	du.mutation.SetDepartName(s)
-	return du
+func (_u *DepartmentUpdate) SetDepartName(v string) *DepartmentUpdate {
+	_u.mutation.SetDepartName(v)
+	return _u
 }
 
 // SetNillableDepartName sets the "depart_name" field if the given value is not nil.
-func (du *DepartmentUpdate) SetNillableDepartName(s *string) *DepartmentUpdate {
-	if s != nil {
-		du.SetDepartName(*s)
+func (_u *DepartmentUpdate) SetNillableDepartName(v *string) *DepartmentUpdate {
+	if v != nil {
+		_u.SetDepartName(*v)
 	}
-	return du
+	return _u
 }
 
 // SetStatus sets the "status" field.
-func (du *DepartmentUpdate) SetStatus(s string) *DepartmentUpdate {
-	du.mutation.SetStatus(s)
-	return du
+func (_u *DepartmentUpdate) SetStatus(v string) *DepartmentUpdate {
+	_u.mutation.SetStatus(v)
+	return _u
 }
 
 // SetNillableStatus sets the "status" field if the given value is not nil.
-func (du *DepartmentUpdate) SetNillableStatus(s *string) *DepartmentUpdate {
-	if s != nil {
-		du.SetStatus(*s)
+func (_u *DepartmentUpdate) SetNillableStatus(v *string) *DepartmentUpdate {
+	if v != nil {
+		_u.SetStatus(*v)
 	}
-	return du
+	return _u
 }
 
 // SetKet sets the "ket" field.
-func (du *DepartmentUpdate) SetKet(s string) *DepartmentUpdate {
-	du.mutation.SetKet(s)
-	return du
+func (_u *DepartmentUpdate) SetKet(v string) *DepartmentUpdate {
+	_u.mutation.SetKet(v)
+	return _u
 }
 
 // SetNillableKet sets the "ket" field if the given value is not nil.
-func (du *DepartmentUpdate) SetNillableKet(s *string) *DepartmentUpdate {
-	if s != nil {
-		du.SetKet(*s)
+func (_u *DepartmentUpdate) SetNillableKet(v *string) *DepartmentUpdate {
+	if v != nil {
+		_u.SetKet(*v)
 	}
-	return du
+	return _u
 }
 
 // ClearKet clears the value of the "ket" field.
-func (du *DepartmentUpdate) ClearKet() *DepartmentUpdate {
-	du.mutation.ClearKet()
-	return du
+func (_u *DepartmentUpdate) ClearKet() *DepartmentUpdate {
+	_u.mutation.ClearKet()
+	return _u
 }
 
 // Mutation returns the DepartmentMutation object of the builder.
-func (du *DepartmentUpdate) Mutation() *DepartmentMutation {
-	return du.mutation
+func (_u *DepartmentUpdate) Mutation() *DepartmentMutation {
+	return _u.mutation
 }
 
 // Save executes the query and returns the number of nodes affected by the update operation.
-func (du *DepartmentUpdate) Save(ctx context.Context) (int, error) {
-	du.defaults()
-	return withHooks(ctx, du.sqlSave, du.mutation, du.hooks)
+func (_u *DepartmentUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
+	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
 // SaveX is like Save, but panics if an error occurs.
-func (du *DepartmentUpdate) SaveX(ctx context.Context) int {
-	affected, err := du.Save(ctx)
+func (_u *DepartmentUpdate) SaveX(ctx context.Context) int {
+	affected, err := _u.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -143,63 +143,63 @@ func (du *DepartmentUpdate) SaveX(ctx context.Context) int {
 }
 
 // Exec executes the query.
-func (du *DepartmentUpdate) Exec(ctx context.Context) error {
-	_, err := du.Save(ctx)
+func (_u *DepartmentUpdate) Exec(ctx context.Context) error {
+	_, err := _u.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (du *DepartmentUpdate) ExecX(ctx context.Context) {
-	if err := du.Exec(ctx); err != nil {
+func (_u *DepartmentUpdate) ExecX(ctx context.Context) {
+	if err := _u.Exec(ctx); err != nil {
 		panic(err)
 	}
 }
 
 // defaults sets the default values of the builder before save.
-func (du *DepartmentUpdate) defaults() {
-	if _, ok := du.mutation.UpdateTime(); !ok {
+func (_u *DepartmentUpdate) defaults() {
+	if _, ok := _u.mutation.UpdateTime(); !ok {
 		v := department.UpdateDefaultUpdateTime()
-		du.mutation.SetUpdateTime(v)
+		_u.mutation.SetUpdateTime(v)
 	}
 }
 
-func (du *DepartmentUpdate) sqlSave(ctx context.Context) (n int, err error) {
+func (_u *DepartmentUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	_spec := sqlgraph.NewUpdateSpec(department.Table, department.Columns, sqlgraph.NewFieldSpec(department.FieldID, field.TypeInt64))
-	if ps := du.mutation.predicates; len(ps) > 0 {
+	if ps := _u.mutation.predicates; len(ps) > 0 {
 		_spec.Predicate = func(selector *sql.Selector) {
 			for i := range ps {
 				ps[i](selector)
 			}
 		}
 	}
-	if value, ok := du.mutation.UpdateTime(); ok {
+	if value, ok := _u.mutation.UpdateTime(); ok {
 		_spec.SetField(department.FieldUpdateTime, field.TypeTime, value)
 	}
-	if value, ok := du.mutation.DeleteTime(); ok {
+	if value, ok := _u.mutation.DeleteTime(); ok {
 		_spec.SetField(department.FieldDeleteTime, field.TypeTime, value)
 	}
-	if du.mutation.DeleteTimeCleared() {
+	if _u.mutation.DeleteTimeCleared() {
 		_spec.ClearField(department.FieldDeleteTime, field.TypeTime)
 	}
-	if value, ok := du.mutation.DepartCode(); ok {
+	if value, ok := _u.mutation.DepartCode(); ok {
 		_spec.SetField(department.FieldDepartCode, field.TypeString, value)
 	}
-	if du.mutation.DepartCodeCleared() {
+	if _u.mutation.DepartCodeCleared() {
 		_spec.ClearField(department.FieldDepartCode, field.TypeString)
 	}
-	if value, ok := du.mutation.DepartName(); ok {
+	if value, ok := _u.mutation.DepartName(); ok {
 		_spec.SetField(department.FieldDepartName, field.TypeString, value)
 	}
-	if value, ok := du.mutation.Status(); ok {
+	if value, ok := _u.mutation.Status(); ok {
 		_spec.SetField(department.FieldStatus, field.TypeString, value)
 	}
-	if value, ok := du.mutation.Ket(); ok {
+	if value, ok := _u.mutation.Ket(); ok {
 		_spec.SetField(department.FieldKet, field.TypeString, value)
 	}
-	if du.mutation.KetCleared() {
+	if _u.mutation.KetCleared() {
 		_spec.ClearField(department.FieldKet, field.TypeString)
 	}
-	if n, err = sqlgraph.UpdateNodes(ctx, du.driver, _spec); err != nil {
+	if _node, err = sqlgraph.UpdateNodes(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
 			err = &NotFoundError{department.Label}
 		} else if sqlgraph.IsConstraintError(err) {
@@ -207,8 +207,8 @@ func (du *DepartmentUpdate) sqlSave(ctx context.Context) (n int, err error) {
 		}
 		return 0, err
 	}
-	du.mutation.done = true
-	return n, nil
+	_u.mutation.done = true
+	return _node, nil
 }
 
 // DepartmentUpdateOne is the builder for updating a single Department entity.
@@ -220,126 +220,126 @@ type DepartmentUpdateOne struct {
 }
 
 // SetUpdateTime sets the "update_time" field.
-func (duo *DepartmentUpdateOne) SetUpdateTime(t time.Time) *DepartmentUpdateOne {
-	duo.mutation.SetUpdateTime(t)
-	return duo
+func (_u *DepartmentUpdateOne) SetUpdateTime(v time.Time) *DepartmentUpdateOne {
+	_u.mutation.SetUpdateTime(v)
+	return _u
 }
 
 // SetDeleteTime sets the "delete_time" field.
-func (duo *DepartmentUpdateOne) SetDeleteTime(t time.Time) *DepartmentUpdateOne {
-	duo.mutation.SetDeleteTime(t)
-	return duo
+func (_u *DepartmentUpdateOne) SetDeleteTime(v time.Time) *DepartmentUpdateOne {
+	_u.mutation.SetDeleteTime(v)
+	return _u
 }
 
 // SetNillableDeleteTime sets the "delete_time" field if the given value is not nil.
-func (duo *DepartmentUpdateOne) SetNillableDeleteTime(t *time.Time) *DepartmentUpdateOne {
-	if t != nil {
-		duo.SetDeleteTime(*t)
+func (_u *DepartmentUpdateOne) SetNillableDeleteTime(v *time.Time) *DepartmentUpdateOne {
+	if v != nil {
+		_u.SetDeleteTime(*v)
 	}
-	return duo
+	return _u
 }
 
 // ClearDeleteTime clears the value of the "delete_time" field.
-func (duo *DepartmentUpdateOne) ClearDeleteTime() *DepartmentUpdateOne {
-	duo.mutation.ClearDeleteTime()
-	return duo
+func (_u *DepartmentUpdateOne) ClearDeleteTime() *DepartmentUpdateOne {
+	_u.mutation.ClearDeleteTime()
+	return _u
 }
 
 // SetDepartCode sets the "depart_code" field.
-func (duo *DepartmentUpdateOne) SetDepartCode(s string) *DepartmentUpdateOne {
-	duo.mutation.SetDepartCode(s)
-	return duo
+func (_u *DepartmentUpdateOne) SetDepartCode(v string) *DepartmentUpdateOne {
+	_u.mutation.SetDepartCode(v)
+	return _u
 }
 
 // SetNillableDepartCode sets the "depart_code" field if the given value is not nil.
-func (duo *DepartmentUpdateOne) SetNillableDepartCode(s *string) *DepartmentUpdateOne {
-	if s != nil {
-		duo.SetDepartCode(*s)
+func (_u *DepartmentUpdateOne) SetNillableDepartCode(v *string) *DepartmentUpdateOne {
+	if v != nil {
+		_u.SetDepartCode(*v)
 	}
-	return duo
+	return _u
 }
 
 // ClearDepartCode clears the value of the "depart_code" field.
-func (duo *DepartmentUpdateOne) ClearDepartCode() *DepartmentUpdateOne {
-	duo.mutation.ClearDepartCode()
-	return duo
+func (_u *DepartmentUpdateOne) ClearDepartCode() *DepartmentUpdateOne {
+	_u.mutation.ClearDepartCode()
+	return _u
 }
 
 // SetDepartName sets the "depart_name" field.
-func (duo *DepartmentUpdateOne) SetDepartName(s string) *DepartmentUpdateOne {
-	duo.mutation.SetDepartName(s)
-	return duo
+func (_u *DepartmentUpdateOne) SetDepartName(v string) *DepartmentUpdateOne {
+	_u.mutation.SetDepartName(v)
+	return _u
 }
 
 // SetNillableDepartName sets the "depart_name" field if the given value is not nil.
-func (duo *DepartmentUpdateOne) SetNillableDepartName(s *string) *DepartmentUpdateOne {
-	if s != nil {
-		duo.SetDepartName(*s)
+func (_u *DepartmentUpdateOne) SetNillableDepartName(v *string) *DepartmentUpdateOne {
+	if v != nil {
+		_u.SetDepartName(*v)
 	}
-	return duo
+	return _u
 }
 
 // SetStatus sets the "status" field.
-func (duo *DepartmentUpdateOne) SetStatus(s string) *DepartmentUpdateOne {
-	duo.mutation.SetStatus(s)
-	return duo
+func (_u *DepartmentUpdateOne) SetStatus(v string) *DepartmentUpdateOne {
+	_u.mutation.SetStatus(v)
+	return _u
 }
 
 // SetNillableStatus sets the "status" field if the given value is not nil.
-func (duo *DepartmentUpdateOne) SetNillableStatus(s *string) *DepartmentUpdateOne {
-	if s != nil {
-		duo.SetStatus(*s)
+func (_u *DepartmentUpdateOne) SetNillableStatus(v *string) *DepartmentUpdateOne {
+	if v != nil {
+		_u.SetStatus(*v)
 	}
-	return duo
+	return _u
 }
 
 // SetKet sets the "ket" field.
-func (duo *DepartmentUpdateOne) SetKet(s string) *DepartmentUpdateOne {
-	duo.mutation.SetKet(s)
-	return duo
+func (_u *DepartmentUpdateOne) SetKet(v string) *DepartmentUpdateOne {
+	_u.mutation.SetKet(v)
+	return _u
 }
 
 // SetNillableKet sets the "ket" field if the given value is not nil.
-func (duo *DepartmentUpdateOne) SetNillableKet(s *string) *DepartmentUpdateOne {
-	if s != nil {
-		duo.SetKet(*s)
+func (_u *DepartmentUpdateOne) SetNillableKet(v *string) *DepartmentUpdateOne {
+	if v != nil {
+		_u.SetKet(*v)
 	}
-	return duo
+	return _u
 }
 
 // ClearKet clears the value of the "ket" field.
-func (duo *DepartmentUpdateOne) ClearKet() *DepartmentUpdateOne {
-	duo.mutation.ClearKet()
-	return duo
+func (_u *DepartmentUpdateOne) ClearKet() *DepartmentUpdateOne {
+	_u.mutation.ClearKet()
+	return _u
 }
 
 // Mutation returns the DepartmentMutation object of the builder.
-func (duo *DepartmentUpdateOne) Mutation() *DepartmentMutation {
-	return duo.mutation
+func (_u *DepartmentUpdateOne) Mutation() *DepartmentMutation {
+	return _u.mutation
 }
 
 // Where appends a list predicates to the DepartmentUpdate builder.
-func (duo *DepartmentUpdateOne) Where(ps ...predicate.Department) *DepartmentUpdateOne {
-	duo.mutation.Where(ps...)
-	return duo
+func (_u *DepartmentUpdateOne) Where(ps ...predicate.Department) *DepartmentUpdateOne {
+	_u.mutation.Where(ps...)
+	return _u
 }
 
 // Select allows selecting one or more fields (columns) of the returned entity.
 // The default is selecting all fields defined in the entity schema.
-func (duo *DepartmentUpdateOne) Select(field string, fields ...string) *DepartmentUpdateOne {
-	duo.fields = append([]string{field}, fields...)
-	return duo
+func (_u *DepartmentUpdateOne) Select(field string, fields ...string) *DepartmentUpdateOne {
+	_u.fields = append([]string{field}, fields...)
+	return _u
 }
 
 // Save executes the query and returns the updated Department entity.
-func (duo *DepartmentUpdateOne) Save(ctx context.Context) (*Department, error) {
-	duo.defaults()
-	return withHooks(ctx, duo.sqlSave, duo.mutation, duo.hooks)
+func (_u *DepartmentUpdateOne) Save(ctx context.Context) (*Department, error) {
+	_u.defaults()
+	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
 // SaveX is like Save, but panics if an error occurs.
-func (duo *DepartmentUpdateOne) SaveX(ctx context.Context) *Department {
-	node, err := duo.Save(ctx)
+func (_u *DepartmentUpdateOne) SaveX(ctx context.Context) *Department {
+	node, err := _u.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -347,34 +347,34 @@ func (duo *DepartmentUpdateOne) SaveX(ctx context.Context) *Department {
 }
 
 // Exec executes the query on the entity.
-func (duo *DepartmentUpdateOne) Exec(ctx context.Context) error {
-	_, err := duo.Save(ctx)
+func (_u *DepartmentUpdateOne) Exec(ctx context.Context) error {
+	_, err := _u.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (duo *DepartmentUpdateOne) ExecX(ctx context.Context) {
-	if err := duo.Exec(ctx); err != nil {
+func (_u *DepartmentUpdateOne) ExecX(ctx context.Context) {
+	if err := _u.Exec(ctx); err != nil {
 		panic(err)
 	}
 }
 
 // defaults sets the default values of the builder before save.
-func (duo *DepartmentUpdateOne) defaults() {
-	if _, ok := duo.mutation.UpdateTime(); !ok {
+func (_u *DepartmentUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdateTime(); !ok {
 		v := department.UpdateDefaultUpdateTime()
-		duo.mutation.SetUpdateTime(v)
+		_u.mutation.SetUpdateTime(v)
 	}
 }
 
-func (duo *DepartmentUpdateOne) sqlSave(ctx context.Context) (_node *Department, err error) {
+func (_u *DepartmentUpdateOne) sqlSave(ctx context.Context) (_node *Department, err error) {
 	_spec := sqlgraph.NewUpdateSpec(department.Table, department.Columns, sqlgraph.NewFieldSpec(department.FieldID, field.TypeInt64))
-	id, ok := duo.mutation.ID()
+	id, ok := _u.mutation.ID()
 	if !ok {
 		return nil, &ValidationError{Name: "id", err: errors.New(`model: missing "Department.id" for update`)}
 	}
 	_spec.Node.ID.Value = id
-	if fields := duo.fields; len(fields) > 0 {
+	if fields := _u.fields; len(fields) > 0 {
 		_spec.Node.Columns = make([]string, 0, len(fields))
 		_spec.Node.Columns = append(_spec.Node.Columns, department.FieldID)
 		for _, f := range fields {
@@ -386,44 +386,44 @@ func (duo *DepartmentUpdateOne) sqlSave(ctx context.Context) (_node *Department,
 			}
 		}
 	}
-	if ps := duo.mutation.predicates; len(ps) > 0 {
+	if ps := _u.mutation.predicates; len(ps) > 0 {
 		_spec.Predicate = func(selector *sql.Selector) {
 			for i := range ps {
 				ps[i](selector)
 			}
 		}
 	}
-	if value, ok := duo.mutation.UpdateTime(); ok {
+	if value, ok := _u.mutation.UpdateTime(); ok {
 		_spec.SetField(department.FieldUpdateTime, field.TypeTime, value)
 	}
-	if value, ok := duo.mutation.DeleteTime(); ok {
+	if value, ok := _u.mutation.DeleteTime(); ok {
 		_spec.SetField(department.FieldDeleteTime, field.TypeTime, value)
 	}
-	if duo.mutation.DeleteTimeCleared() {
+	if _u.mutation.DeleteTimeCleared() {
 		_spec.ClearField(department.FieldDeleteTime, field.TypeTime)
 	}
-	if value, ok := duo.mutation.DepartCode(); ok {
+	if value, ok := _u.mutation.DepartCode(); ok {
 		_spec.SetField(department.FieldDepartCode, field.TypeString, value)
 	}
-	if duo.mutation.DepartCodeCleared() {
+	if _u.mutation.DepartCodeCleared() {
 		_spec.ClearField(department.FieldDepartCode, field.TypeString)
 	}
-	if value, ok := duo.mutation.DepartName(); ok {
+	if value, ok := _u.mutation.DepartName(); ok {
 		_spec.SetField(department.FieldDepartName, field.TypeString, value)
 	}
-	if value, ok := duo.mutation.Status(); ok {
+	if value, ok := _u.mutation.Status(); ok {
 		_spec.SetField(department.FieldStatus, field.TypeString, value)
 	}
-	if value, ok := duo.mutation.Ket(); ok {
+	if value, ok := _u.mutation.Ket(); ok {
 		_spec.SetField(department.FieldKet, field.TypeString, value)
 	}
-	if duo.mutation.KetCleared() {
+	if _u.mutation.KetCleared() {
 		_spec.ClearField(department.FieldKet, field.TypeString)
 	}
-	_node = &Department{config: duo.config}
+	_node = &Department{config: _u.config}
 	_spec.Assign = _node.assignValues
 	_spec.ScanValues = _node.scanValues
-	if err = sqlgraph.UpdateNode(ctx, duo.driver, _spec); err != nil {
+	if err = sqlgraph.UpdateNode(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
 			err = &NotFoundError{department.Label}
 		} else if sqlgraph.IsConstraintError(err) {
@@ -431,6 +431,6 @@ func (duo *DepartmentUpdateOne) sqlSave(ctx context.Context) (_node *Department,
 		}
 		return nil, err
 	}
-	duo.mutation.done = true
+	_u.mutation.done = true
 	return _node, nil
 }

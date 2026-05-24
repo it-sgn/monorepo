@@ -20,216 +20,244 @@ type BiometricCreate struct {
 	hooks    []Hook
 }
 
+// SetCreatedBy sets the "created_by" field.
+func (_c *BiometricCreate) SetCreatedBy(v string) *BiometricCreate {
+	_c.mutation.SetCreatedBy(v)
+	return _c
+}
+
+// SetNillableCreatedBy sets the "created_by" field if the given value is not nil.
+func (_c *BiometricCreate) SetNillableCreatedBy(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetCreatedBy(*v)
+	}
+	return _c
+}
+
+// SetUpdatedBy sets the "updated_by" field.
+func (_c *BiometricCreate) SetUpdatedBy(v string) *BiometricCreate {
+	_c.mutation.SetUpdatedBy(v)
+	return _c
+}
+
+// SetNillableUpdatedBy sets the "updated_by" field if the given value is not nil.
+func (_c *BiometricCreate) SetNillableUpdatedBy(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetUpdatedBy(*v)
+	}
+	return _c
+}
+
 // SetCreateTime sets the "create_time" field.
-func (bc *BiometricCreate) SetCreateTime(t time.Time) *BiometricCreate {
-	bc.mutation.SetCreateTime(t)
-	return bc
+func (_c *BiometricCreate) SetCreateTime(v time.Time) *BiometricCreate {
+	_c.mutation.SetCreateTime(v)
+	return _c
 }
 
 // SetNillableCreateTime sets the "create_time" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableCreateTime(t *time.Time) *BiometricCreate {
-	if t != nil {
-		bc.SetCreateTime(*t)
+func (_c *BiometricCreate) SetNillableCreateTime(v *time.Time) *BiometricCreate {
+	if v != nil {
+		_c.SetCreateTime(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetUpdateTime sets the "update_time" field.
-func (bc *BiometricCreate) SetUpdateTime(t time.Time) *BiometricCreate {
-	bc.mutation.SetUpdateTime(t)
-	return bc
+func (_c *BiometricCreate) SetUpdateTime(v time.Time) *BiometricCreate {
+	_c.mutation.SetUpdateTime(v)
+	return _c
 }
 
 // SetNillableUpdateTime sets the "update_time" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableUpdateTime(t *time.Time) *BiometricCreate {
-	if t != nil {
-		bc.SetUpdateTime(*t)
+func (_c *BiometricCreate) SetNillableUpdateTime(v *time.Time) *BiometricCreate {
+	if v != nil {
+		_c.SetUpdateTime(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetDeleteTime sets the "delete_time" field.
-func (bc *BiometricCreate) SetDeleteTime(t time.Time) *BiometricCreate {
-	bc.mutation.SetDeleteTime(t)
-	return bc
+func (_c *BiometricCreate) SetDeleteTime(v time.Time) *BiometricCreate {
+	_c.mutation.SetDeleteTime(v)
+	return _c
 }
 
 // SetNillableDeleteTime sets the "delete_time" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableDeleteTime(t *time.Time) *BiometricCreate {
-	if t != nil {
-		bc.SetDeleteTime(*t)
+func (_c *BiometricCreate) SetNillableDeleteTime(v *time.Time) *BiometricCreate {
+	if v != nil {
+		_c.SetDeleteTime(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFingercode sets the "fingercode" field.
-func (bc *BiometricCreate) SetFingercode(s string) *BiometricCreate {
-	bc.mutation.SetFingercode(s)
-	return bc
+func (_c *BiometricCreate) SetFingercode(v string) *BiometricCreate {
+	_c.mutation.SetFingercode(v)
+	return _c
 }
 
 // SetNillableFingercode sets the "fingercode" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFingercode(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFingercode(*s)
+func (_c *BiometricCreate) SetNillableFingercode(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFingercode(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger0 sets the "finger0" field.
-func (bc *BiometricCreate) SetFinger0(s string) *BiometricCreate {
-	bc.mutation.SetFinger0(s)
-	return bc
+func (_c *BiometricCreate) SetFinger0(v string) *BiometricCreate {
+	_c.mutation.SetFinger0(v)
+	return _c
 }
 
 // SetNillableFinger0 sets the "finger0" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger0(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger0(*s)
+func (_c *BiometricCreate) SetNillableFinger0(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger0(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger1 sets the "finger1" field.
-func (bc *BiometricCreate) SetFinger1(s string) *BiometricCreate {
-	bc.mutation.SetFinger1(s)
-	return bc
+func (_c *BiometricCreate) SetFinger1(v string) *BiometricCreate {
+	_c.mutation.SetFinger1(v)
+	return _c
 }
 
 // SetNillableFinger1 sets the "finger1" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger1(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger1(*s)
+func (_c *BiometricCreate) SetNillableFinger1(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger1(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger2 sets the "finger2" field.
-func (bc *BiometricCreate) SetFinger2(s string) *BiometricCreate {
-	bc.mutation.SetFinger2(s)
-	return bc
+func (_c *BiometricCreate) SetFinger2(v string) *BiometricCreate {
+	_c.mutation.SetFinger2(v)
+	return _c
 }
 
 // SetNillableFinger2 sets the "finger2" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger2(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger2(*s)
+func (_c *BiometricCreate) SetNillableFinger2(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger2(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger3 sets the "finger3" field.
-func (bc *BiometricCreate) SetFinger3(s string) *BiometricCreate {
-	bc.mutation.SetFinger3(s)
-	return bc
+func (_c *BiometricCreate) SetFinger3(v string) *BiometricCreate {
+	_c.mutation.SetFinger3(v)
+	return _c
 }
 
 // SetNillableFinger3 sets the "finger3" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger3(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger3(*s)
+func (_c *BiometricCreate) SetNillableFinger3(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger3(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger4 sets the "finger4" field.
-func (bc *BiometricCreate) SetFinger4(s string) *BiometricCreate {
-	bc.mutation.SetFinger4(s)
-	return bc
+func (_c *BiometricCreate) SetFinger4(v string) *BiometricCreate {
+	_c.mutation.SetFinger4(v)
+	return _c
 }
 
 // SetNillableFinger4 sets the "finger4" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger4(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger4(*s)
+func (_c *BiometricCreate) SetNillableFinger4(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger4(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger5 sets the "finger5" field.
-func (bc *BiometricCreate) SetFinger5(s string) *BiometricCreate {
-	bc.mutation.SetFinger5(s)
-	return bc
+func (_c *BiometricCreate) SetFinger5(v string) *BiometricCreate {
+	_c.mutation.SetFinger5(v)
+	return _c
 }
 
 // SetNillableFinger5 sets the "finger5" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger5(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger5(*s)
+func (_c *BiometricCreate) SetNillableFinger5(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger5(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger6 sets the "finger6" field.
-func (bc *BiometricCreate) SetFinger6(s string) *BiometricCreate {
-	bc.mutation.SetFinger6(s)
-	return bc
+func (_c *BiometricCreate) SetFinger6(v string) *BiometricCreate {
+	_c.mutation.SetFinger6(v)
+	return _c
 }
 
 // SetNillableFinger6 sets the "finger6" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger6(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger6(*s)
+func (_c *BiometricCreate) SetNillableFinger6(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger6(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger7 sets the "finger7" field.
-func (bc *BiometricCreate) SetFinger7(s string) *BiometricCreate {
-	bc.mutation.SetFinger7(s)
-	return bc
+func (_c *BiometricCreate) SetFinger7(v string) *BiometricCreate {
+	_c.mutation.SetFinger7(v)
+	return _c
 }
 
 // SetNillableFinger7 sets the "finger7" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger7(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger7(*s)
+func (_c *BiometricCreate) SetNillableFinger7(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger7(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger8 sets the "finger8" field.
-func (bc *BiometricCreate) SetFinger8(s string) *BiometricCreate {
-	bc.mutation.SetFinger8(s)
-	return bc
+func (_c *BiometricCreate) SetFinger8(v string) *BiometricCreate {
+	_c.mutation.SetFinger8(v)
+	return _c
 }
 
 // SetNillableFinger8 sets the "finger8" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger8(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger8(*s)
+func (_c *BiometricCreate) SetNillableFinger8(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger8(*v)
 	}
-	return bc
+	return _c
 }
 
 // SetFinger9 sets the "finger9" field.
-func (bc *BiometricCreate) SetFinger9(s string) *BiometricCreate {
-	bc.mutation.SetFinger9(s)
-	return bc
+func (_c *BiometricCreate) SetFinger9(v string) *BiometricCreate {
+	_c.mutation.SetFinger9(v)
+	return _c
 }
 
 // SetNillableFinger9 sets the "finger9" field if the given value is not nil.
-func (bc *BiometricCreate) SetNillableFinger9(s *string) *BiometricCreate {
-	if s != nil {
-		bc.SetFinger9(*s)
+func (_c *BiometricCreate) SetNillableFinger9(v *string) *BiometricCreate {
+	if v != nil {
+		_c.SetFinger9(*v)
 	}
-	return bc
+	return _c
 }
 
 // Mutation returns the BiometricMutation object of the builder.
-func (bc *BiometricCreate) Mutation() *BiometricMutation {
-	return bc.mutation
+func (_c *BiometricCreate) Mutation() *BiometricMutation {
+	return _c.mutation
 }
 
 // Save creates the Biometric in the database.
-func (bc *BiometricCreate) Save(ctx context.Context) (*Biometric, error) {
-	bc.defaults()
-	return withHooks(ctx, bc.sqlSave, bc.mutation, bc.hooks)
+func (_c *BiometricCreate) Save(ctx context.Context) (*Biometric, error) {
+	_c.defaults()
+	return withHooks(ctx, _c.sqlSave, _c.mutation, _c.hooks)
 }
 
 // SaveX calls Save and panics if Save returns an error.
-func (bc *BiometricCreate) SaveX(ctx context.Context) *Biometric {
-	v, err := bc.Save(ctx)
+func (_c *BiometricCreate) SaveX(ctx context.Context) *Biometric {
+	v, err := _c.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -237,47 +265,47 @@ func (bc *BiometricCreate) SaveX(ctx context.Context) *Biometric {
 }
 
 // Exec executes the query.
-func (bc *BiometricCreate) Exec(ctx context.Context) error {
-	_, err := bc.Save(ctx)
+func (_c *BiometricCreate) Exec(ctx context.Context) error {
+	_, err := _c.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (bc *BiometricCreate) ExecX(ctx context.Context) {
-	if err := bc.Exec(ctx); err != nil {
+func (_c *BiometricCreate) ExecX(ctx context.Context) {
+	if err := _c.Exec(ctx); err != nil {
 		panic(err)
 	}
 }
 
 // defaults sets the default values of the builder before save.
-func (bc *BiometricCreate) defaults() {
-	if _, ok := bc.mutation.CreateTime(); !ok {
+func (_c *BiometricCreate) defaults() {
+	if _, ok := _c.mutation.CreateTime(); !ok {
 		v := biometric.DefaultCreateTime()
-		bc.mutation.SetCreateTime(v)
+		_c.mutation.SetCreateTime(v)
 	}
-	if _, ok := bc.mutation.UpdateTime(); !ok {
+	if _, ok := _c.mutation.UpdateTime(); !ok {
 		v := biometric.DefaultUpdateTime()
-		bc.mutation.SetUpdateTime(v)
+		_c.mutation.SetUpdateTime(v)
 	}
 }
 
 // check runs all checks and user-defined validators on the builder.
-func (bc *BiometricCreate) check() error {
-	if _, ok := bc.mutation.CreateTime(); !ok {
+func (_c *BiometricCreate) check() error {
+	if _, ok := _c.mutation.CreateTime(); !ok {
 		return &ValidationError{Name: "create_time", err: errors.New(`model: missing required field "Biometric.create_time"`)}
 	}
-	if _, ok := bc.mutation.UpdateTime(); !ok {
+	if _, ok := _c.mutation.UpdateTime(); !ok {
 		return &ValidationError{Name: "update_time", err: errors.New(`model: missing required field "Biometric.update_time"`)}
 	}
 	return nil
 }
 
-func (bc *BiometricCreate) sqlSave(ctx context.Context) (*Biometric, error) {
-	if err := bc.check(); err != nil {
+func (_c *BiometricCreate) sqlSave(ctx context.Context) (*Biometric, error) {
+	if err := _c.check(); err != nil {
 		return nil, err
 	}
-	_node, _spec := bc.createSpec()
-	if err := sqlgraph.CreateNode(ctx, bc.driver, _spec); err != nil {
+	_node, _spec := _c.createSpec()
+	if err := sqlgraph.CreateNode(ctx, _c.driver, _spec); err != nil {
 		if sqlgraph.IsConstraintError(err) {
 			err = &ConstraintError{msg: err.Error(), wrap: err}
 		}
@@ -285,69 +313,77 @@ func (bc *BiometricCreate) sqlSave(ctx context.Context) (*Biometric, error) {
 	}
 	id := _spec.ID.Value.(int64)
 	_node.ID = int64(id)
-	bc.mutation.id = &_node.ID
-	bc.mutation.done = true
+	_c.mutation.id = &_node.ID
+	_c.mutation.done = true
 	return _node, nil
 }
 
-func (bc *BiometricCreate) createSpec() (*Biometric, *sqlgraph.CreateSpec) {
+func (_c *BiometricCreate) createSpec() (*Biometric, *sqlgraph.CreateSpec) {
 	var (
-		_node = &Biometric{config: bc.config}
+		_node = &Biometric{config: _c.config}
 		_spec = sqlgraph.NewCreateSpec(biometric.Table, sqlgraph.NewFieldSpec(biometric.FieldID, field.TypeInt64))
 	)
-	if value, ok := bc.mutation.CreateTime(); ok {
+	if value, ok := _c.mutation.CreatedBy(); ok {
+		_spec.SetField(biometric.FieldCreatedBy, field.TypeString, value)
+		_node.CreatedBy = value
+	}
+	if value, ok := _c.mutation.UpdatedBy(); ok {
+		_spec.SetField(biometric.FieldUpdatedBy, field.TypeString, value)
+		_node.UpdatedBy = value
+	}
+	if value, ok := _c.mutation.CreateTime(); ok {
 		_spec.SetField(biometric.FieldCreateTime, field.TypeTime, value)
 		_node.CreateTime = value
 	}
-	if value, ok := bc.mutation.UpdateTime(); ok {
+	if value, ok := _c.mutation.UpdateTime(); ok {
 		_spec.SetField(biometric.FieldUpdateTime, field.TypeTime, value)
 		_node.UpdateTime = value
 	}
-	if value, ok := bc.mutation.DeleteTime(); ok {
+	if value, ok := _c.mutation.DeleteTime(); ok {
 		_spec.SetField(biometric.FieldDeleteTime, field.TypeTime, value)
 		_node.DeleteTime = value
 	}
-	if value, ok := bc.mutation.Fingercode(); ok {
+	if value, ok := _c.mutation.Fingercode(); ok {
 		_spec.SetField(biometric.FieldFingercode, field.TypeString, value)
 		_node.Fingercode = value
 	}
-	if value, ok := bc.mutation.Finger0(); ok {
+	if value, ok := _c.mutation.Finger0(); ok {
 		_spec.SetField(biometric.FieldFinger0, field.TypeString, value)
 		_node.Finger0 = value
 	}
-	if value, ok := bc.mutation.Finger1(); ok {
+	if value, ok := _c.mutation.Finger1(); ok {
 		_spec.SetField(biometric.FieldFinger1, field.TypeString, value)
 		_node.Finger1 = value
 	}
-	if value, ok := bc.mutation.Finger2(); ok {
+	if value, ok := _c.mutation.Finger2(); ok {
 		_spec.SetField(biometric.FieldFinger2, field.TypeString, value)
 		_node.Finger2 = value
 	}
-	if value, ok := bc.mutation.Finger3(); ok {
+	if value, ok := _c.mutation.Finger3(); ok {
 		_spec.SetField(biometric.FieldFinger3, field.TypeString, value)
 		_node.Finger3 = value
 	}
-	if value, ok := bc.mutation.Finger4(); ok {
+	if value, ok := _c.mutation.Finger4(); ok {
 		_spec.SetField(biometric.FieldFinger4, field.TypeString, value)
 		_node.Finger4 = value
 	}
-	if value, ok := bc.mutation.Finger5(); ok {
+	if value, ok := _c.mutation.Finger5(); ok {
 		_spec.SetField(biometric.FieldFinger5, field.TypeString, value)
 		_node.Finger5 = value
 	}
-	if value, ok := bc.mutation.Finger6(); ok {
+	if value, ok := _c.mutation.Finger6(); ok {
 		_spec.SetField(biometric.FieldFinger6, field.TypeString, value)
 		_node.Finger6 = value
 	}
-	if value, ok := bc.mutation.Finger7(); ok {
+	if value, ok := _c.mutation.Finger7(); ok {
 		_spec.SetField(biometric.FieldFinger7, field.TypeString, value)
 		_node.Finger7 = value
 	}
-	if value, ok := bc.mutation.Finger8(); ok {
+	if value, ok := _c.mutation.Finger8(); ok {
 		_spec.SetField(biometric.FieldFinger8, field.TypeString, value)
 		_node.Finger8 = value
 	}
-	if value, ok := bc.mutation.Finger9(); ok {
+	if value, ok := _c.mutation.Finger9(); ok {
 		_spec.SetField(biometric.FieldFinger9, field.TypeString, value)
 		_node.Finger9 = value
 	}
@@ -362,16 +398,16 @@ type BiometricCreateBulk struct {
 }
 
 // Save creates the Biometric entities in the database.
-func (bcb *BiometricCreateBulk) Save(ctx context.Context) ([]*Biometric, error) {
-	if bcb.err != nil {
-		return nil, bcb.err
+func (_c *BiometricCreateBulk) Save(ctx context.Context) ([]*Biometric, error) {
+	if _c.err != nil {
+		return nil, _c.err
 	}
-	specs := make([]*sqlgraph.CreateSpec, len(bcb.builders))
-	nodes := make([]*Biometric, len(bcb.builders))
-	mutators := make([]Mutator, len(bcb.builders))
-	for i := range bcb.builders {
+	specs := make([]*sqlgraph.CreateSpec, len(_c.builders))
+	nodes := make([]*Biometric, len(_c.builders))
+	mutators := make([]Mutator, len(_c.builders))
+	for i := range _c.builders {
 		func(i int, root context.Context) {
-			builder := bcb.builders[i]
+			builder := _c.builders[i]
 			builder.defaults()
 			var mut Mutator = MutateFunc(func(ctx context.Context, m Mutation) (Value, error) {
 				mutation, ok := m.(*BiometricMutation)
@@ -385,11 +421,11 @@ func (bcb *BiometricCreateBulk) Save(ctx context.Context) ([]*Biometric, error) 
 				var err error
 				nodes[i], specs[i] = builder.createSpec()
 				if i < len(mutators)-1 {
-					_, err = mutators[i+1].Mutate(root, bcb.builders[i+1].mutation)
+					_, err = mutators[i+1].Mutate(root, _c.builders[i+1].mutation)
 				} else {
 					spec := &sqlgraph.BatchCreateSpec{Nodes: specs}
 					// Invoke the actual operation on the latest mutation in the chain.
-					if err = sqlgraph.BatchCreate(ctx, bcb.driver, spec); err != nil {
+					if err = sqlgraph.BatchCreate(ctx, _c.driver, spec); err != nil {
 						if sqlgraph.IsConstraintError(err) {
 							err = &ConstraintError{msg: err.Error(), wrap: err}
 						}
@@ -413,7 +449,7 @@ func (bcb *BiometricCreateBulk) Save(ctx context.Context) ([]*Biometric, error) 
 		}(i, ctx)
 	}
 	if len(mutators) > 0 {
-		if _, err := mutators[0].Mutate(ctx, bcb.builders[0].mutation); err != nil {
+		if _, err := mutators[0].Mutate(ctx, _c.builders[0].mutation); err != nil {
 			return nil, err
 		}
 	}
@@ -421,8 +457,8 @@ func (bcb *BiometricCreateBulk) Save(ctx context.Context) ([]*Biometric, error) 
 }
 
 // SaveX is like Save, but panics if an error occurs.
-func (bcb *BiometricCreateBulk) SaveX(ctx context.Context) []*Biometric {
-	v, err := bcb.Save(ctx)
+func (_c *BiometricCreateBulk) SaveX(ctx context.Context) []*Biometric {
+	v, err := _c.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -430,14 +466,14 @@ func (bcb *BiometricCreateBulk) SaveX(ctx context.Context) []*Biometric {
 }
 
 // Exec executes the query.
-func (bcb *BiometricCreateBulk) Exec(ctx context.Context) error {
-	_, err := bcb.Save(ctx)
+func (_c *BiometricCreateBulk) Exec(ctx context.Context) error {
+	_, err := _c.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (bcb *BiometricCreateBulk) ExecX(ctx context.Context) {
-	if err := bcb.Exec(ctx); err != nil {
+func (_c *BiometricCreateBulk) ExecX(ctx context.Context) {
+	if err := _c.Exec(ctx); err != nil {
 		panic(err)
 	}
 }

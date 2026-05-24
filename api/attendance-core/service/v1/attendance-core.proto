@@ -1,0 +1,61 @@
+syntax = "proto3";
+
+package attendancecore.v1;
+
+// import "google/protobuf/timestamp.proto";
+import "google/api/annotations.proto"; // For HTTP mapping
+import "openapiv3/annotations.proto";
+
+option go_package = "api/attendancecore/v1;v1";
+
+option (openapi.v3.document) = {
+    info: {
+        title: "attendance service",
+        version: "0.0.1",
+        contact: {
+            name: "fuadhs",
+            url: "http://localhost:8001",
+            email: "fuadhasan2@gmail.com"
+        },
+        description: "attendance service";
+    },
+};
+service AttendanceService {
+  rpc GetMonthlyAttendance(GetMonthlyAttendanceRequest) returns (GetMonthlyAttendanceResponse){
+    option (google.api.http) = {
+		get: "/v1/attendance"
+	 };
+  };
+}
+
+message GetMonthlyAttendanceRequest {
+  string department_code = 1;
+  string start_date = 2; // YYYY-MM-DD
+  string end_date = 3;   // YYYY-MM-DD
+}
+
+message GetMonthlyAttendanceResponse {
+  string title = 1;
+  string heading = 2;
+  string heading1 = 3;
+  string heading2 = 4;
+  map<string, string> summary = 5;
+  repeated DateEntry tanggal = 6;
+  repeated AbsenEntry absen = 7;
+}
+
+message DateEntry {
+  map<string, string> days = 1; // D1: "16", H1: "Senin"
+}
+
+message AbsenEntry {
+  string karya_code = 1;
+  string karya_name = 2;
+  string depart_code = 3;
+  string depart_name = 4;
+  map<string, string> headers = 5; // H1: "Senin"
+  map<string, string> dates = 6;   // D1: "16"
+  map<string, string> times = 7;   // T1: "10-16"
+  map<string, string> check_in_times = 8; // M1: "06:35"
+  map<string, string> check_out_times = 9; // P01: "19:03"
+}

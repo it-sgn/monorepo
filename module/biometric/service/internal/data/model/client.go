@@ -252,8 +252,8 @@ func (c *BiometricClient) Update() *BiometricUpdate {
 }
 
 // UpdateOne returns an update builder for the given entity.
-func (c *BiometricClient) UpdateOne(b *Biometric) *BiometricUpdateOne {
-	mutation := newBiometricMutation(c.config, OpUpdateOne, withBiometric(b))
+func (c *BiometricClient) UpdateOne(_m *Biometric) *BiometricUpdateOne {
+	mutation := newBiometricMutation(c.config, OpUpdateOne, withBiometric(_m))
 	return &BiometricUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
@@ -270,8 +270,8 @@ func (c *BiometricClient) Delete() *BiometricDelete {
 }
 
 // DeleteOne returns a builder for deleting the given entity.
-func (c *BiometricClient) DeleteOne(b *Biometric) *BiometricDeleteOne {
-	return c.DeleteOneID(b.ID)
+func (c *BiometricClient) DeleteOne(_m *Biometric) *BiometricDeleteOne {
+	return c.DeleteOneID(_m.ID)
 }
 
 // DeleteOneID returns a builder for deleting the given entity by its id.

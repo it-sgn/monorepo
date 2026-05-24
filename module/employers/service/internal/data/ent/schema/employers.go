@@ -30,6 +30,8 @@ func (Employers) Fields() []ent.Field {
 		field.String("kode_finger").Comment(""),
 		field.String("depart_code").Comment(""),
 		field.Int32("status").Default(0),
+		field.String("kode_perusahaan"),
+		field.String("kode_cabang"),
 	}
 }
 

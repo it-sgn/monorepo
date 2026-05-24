@@ -54,6 +54,16 @@ func IDLTE(id int64) predicate.Employers {
 	return predicate.Employers(sql.FieldLTE(FieldID, id))
 }
 
+// CreatedBy applies equality check predicate on the "created_by" field. It's identical to CreatedByEQ.
+func CreatedBy(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldCreatedBy, v))
+}
+
+// UpdatedBy applies equality check predicate on the "updated_by" field. It's identical to UpdatedByEQ.
+func UpdatedBy(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldUpdatedBy, v))
+}
+
 // CreateTime applies equality check predicate on the "create_time" field. It's identical to CreateTimeEQ.
 func CreateTime(v time.Time) predicate.Employers {
 	return predicate.Employers(sql.FieldEQ(FieldCreateTime, v))
@@ -117,6 +127,166 @@ func DepartCode(v string) predicate.Employers {
 // Status applies equality check predicate on the "status" field. It's identical to StatusEQ.
 func Status(v int32) predicate.Employers {
 	return predicate.Employers(sql.FieldEQ(FieldStatus, v))
+}
+
+// KodePerusahaan applies equality check predicate on the "kode_perusahaan" field. It's identical to KodePerusahaanEQ.
+func KodePerusahaan(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldKodePerusahaan, v))
+}
+
+// KodeCabang applies equality check predicate on the "kode_cabang" field. It's identical to KodeCabangEQ.
+func KodeCabang(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldKodeCabang, v))
+}
+
+// CreatedByEQ applies the EQ predicate on the "created_by" field.
+func CreatedByEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldCreatedBy, v))
+}
+
+// CreatedByNEQ applies the NEQ predicate on the "created_by" field.
+func CreatedByNEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldNEQ(FieldCreatedBy, v))
+}
+
+// CreatedByIn applies the In predicate on the "created_by" field.
+func CreatedByIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldIn(FieldCreatedBy, vs...))
+}
+
+// CreatedByNotIn applies the NotIn predicate on the "created_by" field.
+func CreatedByNotIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldNotIn(FieldCreatedBy, vs...))
+}
+
+// CreatedByGT applies the GT predicate on the "created_by" field.
+func CreatedByGT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGT(FieldCreatedBy, v))
+}
+
+// CreatedByGTE applies the GTE predicate on the "created_by" field.
+func CreatedByGTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGTE(FieldCreatedBy, v))
+}
+
+// CreatedByLT applies the LT predicate on the "created_by" field.
+func CreatedByLT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLT(FieldCreatedBy, v))
+}
+
+// CreatedByLTE applies the LTE predicate on the "created_by" field.
+func CreatedByLTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLTE(FieldCreatedBy, v))
+}
+
+// CreatedByContains applies the Contains predicate on the "created_by" field.
+func CreatedByContains(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContains(FieldCreatedBy, v))
+}
+
+// CreatedByHasPrefix applies the HasPrefix predicate on the "created_by" field.
+func CreatedByHasPrefix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasPrefix(FieldCreatedBy, v))
+}
+
+// CreatedByHasSuffix applies the HasSuffix predicate on the "created_by" field.
+func CreatedByHasSuffix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasSuffix(FieldCreatedBy, v))
+}
+
+// CreatedByIsNil applies the IsNil predicate on the "created_by" field.
+func CreatedByIsNil() predicate.Employers {
+	return predicate.Employers(sql.FieldIsNull(FieldCreatedBy))
+}
+
+// CreatedByNotNil applies the NotNil predicate on the "created_by" field.
+func CreatedByNotNil() predicate.Employers {
+	return predicate.Employers(sql.FieldNotNull(FieldCreatedBy))
+}
+
+// CreatedByEqualFold applies the EqualFold predicate on the "created_by" field.
+func CreatedByEqualFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEqualFold(FieldCreatedBy, v))
+}
+
+// CreatedByContainsFold applies the ContainsFold predicate on the "created_by" field.
+func CreatedByContainsFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContainsFold(FieldCreatedBy, v))
+}
+
+// UpdatedByEQ applies the EQ predicate on the "updated_by" field.
+func UpdatedByEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldUpdatedBy, v))
+}
+
+// UpdatedByNEQ applies the NEQ predicate on the "updated_by" field.
+func UpdatedByNEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldNEQ(FieldUpdatedBy, v))
+}
+
+// UpdatedByIn applies the In predicate on the "updated_by" field.
+func UpdatedByIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldIn(FieldUpdatedBy, vs...))
+}
+
+// UpdatedByNotIn applies the NotIn predicate on the "updated_by" field.
+func UpdatedByNotIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldNotIn(FieldUpdatedBy, vs...))
+}
+
+// UpdatedByGT applies the GT predicate on the "updated_by" field.
+func UpdatedByGT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGT(FieldUpdatedBy, v))
+}
+
+// UpdatedByGTE applies the GTE predicate on the "updated_by" field.
+func UpdatedByGTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGTE(FieldUpdatedBy, v))
+}
+
+// UpdatedByLT applies the LT predicate on the "updated_by" field.
+func UpdatedByLT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLT(FieldUpdatedBy, v))
+}
+
+// UpdatedByLTE applies the LTE predicate on the "updated_by" field.
+func UpdatedByLTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLTE(FieldUpdatedBy, v))
+}
+
+// UpdatedByContains applies the Contains predicate on the "updated_by" field.
+func UpdatedByContains(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContains(FieldUpdatedBy, v))
+}
+
+// UpdatedByHasPrefix applies the HasPrefix predicate on the "updated_by" field.
+func UpdatedByHasPrefix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasPrefix(FieldUpdatedBy, v))
+}
+
+// UpdatedByHasSuffix applies the HasSuffix predicate on the "updated_by" field.
+func UpdatedByHasSuffix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasSuffix(FieldUpdatedBy, v))
+}
+
+// UpdatedByIsNil applies the IsNil predicate on the "updated_by" field.
+func UpdatedByIsNil() predicate.Employers {
+	return predicate.Employers(sql.FieldIsNull(FieldUpdatedBy))
+}
+
+// UpdatedByNotNil applies the NotNil predicate on the "updated_by" field.
+func UpdatedByNotNil() predicate.Employers {
+	return predicate.Employers(sql.FieldNotNull(FieldUpdatedBy))
+}
+
+// UpdatedByEqualFold applies the EqualFold predicate on the "updated_by" field.
+func UpdatedByEqualFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEqualFold(FieldUpdatedBy, v))
+}
+
+// UpdatedByContainsFold applies the ContainsFold predicate on the "updated_by" field.
+func UpdatedByContainsFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContainsFold(FieldUpdatedBy, v))
 }
 
 // CreateTimeEQ applies the EQ predicate on the "create_time" field.
@@ -872,6 +1042,136 @@ func StatusLT(v int32) predicate.Employers {
 // StatusLTE applies the LTE predicate on the "status" field.
 func StatusLTE(v int32) predicate.Employers {
 	return predicate.Employers(sql.FieldLTE(FieldStatus, v))
+}
+
+// KodePerusahaanEQ applies the EQ predicate on the "kode_perusahaan" field.
+func KodePerusahaanEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanNEQ applies the NEQ predicate on the "kode_perusahaan" field.
+func KodePerusahaanNEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldNEQ(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanIn applies the In predicate on the "kode_perusahaan" field.
+func KodePerusahaanIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldIn(FieldKodePerusahaan, vs...))
+}
+
+// KodePerusahaanNotIn applies the NotIn predicate on the "kode_perusahaan" field.
+func KodePerusahaanNotIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldNotIn(FieldKodePerusahaan, vs...))
+}
+
+// KodePerusahaanGT applies the GT predicate on the "kode_perusahaan" field.
+func KodePerusahaanGT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGT(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanGTE applies the GTE predicate on the "kode_perusahaan" field.
+func KodePerusahaanGTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGTE(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanLT applies the LT predicate on the "kode_perusahaan" field.
+func KodePerusahaanLT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLT(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanLTE applies the LTE predicate on the "kode_perusahaan" field.
+func KodePerusahaanLTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLTE(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanContains applies the Contains predicate on the "kode_perusahaan" field.
+func KodePerusahaanContains(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContains(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanHasPrefix applies the HasPrefix predicate on the "kode_perusahaan" field.
+func KodePerusahaanHasPrefix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasPrefix(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanHasSuffix applies the HasSuffix predicate on the "kode_perusahaan" field.
+func KodePerusahaanHasSuffix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasSuffix(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanEqualFold applies the EqualFold predicate on the "kode_perusahaan" field.
+func KodePerusahaanEqualFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEqualFold(FieldKodePerusahaan, v))
+}
+
+// KodePerusahaanContainsFold applies the ContainsFold predicate on the "kode_perusahaan" field.
+func KodePerusahaanContainsFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContainsFold(FieldKodePerusahaan, v))
+}
+
+// KodeCabangEQ applies the EQ predicate on the "kode_cabang" field.
+func KodeCabangEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEQ(FieldKodeCabang, v))
+}
+
+// KodeCabangNEQ applies the NEQ predicate on the "kode_cabang" field.
+func KodeCabangNEQ(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldNEQ(FieldKodeCabang, v))
+}
+
+// KodeCabangIn applies the In predicate on the "kode_cabang" field.
+func KodeCabangIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldIn(FieldKodeCabang, vs...))
+}
+
+// KodeCabangNotIn applies the NotIn predicate on the "kode_cabang" field.
+func KodeCabangNotIn(vs ...string) predicate.Employers {
+	return predicate.Employers(sql.FieldNotIn(FieldKodeCabang, vs...))
+}
+
+// KodeCabangGT applies the GT predicate on the "kode_cabang" field.
+func KodeCabangGT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGT(FieldKodeCabang, v))
+}
+
+// KodeCabangGTE applies the GTE predicate on the "kode_cabang" field.
+func KodeCabangGTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldGTE(FieldKodeCabang, v))
+}
+
+// KodeCabangLT applies the LT predicate on the "kode_cabang" field.
+func KodeCabangLT(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLT(FieldKodeCabang, v))
+}
+
+// KodeCabangLTE applies the LTE predicate on the "kode_cabang" field.
+func KodeCabangLTE(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldLTE(FieldKodeCabang, v))
+}
+
+// KodeCabangContains applies the Contains predicate on the "kode_cabang" field.
+func KodeCabangContains(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContains(FieldKodeCabang, v))
+}
+
+// KodeCabangHasPrefix applies the HasPrefix predicate on the "kode_cabang" field.
+func KodeCabangHasPrefix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasPrefix(FieldKodeCabang, v))
+}
+
+// KodeCabangHasSuffix applies the HasSuffix predicate on the "kode_cabang" field.
+func KodeCabangHasSuffix(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldHasSuffix(FieldKodeCabang, v))
+}
+
+// KodeCabangEqualFold applies the EqualFold predicate on the "kode_cabang" field.
+func KodeCabangEqualFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldEqualFold(FieldKodeCabang, v))
+}
+
+// KodeCabangContainsFold applies the ContainsFold predicate on the "kode_cabang" field.
+func KodeCabangContainsFold(v string) predicate.Employers {
+	return predicate.Employers(sql.FieldContainsFold(FieldKodeCabang, v))
 }
 
 // And groups predicates with the AND operator between them.

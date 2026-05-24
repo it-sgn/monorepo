@@ -54,7 +54,7 @@ func (*Department) scanValues(columns []string) ([]any, error) {
 
 // assignValues assigns the values that were returned from sql.Rows (after scanning)
 // to the Department fields.
-func (d *Department) assignValues(columns []string, values []any) error {
+func (_m *Department) assignValues(columns []string, values []any) error {
 	if m, n := len(values), len(columns); m < n {
 		return fmt.Errorf("mismatch number of scan values: %d != %d", m, n)
 	}
@@ -65,51 +65,51 @@ func (d *Department) assignValues(columns []string, values []any) error {
 			if !ok {
 				return fmt.Errorf("unexpected type %T for field id", value)
 			}
-			d.ID = int64(value.Int64)
+			_m.ID = int64(value.Int64)
 		case department.FieldCreateTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field create_time", values[i])
 			} else if value.Valid {
-				d.CreateTime = value.Time
+				_m.CreateTime = value.Time
 			}
 		case department.FieldUpdateTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field update_time", values[i])
 			} else if value.Valid {
-				d.UpdateTime = value.Time
+				_m.UpdateTime = value.Time
 			}
 		case department.FieldDeleteTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field delete_time", values[i])
 			} else if value.Valid {
-				d.DeleteTime = value.Time
+				_m.DeleteTime = value.Time
 			}
 		case department.FieldDepartCode:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field depart_code", values[i])
 			} else if value.Valid {
-				d.DepartCode = value.String
+				_m.DepartCode = value.String
 			}
 		case department.FieldDepartName:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field depart_name", values[i])
 			} else if value.Valid {
-				d.DepartName = value.String
+				_m.DepartName = value.String
 			}
 		case department.FieldStatus:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field status", values[i])
 			} else if value.Valid {
-				d.Status = value.String
+				_m.Status = value.String
 			}
 		case department.FieldKet:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field ket", values[i])
 			} else if value.Valid {
-				d.Ket = value.String
+				_m.Ket = value.String
 			}
 		default:
-			d.selectValues.Set(columns[i], values[i])
+			_m.selectValues.Set(columns[i], values[i])
 		}
 	}
 	return nil
@@ -117,53 +117,53 @@ func (d *Department) assignValues(columns []string, values []any) error {
 
 // Value returns the ent.Value that was dynamically selected and assigned to the Department.
 // This includes values selected through modifiers, order, etc.
-func (d *Department) Value(name string) (ent.Value, error) {
-	return d.selectValues.Get(name)
+func (_m *Department) Value(name string) (ent.Value, error) {
+	return _m.selectValues.Get(name)
 }
 
 // Update returns a builder for updating this Department.
 // Note that you need to call Department.Unwrap() before calling this method if this Department
 // was returned from a transaction, and the transaction was committed or rolled back.
-func (d *Department) Update() *DepartmentUpdateOne {
-	return NewDepartmentClient(d.config).UpdateOne(d)
+func (_m *Department) Update() *DepartmentUpdateOne {
+	return NewDepartmentClient(_m.config).UpdateOne(_m)
 }
 
 // Unwrap unwraps the Department entity that was returned from a transaction after it was closed,
 // so that all future queries will be executed through the driver which created the transaction.
-func (d *Department) Unwrap() *Department {
-	_tx, ok := d.config.driver.(*txDriver)
+func (_m *Department) Unwrap() *Department {
+	_tx, ok := _m.config.driver.(*txDriver)
 	if !ok {
 		panic("model: Department is not a transactional entity")
 	}
-	d.config.driver = _tx.drv
-	return d
+	_m.config.driver = _tx.drv
+	return _m
 }
 
 // String implements the fmt.Stringer.
-func (d *Department) String() string {
+func (_m *Department) String() string {
 	var builder strings.Builder
 	builder.WriteString("Department(")
-	builder.WriteString(fmt.Sprintf("id=%v, ", d.ID))
+	builder.WriteString(fmt.Sprintf("id=%v, ", _m.ID))
 	builder.WriteString("create_time=")
-	builder.WriteString(d.CreateTime.Format(time.ANSIC))
+	builder.WriteString(_m.CreateTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("update_time=")
-	builder.WriteString(d.UpdateTime.Format(time.ANSIC))
+	builder.WriteString(_m.UpdateTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("delete_time=")
-	builder.WriteString(d.DeleteTime.Format(time.ANSIC))
+	builder.WriteString(_m.DeleteTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("depart_code=")
-	builder.WriteString(d.DepartCode)
+	builder.WriteString(_m.DepartCode)
 	builder.WriteString(", ")
 	builder.WriteString("depart_name=")
-	builder.WriteString(d.DepartName)
+	builder.WriteString(_m.DepartName)
 	builder.WriteString(", ")
 	builder.WriteString("status=")
-	builder.WriteString(d.Status)
+	builder.WriteString(_m.Status)
 	builder.WriteString(", ")
 	builder.WriteString("ket=")
-	builder.WriteString(d.Ket)
+	builder.WriteString(_m.Ket)
 	builder.WriteByte(')')
 	return builder.String()
 }

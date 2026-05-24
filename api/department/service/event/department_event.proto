@@ -2,19 +2,15 @@ syntax = "proto3";
 
 package department.event;
 
-option go_package = "api/department/event;event";
+// option go_package = "api/department/event;event";
+option go_package = "api/event/department/v1;departmentv1";
 
 
-message DepartmentUpdated {
-  int64 id = 1;
-  string depart_code = 2;
-  string depart_name = 3;
-  string ket = 4;
-  string updated_by = 5;
-}
-
-message DepartmentDeleted {
-  int64 id = 1;
-  string depart_code = 2;
-  string deleted_by = 3;
+message DepartmentEvent {
+  string event_type = 1; // "created", "updated", "deleted"
+  int64 id = 2;
+  string depart_code = 3;
+  string depart_name = 4;
+  string status = 5;
+  string ket = 6;
 }

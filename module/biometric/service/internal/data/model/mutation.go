@@ -33,6 +33,8 @@ type BiometricMutation struct {
 	op            Op
 	typ           string
 	id            *int64
+	created_by    *string
+	updated_by    *string
 	create_time   *time.Time
 	update_time   *time.Time
 	delete_time   *time.Time
@@ -149,6 +151,104 @@ func (m *BiometricMutation) IDs(ctx context.Context) ([]int64, error) {
 	default:
 		return nil, fmt.Errorf("IDs is not allowed on %s operations", m.op)
 	}
+}
+
+// SetCreatedBy sets the "created_by" field.
+func (m *BiometricMutation) SetCreatedBy(s string) {
+	m.created_by = &s
+}
+
+// CreatedBy returns the value of the "created_by" field in the mutation.
+func (m *BiometricMutation) CreatedBy() (r string, exists bool) {
+	v := m.created_by
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldCreatedBy returns the old "created_by" field's value of the Biometric entity.
+// If the Biometric object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *BiometricMutation) OldCreatedBy(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldCreatedBy is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldCreatedBy requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldCreatedBy: %w", err)
+	}
+	return oldValue.CreatedBy, nil
+}
+
+// ClearCreatedBy clears the value of the "created_by" field.
+func (m *BiometricMutation) ClearCreatedBy() {
+	m.created_by = nil
+	m.clearedFields[biometric.FieldCreatedBy] = struct{}{}
+}
+
+// CreatedByCleared returns if the "created_by" field was cleared in this mutation.
+func (m *BiometricMutation) CreatedByCleared() bool {
+	_, ok := m.clearedFields[biometric.FieldCreatedBy]
+	return ok
+}
+
+// ResetCreatedBy resets all changes to the "created_by" field.
+func (m *BiometricMutation) ResetCreatedBy() {
+	m.created_by = nil
+	delete(m.clearedFields, biometric.FieldCreatedBy)
+}
+
+// SetUpdatedBy sets the "updated_by" field.
+func (m *BiometricMutation) SetUpdatedBy(s string) {
+	m.updated_by = &s
+}
+
+// UpdatedBy returns the value of the "updated_by" field in the mutation.
+func (m *BiometricMutation) UpdatedBy() (r string, exists bool) {
+	v := m.updated_by
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldUpdatedBy returns the old "updated_by" field's value of the Biometric entity.
+// If the Biometric object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *BiometricMutation) OldUpdatedBy(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldUpdatedBy is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldUpdatedBy requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldUpdatedBy: %w", err)
+	}
+	return oldValue.UpdatedBy, nil
+}
+
+// ClearUpdatedBy clears the value of the "updated_by" field.
+func (m *BiometricMutation) ClearUpdatedBy() {
+	m.updated_by = nil
+	m.clearedFields[biometric.FieldUpdatedBy] = struct{}{}
+}
+
+// UpdatedByCleared returns if the "updated_by" field was cleared in this mutation.
+func (m *BiometricMutation) UpdatedByCleared() bool {
+	_, ok := m.clearedFields[biometric.FieldUpdatedBy]
+	return ok
+}
+
+// ResetUpdatedBy resets all changes to the "updated_by" field.
+func (m *BiometricMutation) ResetUpdatedBy() {
+	m.updated_by = nil
+	delete(m.clearedFields, biometric.FieldUpdatedBy)
 }
 
 // SetCreateTime sets the "create_time" field.
@@ -845,7 +945,13 @@ func (m *BiometricMutation) Type() string {
 // order to get all numeric fields that were incremented/decremented, call
 // AddedFields().
 func (m *BiometricMutation) Fields() []string {
-	fields := make([]string, 0, 14)
+	fields := make([]string, 0, 16)
+	if m.created_by != nil {
+		fields = append(fields, biometric.FieldCreatedBy)
+	}
+	if m.updated_by != nil {
+		fields = append(fields, biometric.FieldUpdatedBy)
+	}
 	if m.create_time != nil {
 		fields = append(fields, biometric.FieldCreateTime)
 	}
@@ -896,6 +1002,10 @@ func (m *BiometricMutation) Fields() []string {
 // schema.
 func (m *BiometricMutation) Field(name string) (ent.Value, bool) {
 	switch name {
+	case biometric.FieldCreatedBy:
+		return m.CreatedBy()
+	case biometric.FieldUpdatedBy:
+		return m.UpdatedBy()
 	case biometric.FieldCreateTime:
 		return m.CreateTime()
 	case biometric.FieldUpdateTime:
@@ -933,6 +1043,10 @@ func (m *BiometricMutation) Field(name string) (ent.Value, bool) {
 // database failed.
 func (m *BiometricMutation) OldField(ctx context.Context, name string) (ent.Value, error) {
 	switch name {
+	case biometric.FieldCreatedBy:
+		return m.OldCreatedBy(ctx)
+	case biometric.FieldUpdatedBy:
+		return m.OldUpdatedBy(ctx)
 	case biometric.FieldCreateTime:
 		return m.OldCreateTime(ctx)
 	case biometric.FieldUpdateTime:
@@ -970,6 +1084,20 @@ func (m *BiometricMutation) OldField(ctx context.Context, name string) (ent.Valu
 // type.
 func (m *BiometricMutation) SetField(name string, value ent.Value) error {
 	switch name {
+	case biometric.FieldCreatedBy:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetCreatedBy(v)
+		return nil
+	case biometric.FieldUpdatedBy:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetUpdatedBy(v)
+		return nil
 	case biometric.FieldCreateTime:
 		v, ok := value.(time.Time)
 		if !ok {
@@ -1098,6 +1226,12 @@ func (m *BiometricMutation) AddField(name string, value ent.Value) error {
 // mutation.
 func (m *BiometricMutation) ClearedFields() []string {
 	var fields []string
+	if m.FieldCleared(biometric.FieldCreatedBy) {
+		fields = append(fields, biometric.FieldCreatedBy)
+	}
+	if m.FieldCleared(biometric.FieldUpdatedBy) {
+		fields = append(fields, biometric.FieldUpdatedBy)
+	}
 	if m.FieldCleared(biometric.FieldDeleteTime) {
 		fields = append(fields, biometric.FieldDeleteTime)
 	}
@@ -1148,6 +1282,12 @@ func (m *BiometricMutation) FieldCleared(name string) bool {
 // error if the field is not defined in the schema.
 func (m *BiometricMutation) ClearField(name string) error {
 	switch name {
+	case biometric.FieldCreatedBy:
+		m.ClearCreatedBy()
+		return nil
+	case biometric.FieldUpdatedBy:
+		m.ClearUpdatedBy()
+		return nil
 	case biometric.FieldDeleteTime:
 		m.ClearDeleteTime()
 		return nil
@@ -1192,6 +1332,12 @@ func (m *BiometricMutation) ClearField(name string) error {
 // It returns an error if the field is not defined in the schema.
 func (m *BiometricMutation) ResetField(name string) error {
 	switch name {
+	case biometric.FieldCreatedBy:
+		m.ResetCreatedBy()
+		return nil
+	case biometric.FieldUpdatedBy:
+		m.ResetUpdatedBy()
+		return nil
 	case biometric.FieldCreateTime:
 		m.ResetCreateTime()
 		return nil

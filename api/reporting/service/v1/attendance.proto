@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+package reporting.service.v1;
+
+import "google/api/annotations.proto";
+import "openapiv3/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+option go_package = "api/reporting/v1;v1";
+
+
+option (openapi.v3.document) = {
+  info: {
+    title: "Reporting Service";
+    version: "1.0.0";
+    contact: {
+      name: "Tim IT",
+      url: "http://localhost:8000";
+      email: "tim-it@example.com";
+    };
+  };
+  external_docs: {
+    url: "https://example.com/docs";
+    description: "Dokumentasi Lengkap Reporting Service";
+  };
+  tags: [
+    { name: "PDF Report", description: "Generate and export PDF reports" }
+  ];
+};
+
+service ReportingService {
+  rpc GenerateRekapException(GenerateReportRequest) returns (GenerateReportResponse) {
+    option (google.api.http) = {
+      post: "/v1/reports/rekap-exception"
+      body: "*"
+    };
+  }
+
+  // === Async ===
+
+  rpc GenerateRekapAsync(GenerateReportRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      post: "/v1/reports/rekap-async"
+      body: "*"
+    };
+  }
+
+   rpc GenerateExceptionReport(GenerateReportRequest) returns (GenerateReportResponse) {
+    option (google.api.http) = {
+      post: "/v1/report/exception"
+      body: "*"
+    };
+  }
+
+  rpc DownloadReport(DownloadReportRequest) returns (DownloadReportResponse) {
+    option (google.api.http) = {
+      get: "/v1/report/download/{report_id}"
+    };
+  }
+
+  // === Cek Status (opsional, jika async) ===
+
+  rpc GetReportStatus(GetReportStatusRequest) returns (GetReportStatusResponse) {
+    option (google.api.http) = {
+      get: "/v1/reports/status/{request_id}"
+    };
+  }
+}
+
+message GenerateReportRequest {
+  // contoh: "2025-07-15"
+  string date = 1;
+  string report_type = 2; // rekap_exception, kendaraan, alat_berat, dll
+  string requester = 3;    // email/nama user
+  string format = 4;       // "pdf", "xlsx" (untuk extensible)
+}
+
+message GenerateReportResponse {
+  string file_url = 1;       // hasil PDF di MinIO / S3
+  string request_id = 2;     // jika async
+  string status = 3;         // "completed", "pending", "failed"
+}
+
+// === Async Report Status ===
+
+message GetReportStatusRequest {
+  string request_id = 1;
+}
+
+message GetReportStatusResponse {
+  string request_id = 1;
+  string status = 2;     // pending, running, done, failed
+  string file_url = 3;   // jika sudah selesai
+  google.protobuf.Timestamp finished_at = 4;
+}
+
+// message GenerateReportRequest {
+//   string start_date = 1; // Format: YYYY-MM-DD
+//   string end_date = 2;   // Format: YYYY-MM-DD
+//   string department_code = 3; // Optional
+// }
+
+message DownloadReportRequest {
+  string report_id = 1;
+}
+
+// ======= RESPONSES =======
+
+// message GenerateReportResponse {
+//   string report_id = 1;
+//   string status = 2; // e.g. "processing", "done", "failed"
+//   string download_url = 3; // Jika sudah selesai
+// }
+
+message DownloadReportResponse {
+  string report_id = 1;
+  string file_url = 2;     // Link ke MinIO/Cloud Storage
+  string filename = 3;
+  string content_type = 4; // e.g. application/pdf
+}

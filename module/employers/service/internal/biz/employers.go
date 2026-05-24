@@ -16,24 +16,31 @@ import (
 )
 
 type Employers struct {
-	Id         int64
-	NoSap      string
-	Nip        string
-	KaryaCode  string
-	KaryaName  string
-	DispName   string
-	PassMesin  string
-	RFIDCard   string
-	Finger     string
-	Department string
-	Status     int32
-	CreatedAt  string
-	UpdatedAt  string
+	Id             int64
+	NoSap          string
+	Nip            string
+	KaryaCode      string
+	KaryaName      string
+	DispName       string
+	PassMesin      string
+	RFIDCard       string
+	Finger         string
+	Department     string
+	Status         int32
+	KodePerusahaan string
+	KodeCabang     string
+	CreatedAt      string
+	UpdatedAt      string
 }
-type DepartData struct {
-	DepartCode string
-	DepartName string
+type EmployerKode struct {
+	NoSap          string
+	Nip            string
+	KaryaCode      string
+	KaryaName      string
+	KodePerusahaan string
+	KodeCabang     string
 }
+
 type FingerData struct {
 	Fingercode string
 	Finger0    string
@@ -49,30 +56,70 @@ type FingerData struct {
 }
 
 type EmployerData struct {
-	Id         int64
-	NoSap      string
-	Nip        string
-	KaryaCode  string
-	KaryaName  string
-	DispName   string
-	PassMesin  string
-	RFIDCard   string
-	Finger     []FingerData
-	Department []DepartData
-	Status     int32
-	CreatedAt  string
-	UpdatedAt  string
+	Id             int64
+	NoSap          string
+	Nip            string
+	KaryaCode      string
+	KaryaName      string
+	DispName       string
+	PassMesin      string
+	RFIDCard       string
+	Finger         []FingerData
+	Department     []DepartData
+	Status         int32
+	KodePerusahaan string
+	KodeCabang     string
+	CreatedAt      string
+	UpdatedAt      string
+}
+
+// string karya_code = 1;
+//
+//	string karya_name = 2;
+//	string department = 3;
+type DepartData struct {
+	DepartCode string `json:"depart_code"`
+	DepartName string `json:"depart_name"`
+}
+
+type EmployerItem struct {
+	KaryaCode      string     `json:"karya_code"`
+	KaryaName      string     `json:"karya_name"`
+	Department     DepartData `json:"department"` // ✅ aktifkan ini
+	KodePerusahaan string     `json:"kode_perusahaan"`
+	KodeCabang     string     `json:"kode_cabang"`
+}
+
+type PerusahaanData struct {
+	KodePerusahaan string
+	NamaPerusahaan string
+	KodeCabang     string
+	Cabang         string
+}
+
+type CabangData struct {
+	KodePerusahaan string
+	NamaPerusahaan string
+	KodeCabang     string
+	Cabang         string
 }
 
 type EmployersRepo interface {
 	CreateEmployers(ctx context.Context, c *Employers) (*Employers, error)
 	UpdateEmployers(ctx context.Context, c *Employers) (*Employers, error)
 	GetEmployersID(ctx context.Context, id int64) (*Employers, error)
+	GetEmployersKode(ctx context.Context, karya_code string) (*EmployerKode, error)
 	DeleteEmployers(ctx context.Context, id int64) error
 	ListEmployers(ctx context.Context, pageNum, pageSize int64) ([]*EmployerData, int, error)
 	ListEmployersNext(ctx context.Context, start, end int32) ([]*Employers, error)
 	Count(ctx context.Context) (int, error)
 	GetEmployerDetail(ctx context.Context, id int64) (*EmployerData, error)
+	GetByFilter(ctx context.Context, karyacodes []string) ([]*EmployerItem, error)
+	GetByDepart(ctx context.Context, departCode string) ([]*EmployerItem, error)
+	GetPerusahaan(ctx context.Context, karya_code string) ([]*PerusahaanData, error)
+	GetCabang(ctx context.Context, karya_code string) ([]*CabangData, error)
+
+	// BulkUpdateDepartment
 	// GetFingerByKode(ctx context.Context, fkode string) (*FingerData, error)
 	// GetDepartmentByKode(ctx context.Context, dkode string) (*DepartData, error)
 	// GetEmployeeFullData(ctx context.Context, fingerID string, departmentID int64) (*FullEmployeeData, error)
@@ -152,12 +199,9 @@ func (uc *EmployersUsecase) Delete(ctx context.Context, id int64) error {
 	return uc.repo.DeleteEmployers(ctx, id)
 }
 
-// func (uc *EmployersUsecase) GetFingerByKode(ctx context.Context, fcode string) (*FingerData, error) {
-// 	return uc.repo.GetFingerByKode(ctx, fcode)
-// }
-// func (uc *EmployersUsecase) GetDepartmentByKode(ctx context.Context, dkode string) (*DepartData, error) {
-// 	return uc.repo.GetDepartmentByKode(ctx, dkode)
-// }
+func (uc *EmployersUsecase) GetByKode(ctx context.Context, karya_code string) (*EmployerKode, error) {
+	return uc.repo.GetEmployersKode(ctx, karya_code)
+}
 
 func (uc *EmployersUsecase) GetDepartmentByCode(ctx context.Context, deptCode string) (*departmentV1.GetDepartmentCodeResponse, error) {
 	return uc.deptClient.GetDepartmentCode(ctx, &departmentV1.GetDepartmentCodeRequest{DepartCode: deptCode})
@@ -169,4 +213,20 @@ func (uc *EmployersUsecase) GetFingerByKode(ctx context.Context, bioCode string)
 
 func (uc *EmployersUsecase) GetDetail(ctx context.Context, id int64) (*EmployerData, error) {
 	return uc.repo.GetEmployerDetail(ctx, id)
+}
+
+func (uc *EmployersUsecase) GetByFilter(ctx context.Context, karyacodes []string) ([]*EmployerItem, error) {
+	return uc.repo.GetByFilter(ctx, karyacodes)
+}
+
+func (uc *EmployersUsecase) GetByDepart(ctx context.Context, departCode string) ([]*EmployerItem, error) {
+	return uc.repo.GetByDepart(ctx, departCode)
+}
+
+func (uc *EmployersUsecase) GetPerusahaan(ctx context.Context, karya_code string) ([]*PerusahaanData, error) {
+	return uc.repo.GetPerusahaan(ctx, karya_code)
+}
+
+func (uc *EmployersUsecase) GetCabang(ctx context.Context, karya_code string) ([]*CabangData, error) {
+	return uc.repo.GetCabang(ctx, karya_code)
 }

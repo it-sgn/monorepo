@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package db_sync.service.v1;
+
+// package biometrics.service.v1;
+
+// import "google/api/annotations.proto";
+// import "google/api/annotations.proto";
+// import "openapiv3/annotations.proto";
+
+// option go_package = "api/biometrics/service/v1;v1";
+
+option go_package = "api/db_sync/service/v1;v1";
+
+service DbSync {
+  // Add any RPC methods if you need to control the sync process via gRPC
+  // rpc StartSync(StartSyncRequest) returns (StartSyncResponse);
+}
+
+// Example of a data record structure (adjust according to your actual data)
+message Record {
+  int64 id = 1;
+  string name = 2;
+  string description = 3;
+  // Add other fields as per your source database table
+}

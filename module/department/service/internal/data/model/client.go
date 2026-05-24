@@ -252,8 +252,8 @@ func (c *DepartmentClient) Update() *DepartmentUpdate {
 }
 
 // UpdateOne returns an update builder for the given entity.
-func (c *DepartmentClient) UpdateOne(d *Department) *DepartmentUpdateOne {
-	mutation := newDepartmentMutation(c.config, OpUpdateOne, withDepartment(d))
+func (c *DepartmentClient) UpdateOne(_m *Department) *DepartmentUpdateOne {
+	mutation := newDepartmentMutation(c.config, OpUpdateOne, withDepartment(_m))
 	return &DepartmentUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
@@ -270,8 +270,8 @@ func (c *DepartmentClient) Delete() *DepartmentDelete {
 }
 
 // DeleteOne returns a builder for deleting the given entity.
-func (c *DepartmentClient) DeleteOne(d *Department) *DepartmentDeleteOne {
-	return c.DeleteOneID(d.ID)
+func (c *DepartmentClient) DeleteOne(_m *Department) *DepartmentDeleteOne {
+	return c.DeleteOneID(_m.ID)
 }
 
 // DeleteOneID returns a builder for deleting the given entity by its id.

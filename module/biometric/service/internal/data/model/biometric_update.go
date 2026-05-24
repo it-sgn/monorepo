@@ -23,271 +23,311 @@ type BiometricUpdate struct {
 }
 
 // Where appends a list predicates to the BiometricUpdate builder.
-func (bu *BiometricUpdate) Where(ps ...predicate.Biometric) *BiometricUpdate {
-	bu.mutation.Where(ps...)
-	return bu
+func (_u *BiometricUpdate) Where(ps ...predicate.Biometric) *BiometricUpdate {
+	_u.mutation.Where(ps...)
+	return _u
+}
+
+// SetCreatedBy sets the "created_by" field.
+func (_u *BiometricUpdate) SetCreatedBy(v string) *BiometricUpdate {
+	_u.mutation.SetCreatedBy(v)
+	return _u
+}
+
+// SetNillableCreatedBy sets the "created_by" field if the given value is not nil.
+func (_u *BiometricUpdate) SetNillableCreatedBy(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetCreatedBy(*v)
+	}
+	return _u
+}
+
+// ClearCreatedBy clears the value of the "created_by" field.
+func (_u *BiometricUpdate) ClearCreatedBy() *BiometricUpdate {
+	_u.mutation.ClearCreatedBy()
+	return _u
+}
+
+// SetUpdatedBy sets the "updated_by" field.
+func (_u *BiometricUpdate) SetUpdatedBy(v string) *BiometricUpdate {
+	_u.mutation.SetUpdatedBy(v)
+	return _u
+}
+
+// SetNillableUpdatedBy sets the "updated_by" field if the given value is not nil.
+func (_u *BiometricUpdate) SetNillableUpdatedBy(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetUpdatedBy(*v)
+	}
+	return _u
+}
+
+// ClearUpdatedBy clears the value of the "updated_by" field.
+func (_u *BiometricUpdate) ClearUpdatedBy() *BiometricUpdate {
+	_u.mutation.ClearUpdatedBy()
+	return _u
 }
 
 // SetUpdateTime sets the "update_time" field.
-func (bu *BiometricUpdate) SetUpdateTime(t time.Time) *BiometricUpdate {
-	bu.mutation.SetUpdateTime(t)
-	return bu
+func (_u *BiometricUpdate) SetUpdateTime(v time.Time) *BiometricUpdate {
+	_u.mutation.SetUpdateTime(v)
+	return _u
 }
 
 // SetDeleteTime sets the "delete_time" field.
-func (bu *BiometricUpdate) SetDeleteTime(t time.Time) *BiometricUpdate {
-	bu.mutation.SetDeleteTime(t)
-	return bu
+func (_u *BiometricUpdate) SetDeleteTime(v time.Time) *BiometricUpdate {
+	_u.mutation.SetDeleteTime(v)
+	return _u
 }
 
 // SetNillableDeleteTime sets the "delete_time" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableDeleteTime(t *time.Time) *BiometricUpdate {
-	if t != nil {
-		bu.SetDeleteTime(*t)
+func (_u *BiometricUpdate) SetNillableDeleteTime(v *time.Time) *BiometricUpdate {
+	if v != nil {
+		_u.SetDeleteTime(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearDeleteTime clears the value of the "delete_time" field.
-func (bu *BiometricUpdate) ClearDeleteTime() *BiometricUpdate {
-	bu.mutation.ClearDeleteTime()
-	return bu
+func (_u *BiometricUpdate) ClearDeleteTime() *BiometricUpdate {
+	_u.mutation.ClearDeleteTime()
+	return _u
 }
 
 // SetFingercode sets the "fingercode" field.
-func (bu *BiometricUpdate) SetFingercode(s string) *BiometricUpdate {
-	bu.mutation.SetFingercode(s)
-	return bu
+func (_u *BiometricUpdate) SetFingercode(v string) *BiometricUpdate {
+	_u.mutation.SetFingercode(v)
+	return _u
 }
 
 // SetNillableFingercode sets the "fingercode" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFingercode(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFingercode(*s)
+func (_u *BiometricUpdate) SetNillableFingercode(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFingercode(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFingercode clears the value of the "fingercode" field.
-func (bu *BiometricUpdate) ClearFingercode() *BiometricUpdate {
-	bu.mutation.ClearFingercode()
-	return bu
+func (_u *BiometricUpdate) ClearFingercode() *BiometricUpdate {
+	_u.mutation.ClearFingercode()
+	return _u
 }
 
 // SetFinger0 sets the "finger0" field.
-func (bu *BiometricUpdate) SetFinger0(s string) *BiometricUpdate {
-	bu.mutation.SetFinger0(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger0(v string) *BiometricUpdate {
+	_u.mutation.SetFinger0(v)
+	return _u
 }
 
 // SetNillableFinger0 sets the "finger0" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger0(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger0(*s)
+func (_u *BiometricUpdate) SetNillableFinger0(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger0(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger0 clears the value of the "finger0" field.
-func (bu *BiometricUpdate) ClearFinger0() *BiometricUpdate {
-	bu.mutation.ClearFinger0()
-	return bu
+func (_u *BiometricUpdate) ClearFinger0() *BiometricUpdate {
+	_u.mutation.ClearFinger0()
+	return _u
 }
 
 // SetFinger1 sets the "finger1" field.
-func (bu *BiometricUpdate) SetFinger1(s string) *BiometricUpdate {
-	bu.mutation.SetFinger1(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger1(v string) *BiometricUpdate {
+	_u.mutation.SetFinger1(v)
+	return _u
 }
 
 // SetNillableFinger1 sets the "finger1" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger1(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger1(*s)
+func (_u *BiometricUpdate) SetNillableFinger1(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger1(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger1 clears the value of the "finger1" field.
-func (bu *BiometricUpdate) ClearFinger1() *BiometricUpdate {
-	bu.mutation.ClearFinger1()
-	return bu
+func (_u *BiometricUpdate) ClearFinger1() *BiometricUpdate {
+	_u.mutation.ClearFinger1()
+	return _u
 }
 
 // SetFinger2 sets the "finger2" field.
-func (bu *BiometricUpdate) SetFinger2(s string) *BiometricUpdate {
-	bu.mutation.SetFinger2(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger2(v string) *BiometricUpdate {
+	_u.mutation.SetFinger2(v)
+	return _u
 }
 
 // SetNillableFinger2 sets the "finger2" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger2(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger2(*s)
+func (_u *BiometricUpdate) SetNillableFinger2(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger2(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger2 clears the value of the "finger2" field.
-func (bu *BiometricUpdate) ClearFinger2() *BiometricUpdate {
-	bu.mutation.ClearFinger2()
-	return bu
+func (_u *BiometricUpdate) ClearFinger2() *BiometricUpdate {
+	_u.mutation.ClearFinger2()
+	return _u
 }
 
 // SetFinger3 sets the "finger3" field.
-func (bu *BiometricUpdate) SetFinger3(s string) *BiometricUpdate {
-	bu.mutation.SetFinger3(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger3(v string) *BiometricUpdate {
+	_u.mutation.SetFinger3(v)
+	return _u
 }
 
 // SetNillableFinger3 sets the "finger3" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger3(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger3(*s)
+func (_u *BiometricUpdate) SetNillableFinger3(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger3(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger3 clears the value of the "finger3" field.
-func (bu *BiometricUpdate) ClearFinger3() *BiometricUpdate {
-	bu.mutation.ClearFinger3()
-	return bu
+func (_u *BiometricUpdate) ClearFinger3() *BiometricUpdate {
+	_u.mutation.ClearFinger3()
+	return _u
 }
 
 // SetFinger4 sets the "finger4" field.
-func (bu *BiometricUpdate) SetFinger4(s string) *BiometricUpdate {
-	bu.mutation.SetFinger4(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger4(v string) *BiometricUpdate {
+	_u.mutation.SetFinger4(v)
+	return _u
 }
 
 // SetNillableFinger4 sets the "finger4" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger4(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger4(*s)
+func (_u *BiometricUpdate) SetNillableFinger4(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger4(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger4 clears the value of the "finger4" field.
-func (bu *BiometricUpdate) ClearFinger4() *BiometricUpdate {
-	bu.mutation.ClearFinger4()
-	return bu
+func (_u *BiometricUpdate) ClearFinger4() *BiometricUpdate {
+	_u.mutation.ClearFinger4()
+	return _u
 }
 
 // SetFinger5 sets the "finger5" field.
-func (bu *BiometricUpdate) SetFinger5(s string) *BiometricUpdate {
-	bu.mutation.SetFinger5(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger5(v string) *BiometricUpdate {
+	_u.mutation.SetFinger5(v)
+	return _u
 }
 
 // SetNillableFinger5 sets the "finger5" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger5(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger5(*s)
+func (_u *BiometricUpdate) SetNillableFinger5(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger5(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger5 clears the value of the "finger5" field.
-func (bu *BiometricUpdate) ClearFinger5() *BiometricUpdate {
-	bu.mutation.ClearFinger5()
-	return bu
+func (_u *BiometricUpdate) ClearFinger5() *BiometricUpdate {
+	_u.mutation.ClearFinger5()
+	return _u
 }
 
 // SetFinger6 sets the "finger6" field.
-func (bu *BiometricUpdate) SetFinger6(s string) *BiometricUpdate {
-	bu.mutation.SetFinger6(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger6(v string) *BiometricUpdate {
+	_u.mutation.SetFinger6(v)
+	return _u
 }
 
 // SetNillableFinger6 sets the "finger6" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger6(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger6(*s)
+func (_u *BiometricUpdate) SetNillableFinger6(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger6(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger6 clears the value of the "finger6" field.
-func (bu *BiometricUpdate) ClearFinger6() *BiometricUpdate {
-	bu.mutation.ClearFinger6()
-	return bu
+func (_u *BiometricUpdate) ClearFinger6() *BiometricUpdate {
+	_u.mutation.ClearFinger6()
+	return _u
 }
 
 // SetFinger7 sets the "finger7" field.
-func (bu *BiometricUpdate) SetFinger7(s string) *BiometricUpdate {
-	bu.mutation.SetFinger7(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger7(v string) *BiometricUpdate {
+	_u.mutation.SetFinger7(v)
+	return _u
 }
 
 // SetNillableFinger7 sets the "finger7" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger7(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger7(*s)
+func (_u *BiometricUpdate) SetNillableFinger7(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger7(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger7 clears the value of the "finger7" field.
-func (bu *BiometricUpdate) ClearFinger7() *BiometricUpdate {
-	bu.mutation.ClearFinger7()
-	return bu
+func (_u *BiometricUpdate) ClearFinger7() *BiometricUpdate {
+	_u.mutation.ClearFinger7()
+	return _u
 }
 
 // SetFinger8 sets the "finger8" field.
-func (bu *BiometricUpdate) SetFinger8(s string) *BiometricUpdate {
-	bu.mutation.SetFinger8(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger8(v string) *BiometricUpdate {
+	_u.mutation.SetFinger8(v)
+	return _u
 }
 
 // SetNillableFinger8 sets the "finger8" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger8(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger8(*s)
+func (_u *BiometricUpdate) SetNillableFinger8(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger8(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger8 clears the value of the "finger8" field.
-func (bu *BiometricUpdate) ClearFinger8() *BiometricUpdate {
-	bu.mutation.ClearFinger8()
-	return bu
+func (_u *BiometricUpdate) ClearFinger8() *BiometricUpdate {
+	_u.mutation.ClearFinger8()
+	return _u
 }
 
 // SetFinger9 sets the "finger9" field.
-func (bu *BiometricUpdate) SetFinger9(s string) *BiometricUpdate {
-	bu.mutation.SetFinger9(s)
-	return bu
+func (_u *BiometricUpdate) SetFinger9(v string) *BiometricUpdate {
+	_u.mutation.SetFinger9(v)
+	return _u
 }
 
 // SetNillableFinger9 sets the "finger9" field if the given value is not nil.
-func (bu *BiometricUpdate) SetNillableFinger9(s *string) *BiometricUpdate {
-	if s != nil {
-		bu.SetFinger9(*s)
+func (_u *BiometricUpdate) SetNillableFinger9(v *string) *BiometricUpdate {
+	if v != nil {
+		_u.SetFinger9(*v)
 	}
-	return bu
+	return _u
 }
 
 // ClearFinger9 clears the value of the "finger9" field.
-func (bu *BiometricUpdate) ClearFinger9() *BiometricUpdate {
-	bu.mutation.ClearFinger9()
-	return bu
+func (_u *BiometricUpdate) ClearFinger9() *BiometricUpdate {
+	_u.mutation.ClearFinger9()
+	return _u
 }
 
 // Mutation returns the BiometricMutation object of the builder.
-func (bu *BiometricUpdate) Mutation() *BiometricMutation {
-	return bu.mutation
+func (_u *BiometricUpdate) Mutation() *BiometricMutation {
+	return _u.mutation
 }
 
 // Save executes the query and returns the number of nodes affected by the update operation.
-func (bu *BiometricUpdate) Save(ctx context.Context) (int, error) {
-	bu.defaults()
-	return withHooks(ctx, bu.sqlSave, bu.mutation, bu.hooks)
+func (_u *BiometricUpdate) Save(ctx context.Context) (int, error) {
+	_u.defaults()
+	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
 // SaveX is like Save, but panics if an error occurs.
-func (bu *BiometricUpdate) SaveX(ctx context.Context) int {
-	affected, err := bu.Save(ctx)
+func (_u *BiometricUpdate) SaveX(ctx context.Context) int {
+	affected, err := _u.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -295,111 +335,123 @@ func (bu *BiometricUpdate) SaveX(ctx context.Context) int {
 }
 
 // Exec executes the query.
-func (bu *BiometricUpdate) Exec(ctx context.Context) error {
-	_, err := bu.Save(ctx)
+func (_u *BiometricUpdate) Exec(ctx context.Context) error {
+	_, err := _u.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (bu *BiometricUpdate) ExecX(ctx context.Context) {
-	if err := bu.Exec(ctx); err != nil {
+func (_u *BiometricUpdate) ExecX(ctx context.Context) {
+	if err := _u.Exec(ctx); err != nil {
 		panic(err)
 	}
 }
 
 // defaults sets the default values of the builder before save.
-func (bu *BiometricUpdate) defaults() {
-	if _, ok := bu.mutation.UpdateTime(); !ok {
+func (_u *BiometricUpdate) defaults() {
+	if _, ok := _u.mutation.UpdateTime(); !ok {
 		v := biometric.UpdateDefaultUpdateTime()
-		bu.mutation.SetUpdateTime(v)
+		_u.mutation.SetUpdateTime(v)
 	}
 }
 
-func (bu *BiometricUpdate) sqlSave(ctx context.Context) (n int, err error) {
+func (_u *BiometricUpdate) sqlSave(ctx context.Context) (_node int, err error) {
 	_spec := sqlgraph.NewUpdateSpec(biometric.Table, biometric.Columns, sqlgraph.NewFieldSpec(biometric.FieldID, field.TypeInt64))
-	if ps := bu.mutation.predicates; len(ps) > 0 {
+	if ps := _u.mutation.predicates; len(ps) > 0 {
 		_spec.Predicate = func(selector *sql.Selector) {
 			for i := range ps {
 				ps[i](selector)
 			}
 		}
 	}
-	if value, ok := bu.mutation.UpdateTime(); ok {
+	if value, ok := _u.mutation.CreatedBy(); ok {
+		_spec.SetField(biometric.FieldCreatedBy, field.TypeString, value)
+	}
+	if _u.mutation.CreatedByCleared() {
+		_spec.ClearField(biometric.FieldCreatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdatedBy(); ok {
+		_spec.SetField(biometric.FieldUpdatedBy, field.TypeString, value)
+	}
+	if _u.mutation.UpdatedByCleared() {
+		_spec.ClearField(biometric.FieldUpdatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdateTime(); ok {
 		_spec.SetField(biometric.FieldUpdateTime, field.TypeTime, value)
 	}
-	if value, ok := bu.mutation.DeleteTime(); ok {
+	if value, ok := _u.mutation.DeleteTime(); ok {
 		_spec.SetField(biometric.FieldDeleteTime, field.TypeTime, value)
 	}
-	if bu.mutation.DeleteTimeCleared() {
+	if _u.mutation.DeleteTimeCleared() {
 		_spec.ClearField(biometric.FieldDeleteTime, field.TypeTime)
 	}
-	if value, ok := bu.mutation.Fingercode(); ok {
+	if value, ok := _u.mutation.Fingercode(); ok {
 		_spec.SetField(biometric.FieldFingercode, field.TypeString, value)
 	}
-	if bu.mutation.FingercodeCleared() {
+	if _u.mutation.FingercodeCleared() {
 		_spec.ClearField(biometric.FieldFingercode, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger0(); ok {
+	if value, ok := _u.mutation.Finger0(); ok {
 		_spec.SetField(biometric.FieldFinger0, field.TypeString, value)
 	}
-	if bu.mutation.Finger0Cleared() {
+	if _u.mutation.Finger0Cleared() {
 		_spec.ClearField(biometric.FieldFinger0, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger1(); ok {
+	if value, ok := _u.mutation.Finger1(); ok {
 		_spec.SetField(biometric.FieldFinger1, field.TypeString, value)
 	}
-	if bu.mutation.Finger1Cleared() {
+	if _u.mutation.Finger1Cleared() {
 		_spec.ClearField(biometric.FieldFinger1, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger2(); ok {
+	if value, ok := _u.mutation.Finger2(); ok {
 		_spec.SetField(biometric.FieldFinger2, field.TypeString, value)
 	}
-	if bu.mutation.Finger2Cleared() {
+	if _u.mutation.Finger2Cleared() {
 		_spec.ClearField(biometric.FieldFinger2, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger3(); ok {
+	if value, ok := _u.mutation.Finger3(); ok {
 		_spec.SetField(biometric.FieldFinger3, field.TypeString, value)
 	}
-	if bu.mutation.Finger3Cleared() {
+	if _u.mutation.Finger3Cleared() {
 		_spec.ClearField(biometric.FieldFinger3, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger4(); ok {
+	if value, ok := _u.mutation.Finger4(); ok {
 		_spec.SetField(biometric.FieldFinger4, field.TypeString, value)
 	}
-	if bu.mutation.Finger4Cleared() {
+	if _u.mutation.Finger4Cleared() {
 		_spec.ClearField(biometric.FieldFinger4, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger5(); ok {
+	if value, ok := _u.mutation.Finger5(); ok {
 		_spec.SetField(biometric.FieldFinger5, field.TypeString, value)
 	}
-	if bu.mutation.Finger5Cleared() {
+	if _u.mutation.Finger5Cleared() {
 		_spec.ClearField(biometric.FieldFinger5, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger6(); ok {
+	if value, ok := _u.mutation.Finger6(); ok {
 		_spec.SetField(biometric.FieldFinger6, field.TypeString, value)
 	}
-	if bu.mutation.Finger6Cleared() {
+	if _u.mutation.Finger6Cleared() {
 		_spec.ClearField(biometric.FieldFinger6, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger7(); ok {
+	if value, ok := _u.mutation.Finger7(); ok {
 		_spec.SetField(biometric.FieldFinger7, field.TypeString, value)
 	}
-	if bu.mutation.Finger7Cleared() {
+	if _u.mutation.Finger7Cleared() {
 		_spec.ClearField(biometric.FieldFinger7, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger8(); ok {
+	if value, ok := _u.mutation.Finger8(); ok {
 		_spec.SetField(biometric.FieldFinger8, field.TypeString, value)
 	}
-	if bu.mutation.Finger8Cleared() {
+	if _u.mutation.Finger8Cleared() {
 		_spec.ClearField(biometric.FieldFinger8, field.TypeString)
 	}
-	if value, ok := bu.mutation.Finger9(); ok {
+	if value, ok := _u.mutation.Finger9(); ok {
 		_spec.SetField(biometric.FieldFinger9, field.TypeString, value)
 	}
-	if bu.mutation.Finger9Cleared() {
+	if _u.mutation.Finger9Cleared() {
 		_spec.ClearField(biometric.FieldFinger9, field.TypeString)
 	}
-	if n, err = sqlgraph.UpdateNodes(ctx, bu.driver, _spec); err != nil {
+	if _node, err = sqlgraph.UpdateNodes(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
 			err = &NotFoundError{biometric.Label}
 		} else if sqlgraph.IsConstraintError(err) {
@@ -407,8 +459,8 @@ func (bu *BiometricUpdate) sqlSave(ctx context.Context) (n int, err error) {
 		}
 		return 0, err
 	}
-	bu.mutation.done = true
-	return n, nil
+	_u.mutation.done = true
+	return _node, nil
 }
 
 // BiometricUpdateOne is the builder for updating a single Biometric entity.
@@ -419,279 +471,319 @@ type BiometricUpdateOne struct {
 	mutation *BiometricMutation
 }
 
+// SetCreatedBy sets the "created_by" field.
+func (_u *BiometricUpdateOne) SetCreatedBy(v string) *BiometricUpdateOne {
+	_u.mutation.SetCreatedBy(v)
+	return _u
+}
+
+// SetNillableCreatedBy sets the "created_by" field if the given value is not nil.
+func (_u *BiometricUpdateOne) SetNillableCreatedBy(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetCreatedBy(*v)
+	}
+	return _u
+}
+
+// ClearCreatedBy clears the value of the "created_by" field.
+func (_u *BiometricUpdateOne) ClearCreatedBy() *BiometricUpdateOne {
+	_u.mutation.ClearCreatedBy()
+	return _u
+}
+
+// SetUpdatedBy sets the "updated_by" field.
+func (_u *BiometricUpdateOne) SetUpdatedBy(v string) *BiometricUpdateOne {
+	_u.mutation.SetUpdatedBy(v)
+	return _u
+}
+
+// SetNillableUpdatedBy sets the "updated_by" field if the given value is not nil.
+func (_u *BiometricUpdateOne) SetNillableUpdatedBy(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetUpdatedBy(*v)
+	}
+	return _u
+}
+
+// ClearUpdatedBy clears the value of the "updated_by" field.
+func (_u *BiometricUpdateOne) ClearUpdatedBy() *BiometricUpdateOne {
+	_u.mutation.ClearUpdatedBy()
+	return _u
+}
+
 // SetUpdateTime sets the "update_time" field.
-func (buo *BiometricUpdateOne) SetUpdateTime(t time.Time) *BiometricUpdateOne {
-	buo.mutation.SetUpdateTime(t)
-	return buo
+func (_u *BiometricUpdateOne) SetUpdateTime(v time.Time) *BiometricUpdateOne {
+	_u.mutation.SetUpdateTime(v)
+	return _u
 }
 
 // SetDeleteTime sets the "delete_time" field.
-func (buo *BiometricUpdateOne) SetDeleteTime(t time.Time) *BiometricUpdateOne {
-	buo.mutation.SetDeleteTime(t)
-	return buo
+func (_u *BiometricUpdateOne) SetDeleteTime(v time.Time) *BiometricUpdateOne {
+	_u.mutation.SetDeleteTime(v)
+	return _u
 }
 
 // SetNillableDeleteTime sets the "delete_time" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableDeleteTime(t *time.Time) *BiometricUpdateOne {
-	if t != nil {
-		buo.SetDeleteTime(*t)
+func (_u *BiometricUpdateOne) SetNillableDeleteTime(v *time.Time) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetDeleteTime(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearDeleteTime clears the value of the "delete_time" field.
-func (buo *BiometricUpdateOne) ClearDeleteTime() *BiometricUpdateOne {
-	buo.mutation.ClearDeleteTime()
-	return buo
+func (_u *BiometricUpdateOne) ClearDeleteTime() *BiometricUpdateOne {
+	_u.mutation.ClearDeleteTime()
+	return _u
 }
 
 // SetFingercode sets the "fingercode" field.
-func (buo *BiometricUpdateOne) SetFingercode(s string) *BiometricUpdateOne {
-	buo.mutation.SetFingercode(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFingercode(v string) *BiometricUpdateOne {
+	_u.mutation.SetFingercode(v)
+	return _u
 }
 
 // SetNillableFingercode sets the "fingercode" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFingercode(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFingercode(*s)
+func (_u *BiometricUpdateOne) SetNillableFingercode(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFingercode(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFingercode clears the value of the "fingercode" field.
-func (buo *BiometricUpdateOne) ClearFingercode() *BiometricUpdateOne {
-	buo.mutation.ClearFingercode()
-	return buo
+func (_u *BiometricUpdateOne) ClearFingercode() *BiometricUpdateOne {
+	_u.mutation.ClearFingercode()
+	return _u
 }
 
 // SetFinger0 sets the "finger0" field.
-func (buo *BiometricUpdateOne) SetFinger0(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger0(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger0(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger0(v)
+	return _u
 }
 
 // SetNillableFinger0 sets the "finger0" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger0(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger0(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger0(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger0(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger0 clears the value of the "finger0" field.
-func (buo *BiometricUpdateOne) ClearFinger0() *BiometricUpdateOne {
-	buo.mutation.ClearFinger0()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger0() *BiometricUpdateOne {
+	_u.mutation.ClearFinger0()
+	return _u
 }
 
 // SetFinger1 sets the "finger1" field.
-func (buo *BiometricUpdateOne) SetFinger1(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger1(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger1(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger1(v)
+	return _u
 }
 
 // SetNillableFinger1 sets the "finger1" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger1(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger1(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger1(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger1(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger1 clears the value of the "finger1" field.
-func (buo *BiometricUpdateOne) ClearFinger1() *BiometricUpdateOne {
-	buo.mutation.ClearFinger1()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger1() *BiometricUpdateOne {
+	_u.mutation.ClearFinger1()
+	return _u
 }
 
 // SetFinger2 sets the "finger2" field.
-func (buo *BiometricUpdateOne) SetFinger2(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger2(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger2(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger2(v)
+	return _u
 }
 
 // SetNillableFinger2 sets the "finger2" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger2(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger2(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger2(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger2(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger2 clears the value of the "finger2" field.
-func (buo *BiometricUpdateOne) ClearFinger2() *BiometricUpdateOne {
-	buo.mutation.ClearFinger2()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger2() *BiometricUpdateOne {
+	_u.mutation.ClearFinger2()
+	return _u
 }
 
 // SetFinger3 sets the "finger3" field.
-func (buo *BiometricUpdateOne) SetFinger3(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger3(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger3(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger3(v)
+	return _u
 }
 
 // SetNillableFinger3 sets the "finger3" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger3(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger3(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger3(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger3(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger3 clears the value of the "finger3" field.
-func (buo *BiometricUpdateOne) ClearFinger3() *BiometricUpdateOne {
-	buo.mutation.ClearFinger3()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger3() *BiometricUpdateOne {
+	_u.mutation.ClearFinger3()
+	return _u
 }
 
 // SetFinger4 sets the "finger4" field.
-func (buo *BiometricUpdateOne) SetFinger4(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger4(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger4(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger4(v)
+	return _u
 }
 
 // SetNillableFinger4 sets the "finger4" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger4(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger4(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger4(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger4(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger4 clears the value of the "finger4" field.
-func (buo *BiometricUpdateOne) ClearFinger4() *BiometricUpdateOne {
-	buo.mutation.ClearFinger4()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger4() *BiometricUpdateOne {
+	_u.mutation.ClearFinger4()
+	return _u
 }
 
 // SetFinger5 sets the "finger5" field.
-func (buo *BiometricUpdateOne) SetFinger5(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger5(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger5(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger5(v)
+	return _u
 }
 
 // SetNillableFinger5 sets the "finger5" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger5(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger5(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger5(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger5(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger5 clears the value of the "finger5" field.
-func (buo *BiometricUpdateOne) ClearFinger5() *BiometricUpdateOne {
-	buo.mutation.ClearFinger5()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger5() *BiometricUpdateOne {
+	_u.mutation.ClearFinger5()
+	return _u
 }
 
 // SetFinger6 sets the "finger6" field.
-func (buo *BiometricUpdateOne) SetFinger6(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger6(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger6(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger6(v)
+	return _u
 }
 
 // SetNillableFinger6 sets the "finger6" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger6(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger6(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger6(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger6(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger6 clears the value of the "finger6" field.
-func (buo *BiometricUpdateOne) ClearFinger6() *BiometricUpdateOne {
-	buo.mutation.ClearFinger6()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger6() *BiometricUpdateOne {
+	_u.mutation.ClearFinger6()
+	return _u
 }
 
 // SetFinger7 sets the "finger7" field.
-func (buo *BiometricUpdateOne) SetFinger7(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger7(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger7(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger7(v)
+	return _u
 }
 
 // SetNillableFinger7 sets the "finger7" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger7(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger7(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger7(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger7(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger7 clears the value of the "finger7" field.
-func (buo *BiometricUpdateOne) ClearFinger7() *BiometricUpdateOne {
-	buo.mutation.ClearFinger7()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger7() *BiometricUpdateOne {
+	_u.mutation.ClearFinger7()
+	return _u
 }
 
 // SetFinger8 sets the "finger8" field.
-func (buo *BiometricUpdateOne) SetFinger8(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger8(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger8(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger8(v)
+	return _u
 }
 
 // SetNillableFinger8 sets the "finger8" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger8(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger8(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger8(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger8(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger8 clears the value of the "finger8" field.
-func (buo *BiometricUpdateOne) ClearFinger8() *BiometricUpdateOne {
-	buo.mutation.ClearFinger8()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger8() *BiometricUpdateOne {
+	_u.mutation.ClearFinger8()
+	return _u
 }
 
 // SetFinger9 sets the "finger9" field.
-func (buo *BiometricUpdateOne) SetFinger9(s string) *BiometricUpdateOne {
-	buo.mutation.SetFinger9(s)
-	return buo
+func (_u *BiometricUpdateOne) SetFinger9(v string) *BiometricUpdateOne {
+	_u.mutation.SetFinger9(v)
+	return _u
 }
 
 // SetNillableFinger9 sets the "finger9" field if the given value is not nil.
-func (buo *BiometricUpdateOne) SetNillableFinger9(s *string) *BiometricUpdateOne {
-	if s != nil {
-		buo.SetFinger9(*s)
+func (_u *BiometricUpdateOne) SetNillableFinger9(v *string) *BiometricUpdateOne {
+	if v != nil {
+		_u.SetFinger9(*v)
 	}
-	return buo
+	return _u
 }
 
 // ClearFinger9 clears the value of the "finger9" field.
-func (buo *BiometricUpdateOne) ClearFinger9() *BiometricUpdateOne {
-	buo.mutation.ClearFinger9()
-	return buo
+func (_u *BiometricUpdateOne) ClearFinger9() *BiometricUpdateOne {
+	_u.mutation.ClearFinger9()
+	return _u
 }
 
 // Mutation returns the BiometricMutation object of the builder.
-func (buo *BiometricUpdateOne) Mutation() *BiometricMutation {
-	return buo.mutation
+func (_u *BiometricUpdateOne) Mutation() *BiometricMutation {
+	return _u.mutation
 }
 
 // Where appends a list predicates to the BiometricUpdate builder.
-func (buo *BiometricUpdateOne) Where(ps ...predicate.Biometric) *BiometricUpdateOne {
-	buo.mutation.Where(ps...)
-	return buo
+func (_u *BiometricUpdateOne) Where(ps ...predicate.Biometric) *BiometricUpdateOne {
+	_u.mutation.Where(ps...)
+	return _u
 }
 
 // Select allows selecting one or more fields (columns) of the returned entity.
 // The default is selecting all fields defined in the entity schema.
-func (buo *BiometricUpdateOne) Select(field string, fields ...string) *BiometricUpdateOne {
-	buo.fields = append([]string{field}, fields...)
-	return buo
+func (_u *BiometricUpdateOne) Select(field string, fields ...string) *BiometricUpdateOne {
+	_u.fields = append([]string{field}, fields...)
+	return _u
 }
 
 // Save executes the query and returns the updated Biometric entity.
-func (buo *BiometricUpdateOne) Save(ctx context.Context) (*Biometric, error) {
-	buo.defaults()
-	return withHooks(ctx, buo.sqlSave, buo.mutation, buo.hooks)
+func (_u *BiometricUpdateOne) Save(ctx context.Context) (*Biometric, error) {
+	_u.defaults()
+	return withHooks(ctx, _u.sqlSave, _u.mutation, _u.hooks)
 }
 
 // SaveX is like Save, but panics if an error occurs.
-func (buo *BiometricUpdateOne) SaveX(ctx context.Context) *Biometric {
-	node, err := buo.Save(ctx)
+func (_u *BiometricUpdateOne) SaveX(ctx context.Context) *Biometric {
+	node, err := _u.Save(ctx)
 	if err != nil {
 		panic(err)
 	}
@@ -699,34 +791,34 @@ func (buo *BiometricUpdateOne) SaveX(ctx context.Context) *Biometric {
 }
 
 // Exec executes the query on the entity.
-func (buo *BiometricUpdateOne) Exec(ctx context.Context) error {
-	_, err := buo.Save(ctx)
+func (_u *BiometricUpdateOne) Exec(ctx context.Context) error {
+	_, err := _u.Save(ctx)
 	return err
 }
 
 // ExecX is like Exec, but panics if an error occurs.
-func (buo *BiometricUpdateOne) ExecX(ctx context.Context) {
-	if err := buo.Exec(ctx); err != nil {
+func (_u *BiometricUpdateOne) ExecX(ctx context.Context) {
+	if err := _u.Exec(ctx); err != nil {
 		panic(err)
 	}
 }
 
 // defaults sets the default values of the builder before save.
-func (buo *BiometricUpdateOne) defaults() {
-	if _, ok := buo.mutation.UpdateTime(); !ok {
+func (_u *BiometricUpdateOne) defaults() {
+	if _, ok := _u.mutation.UpdateTime(); !ok {
 		v := biometric.UpdateDefaultUpdateTime()
-		buo.mutation.SetUpdateTime(v)
+		_u.mutation.SetUpdateTime(v)
 	}
 }
 
-func (buo *BiometricUpdateOne) sqlSave(ctx context.Context) (_node *Biometric, err error) {
+func (_u *BiometricUpdateOne) sqlSave(ctx context.Context) (_node *Biometric, err error) {
 	_spec := sqlgraph.NewUpdateSpec(biometric.Table, biometric.Columns, sqlgraph.NewFieldSpec(biometric.FieldID, field.TypeInt64))
-	id, ok := buo.mutation.ID()
+	id, ok := _u.mutation.ID()
 	if !ok {
 		return nil, &ValidationError{Name: "id", err: errors.New(`model: missing "Biometric.id" for update`)}
 	}
 	_spec.Node.ID.Value = id
-	if fields := buo.fields; len(fields) > 0 {
+	if fields := _u.fields; len(fields) > 0 {
 		_spec.Node.Columns = make([]string, 0, len(fields))
 		_spec.Node.Columns = append(_spec.Node.Columns, biometric.FieldID)
 		for _, f := range fields {
@@ -738,92 +830,104 @@ func (buo *BiometricUpdateOne) sqlSave(ctx context.Context) (_node *Biometric, e
 			}
 		}
 	}
-	if ps := buo.mutation.predicates; len(ps) > 0 {
+	if ps := _u.mutation.predicates; len(ps) > 0 {
 		_spec.Predicate = func(selector *sql.Selector) {
 			for i := range ps {
 				ps[i](selector)
 			}
 		}
 	}
-	if value, ok := buo.mutation.UpdateTime(); ok {
+	if value, ok := _u.mutation.CreatedBy(); ok {
+		_spec.SetField(biometric.FieldCreatedBy, field.TypeString, value)
+	}
+	if _u.mutation.CreatedByCleared() {
+		_spec.ClearField(biometric.FieldCreatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdatedBy(); ok {
+		_spec.SetField(biometric.FieldUpdatedBy, field.TypeString, value)
+	}
+	if _u.mutation.UpdatedByCleared() {
+		_spec.ClearField(biometric.FieldUpdatedBy, field.TypeString)
+	}
+	if value, ok := _u.mutation.UpdateTime(); ok {
 		_spec.SetField(biometric.FieldUpdateTime, field.TypeTime, value)
 	}
-	if value, ok := buo.mutation.DeleteTime(); ok {
+	if value, ok := _u.mutation.DeleteTime(); ok {
 		_spec.SetField(biometric.FieldDeleteTime, field.TypeTime, value)
 	}
-	if buo.mutation.DeleteTimeCleared() {
+	if _u.mutation.DeleteTimeCleared() {
 		_spec.ClearField(biometric.FieldDeleteTime, field.TypeTime)
 	}
-	if value, ok := buo.mutation.Fingercode(); ok {
+	if value, ok := _u.mutation.Fingercode(); ok {
 		_spec.SetField(biometric.FieldFingercode, field.TypeString, value)
 	}
-	if buo.mutation.FingercodeCleared() {
+	if _u.mutation.FingercodeCleared() {
 		_spec.ClearField(biometric.FieldFingercode, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger0(); ok {
+	if value, ok := _u.mutation.Finger0(); ok {
 		_spec.SetField(biometric.FieldFinger0, field.TypeString, value)
 	}
-	if buo.mutation.Finger0Cleared() {
+	if _u.mutation.Finger0Cleared() {
 		_spec.ClearField(biometric.FieldFinger0, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger1(); ok {
+	if value, ok := _u.mutation.Finger1(); ok {
 		_spec.SetField(biometric.FieldFinger1, field.TypeString, value)
 	}
-	if buo.mutation.Finger1Cleared() {
+	if _u.mutation.Finger1Cleared() {
 		_spec.ClearField(biometric.FieldFinger1, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger2(); ok {
+	if value, ok := _u.mutation.Finger2(); ok {
 		_spec.SetField(biometric.FieldFinger2, field.TypeString, value)
 	}
-	if buo.mutation.Finger2Cleared() {
+	if _u.mutation.Finger2Cleared() {
 		_spec.ClearField(biometric.FieldFinger2, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger3(); ok {
+	if value, ok := _u.mutation.Finger3(); ok {
 		_spec.SetField(biometric.FieldFinger3, field.TypeString, value)
 	}
-	if buo.mutation.Finger3Cleared() {
+	if _u.mutation.Finger3Cleared() {
 		_spec.ClearField(biometric.FieldFinger3, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger4(); ok {
+	if value, ok := _u.mutation.Finger4(); ok {
 		_spec.SetField(biometric.FieldFinger4, field.TypeString, value)
 	}
-	if buo.mutation.Finger4Cleared() {
+	if _u.mutation.Finger4Cleared() {
 		_spec.ClearField(biometric.FieldFinger4, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger5(); ok {
+	if value, ok := _u.mutation.Finger5(); ok {
 		_spec.SetField(biometric.FieldFinger5, field.TypeString, value)
 	}
-	if buo.mutation.Finger5Cleared() {
+	if _u.mutation.Finger5Cleared() {
 		_spec.ClearField(biometric.FieldFinger5, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger6(); ok {
+	if value, ok := _u.mutation.Finger6(); ok {
 		_spec.SetField(biometric.FieldFinger6, field.TypeString, value)
 	}
-	if buo.mutation.Finger6Cleared() {
+	if _u.mutation.Finger6Cleared() {
 		_spec.ClearField(biometric.FieldFinger6, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger7(); ok {
+	if value, ok := _u.mutation.Finger7(); ok {
 		_spec.SetField(biometric.FieldFinger7, field.TypeString, value)
 	}
-	if buo.mutation.Finger7Cleared() {
+	if _u.mutation.Finger7Cleared() {
 		_spec.ClearField(biometric.FieldFinger7, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger8(); ok {
+	if value, ok := _u.mutation.Finger8(); ok {
 		_spec.SetField(biometric.FieldFinger8, field.TypeString, value)
 	}
-	if buo.mutation.Finger8Cleared() {
+	if _u.mutation.Finger8Cleared() {
 		_spec.ClearField(biometric.FieldFinger8, field.TypeString)
 	}
-	if value, ok := buo.mutation.Finger9(); ok {
+	if value, ok := _u.mutation.Finger9(); ok {
 		_spec.SetField(biometric.FieldFinger9, field.TypeString, value)
 	}
-	if buo.mutation.Finger9Cleared() {
+	if _u.mutation.Finger9Cleared() {
 		_spec.ClearField(biometric.FieldFinger9, field.TypeString)
 	}
-	_node = &Biometric{config: buo.config}
+	_node = &Biometric{config: _u.config}
 	_spec.Assign = _node.assignValues
 	_spec.ScanValues = _node.scanValues
-	if err = sqlgraph.UpdateNode(ctx, buo.driver, _spec); err != nil {
+	if err = sqlgraph.UpdateNode(ctx, _u.driver, _spec); err != nil {
 		if _, ok := err.(*sqlgraph.NotFoundError); ok {
 			err = &NotFoundError{biometric.Label}
 		} else if sqlgraph.IsConstraintError(err) {
@@ -831,6 +935,6 @@ func (buo *BiometricUpdateOne) sqlSave(ctx context.Context) (_node *Biometric, e
 		}
 		return nil, err
 	}
-	buo.mutation.done = true
+	_u.mutation.done = true
 	return _node, nil
 }

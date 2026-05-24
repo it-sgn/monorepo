@@ -22,7 +22,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-var ProviderSet = wire.NewSet(NewData, NewEntClient, NewEmployersRepo, NewRedisClient)
+var ProviderSet = wire.NewSet(NewData, NewEntClient, NewEmployersRepo, NewOrganizationClient, NewRedisClient)
 
 // Data .
 type Data struct {
@@ -77,6 +77,7 @@ func NewData(entClient *model.Client, logger log.Logger, r registry.Discovery) (
 		grpc.WithEndpoint("discovery:///department.service"),
 		grpc.WithDiscovery(r),
 	)
+	log.Info(connDept)
 	if err != nil {
 		logHelper.Fatalf("failed to connect to department service: %v", err)
 	}

@@ -30,27 +30,31 @@ const (
 // EmployersMutation represents an operation that mutates the Employers nodes in the graph.
 type EmployersMutation struct {
 	config
-	op            Op
-	typ           string
-	id            *int64
-	create_time   *time.Time
-	update_time   *time.Time
-	delete_time   *time.Time
-	nosap         *string
-	nip           *string
-	karyacode     *string
-	karyaname     *string
-	disp_name     *string
-	pass_mesin    *string
-	rfid_card     *string
-	kode_finger   *string
-	depart_code   *string
-	status        *int32
-	addstatus     *int32
-	clearedFields map[string]struct{}
-	done          bool
-	oldValue      func(context.Context) (*Employers, error)
-	predicates    []predicate.Employers
+	op              Op
+	typ             string
+	id              *int64
+	created_by      *string
+	updated_by      *string
+	create_time     *time.Time
+	update_time     *time.Time
+	delete_time     *time.Time
+	nosap           *string
+	nip             *string
+	karyacode       *string
+	karyaname       *string
+	disp_name       *string
+	pass_mesin      *string
+	rfid_card       *string
+	kode_finger     *string
+	depart_code     *string
+	status          *int32
+	addstatus       *int32
+	kode_perusahaan *string
+	kode_cabang     *string
+	clearedFields   map[string]struct{}
+	done            bool
+	oldValue        func(context.Context) (*Employers, error)
+	predicates      []predicate.Employers
 }
 
 var _ ent.Mutation = (*EmployersMutation)(nil)
@@ -155,6 +159,104 @@ func (m *EmployersMutation) IDs(ctx context.Context) ([]int64, error) {
 	default:
 		return nil, fmt.Errorf("IDs is not allowed on %s operations", m.op)
 	}
+}
+
+// SetCreatedBy sets the "created_by" field.
+func (m *EmployersMutation) SetCreatedBy(s string) {
+	m.created_by = &s
+}
+
+// CreatedBy returns the value of the "created_by" field in the mutation.
+func (m *EmployersMutation) CreatedBy() (r string, exists bool) {
+	v := m.created_by
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldCreatedBy returns the old "created_by" field's value of the Employers entity.
+// If the Employers object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *EmployersMutation) OldCreatedBy(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldCreatedBy is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldCreatedBy requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldCreatedBy: %w", err)
+	}
+	return oldValue.CreatedBy, nil
+}
+
+// ClearCreatedBy clears the value of the "created_by" field.
+func (m *EmployersMutation) ClearCreatedBy() {
+	m.created_by = nil
+	m.clearedFields[employers.FieldCreatedBy] = struct{}{}
+}
+
+// CreatedByCleared returns if the "created_by" field was cleared in this mutation.
+func (m *EmployersMutation) CreatedByCleared() bool {
+	_, ok := m.clearedFields[employers.FieldCreatedBy]
+	return ok
+}
+
+// ResetCreatedBy resets all changes to the "created_by" field.
+func (m *EmployersMutation) ResetCreatedBy() {
+	m.created_by = nil
+	delete(m.clearedFields, employers.FieldCreatedBy)
+}
+
+// SetUpdatedBy sets the "updated_by" field.
+func (m *EmployersMutation) SetUpdatedBy(s string) {
+	m.updated_by = &s
+}
+
+// UpdatedBy returns the value of the "updated_by" field in the mutation.
+func (m *EmployersMutation) UpdatedBy() (r string, exists bool) {
+	v := m.updated_by
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldUpdatedBy returns the old "updated_by" field's value of the Employers entity.
+// If the Employers object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *EmployersMutation) OldUpdatedBy(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldUpdatedBy is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldUpdatedBy requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldUpdatedBy: %w", err)
+	}
+	return oldValue.UpdatedBy, nil
+}
+
+// ClearUpdatedBy clears the value of the "updated_by" field.
+func (m *EmployersMutation) ClearUpdatedBy() {
+	m.updated_by = nil
+	m.clearedFields[employers.FieldUpdatedBy] = struct{}{}
+}
+
+// UpdatedByCleared returns if the "updated_by" field was cleared in this mutation.
+func (m *EmployersMutation) UpdatedByCleared() bool {
+	_, ok := m.clearedFields[employers.FieldUpdatedBy]
+	return ok
+}
+
+// ResetUpdatedBy resets all changes to the "updated_by" field.
+func (m *EmployersMutation) ResetUpdatedBy() {
+	m.updated_by = nil
+	delete(m.clearedFields, employers.FieldUpdatedBy)
 }
 
 // SetCreateTime sets the "create_time" field.
@@ -658,6 +760,78 @@ func (m *EmployersMutation) ResetStatus() {
 	m.addstatus = nil
 }
 
+// SetKodePerusahaan sets the "kode_perusahaan" field.
+func (m *EmployersMutation) SetKodePerusahaan(s string) {
+	m.kode_perusahaan = &s
+}
+
+// KodePerusahaan returns the value of the "kode_perusahaan" field in the mutation.
+func (m *EmployersMutation) KodePerusahaan() (r string, exists bool) {
+	v := m.kode_perusahaan
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldKodePerusahaan returns the old "kode_perusahaan" field's value of the Employers entity.
+// If the Employers object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *EmployersMutation) OldKodePerusahaan(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldKodePerusahaan is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldKodePerusahaan requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldKodePerusahaan: %w", err)
+	}
+	return oldValue.KodePerusahaan, nil
+}
+
+// ResetKodePerusahaan resets all changes to the "kode_perusahaan" field.
+func (m *EmployersMutation) ResetKodePerusahaan() {
+	m.kode_perusahaan = nil
+}
+
+// SetKodeCabang sets the "kode_cabang" field.
+func (m *EmployersMutation) SetKodeCabang(s string) {
+	m.kode_cabang = &s
+}
+
+// KodeCabang returns the value of the "kode_cabang" field in the mutation.
+func (m *EmployersMutation) KodeCabang() (r string, exists bool) {
+	v := m.kode_cabang
+	if v == nil {
+		return
+	}
+	return *v, true
+}
+
+// OldKodeCabang returns the old "kode_cabang" field's value of the Employers entity.
+// If the Employers object wasn't provided to the builder, the object is fetched from the database.
+// An error is returned if the mutation operation is not UpdateOne, or the database query fails.
+func (m *EmployersMutation) OldKodeCabang(ctx context.Context) (v string, err error) {
+	if !m.op.Is(OpUpdateOne) {
+		return v, errors.New("OldKodeCabang is only allowed on UpdateOne operations")
+	}
+	if m.id == nil || m.oldValue == nil {
+		return v, errors.New("OldKodeCabang requires an ID field in the mutation")
+	}
+	oldValue, err := m.oldValue(ctx)
+	if err != nil {
+		return v, fmt.Errorf("querying old value for OldKodeCabang: %w", err)
+	}
+	return oldValue.KodeCabang, nil
+}
+
+// ResetKodeCabang resets all changes to the "kode_cabang" field.
+func (m *EmployersMutation) ResetKodeCabang() {
+	m.kode_cabang = nil
+}
+
 // Where appends a list predicates to the EmployersMutation builder.
 func (m *EmployersMutation) Where(ps ...predicate.Employers) {
 	m.predicates = append(m.predicates, ps...)
@@ -692,7 +866,13 @@ func (m *EmployersMutation) Type() string {
 // order to get all numeric fields that were incremented/decremented, call
 // AddedFields().
 func (m *EmployersMutation) Fields() []string {
-	fields := make([]string, 0, 13)
+	fields := make([]string, 0, 17)
+	if m.created_by != nil {
+		fields = append(fields, employers.FieldCreatedBy)
+	}
+	if m.updated_by != nil {
+		fields = append(fields, employers.FieldUpdatedBy)
+	}
 	if m.create_time != nil {
 		fields = append(fields, employers.FieldCreateTime)
 	}
@@ -732,6 +912,12 @@ func (m *EmployersMutation) Fields() []string {
 	if m.status != nil {
 		fields = append(fields, employers.FieldStatus)
 	}
+	if m.kode_perusahaan != nil {
+		fields = append(fields, employers.FieldKodePerusahaan)
+	}
+	if m.kode_cabang != nil {
+		fields = append(fields, employers.FieldKodeCabang)
+	}
 	return fields
 }
 
@@ -740,6 +926,10 @@ func (m *EmployersMutation) Fields() []string {
 // schema.
 func (m *EmployersMutation) Field(name string) (ent.Value, bool) {
 	switch name {
+	case employers.FieldCreatedBy:
+		return m.CreatedBy()
+	case employers.FieldUpdatedBy:
+		return m.UpdatedBy()
 	case employers.FieldCreateTime:
 		return m.CreateTime()
 	case employers.FieldUpdateTime:
@@ -766,6 +956,10 @@ func (m *EmployersMutation) Field(name string) (ent.Value, bool) {
 		return m.DepartCode()
 	case employers.FieldStatus:
 		return m.Status()
+	case employers.FieldKodePerusahaan:
+		return m.KodePerusahaan()
+	case employers.FieldKodeCabang:
+		return m.KodeCabang()
 	}
 	return nil, false
 }
@@ -775,6 +969,10 @@ func (m *EmployersMutation) Field(name string) (ent.Value, bool) {
 // database failed.
 func (m *EmployersMutation) OldField(ctx context.Context, name string) (ent.Value, error) {
 	switch name {
+	case employers.FieldCreatedBy:
+		return m.OldCreatedBy(ctx)
+	case employers.FieldUpdatedBy:
+		return m.OldUpdatedBy(ctx)
 	case employers.FieldCreateTime:
 		return m.OldCreateTime(ctx)
 	case employers.FieldUpdateTime:
@@ -801,6 +999,10 @@ func (m *EmployersMutation) OldField(ctx context.Context, name string) (ent.Valu
 		return m.OldDepartCode(ctx)
 	case employers.FieldStatus:
 		return m.OldStatus(ctx)
+	case employers.FieldKodePerusahaan:
+		return m.OldKodePerusahaan(ctx)
+	case employers.FieldKodeCabang:
+		return m.OldKodeCabang(ctx)
 	}
 	return nil, fmt.Errorf("unknown Employers field %s", name)
 }
@@ -810,6 +1012,20 @@ func (m *EmployersMutation) OldField(ctx context.Context, name string) (ent.Valu
 // type.
 func (m *EmployersMutation) SetField(name string, value ent.Value) error {
 	switch name {
+	case employers.FieldCreatedBy:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetCreatedBy(v)
+		return nil
+	case employers.FieldUpdatedBy:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetUpdatedBy(v)
+		return nil
 	case employers.FieldCreateTime:
 		v, ok := value.(time.Time)
 		if !ok {
@@ -901,6 +1117,20 @@ func (m *EmployersMutation) SetField(name string, value ent.Value) error {
 		}
 		m.SetStatus(v)
 		return nil
+	case employers.FieldKodePerusahaan:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetKodePerusahaan(v)
+		return nil
+	case employers.FieldKodeCabang:
+		v, ok := value.(string)
+		if !ok {
+			return fmt.Errorf("unexpected type %T for field %s", value, name)
+		}
+		m.SetKodeCabang(v)
+		return nil
 	}
 	return fmt.Errorf("unknown Employers field %s", name)
 }
@@ -946,6 +1176,12 @@ func (m *EmployersMutation) AddField(name string, value ent.Value) error {
 // mutation.
 func (m *EmployersMutation) ClearedFields() []string {
 	var fields []string
+	if m.FieldCleared(employers.FieldCreatedBy) {
+		fields = append(fields, employers.FieldCreatedBy)
+	}
+	if m.FieldCleared(employers.FieldUpdatedBy) {
+		fields = append(fields, employers.FieldUpdatedBy)
+	}
 	if m.FieldCleared(employers.FieldDeleteTime) {
 		fields = append(fields, employers.FieldDeleteTime)
 	}
@@ -963,6 +1199,12 @@ func (m *EmployersMutation) FieldCleared(name string) bool {
 // error if the field is not defined in the schema.
 func (m *EmployersMutation) ClearField(name string) error {
 	switch name {
+	case employers.FieldCreatedBy:
+		m.ClearCreatedBy()
+		return nil
+	case employers.FieldUpdatedBy:
+		m.ClearUpdatedBy()
+		return nil
 	case employers.FieldDeleteTime:
 		m.ClearDeleteTime()
 		return nil
@@ -974,6 +1216,12 @@ func (m *EmployersMutation) ClearField(name string) error {
 // It returns an error if the field is not defined in the schema.
 func (m *EmployersMutation) ResetField(name string) error {
 	switch name {
+	case employers.FieldCreatedBy:
+		m.ResetCreatedBy()
+		return nil
+	case employers.FieldUpdatedBy:
+		m.ResetUpdatedBy()
+		return nil
 	case employers.FieldCreateTime:
 		m.ResetCreateTime()
 		return nil
@@ -1012,6 +1260,12 @@ func (m *EmployersMutation) ResetField(name string) error {
 		return nil
 	case employers.FieldStatus:
 		m.ResetStatus()
+		return nil
+	case employers.FieldKodePerusahaan:
+		m.ResetKodePerusahaan()
+		return nil
+	case employers.FieldKodeCabang:
+		m.ResetKodeCabang()
 		return nil
 	}
 	return fmt.Errorf("unknown Employers field %s", name)

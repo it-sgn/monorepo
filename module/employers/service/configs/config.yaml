@@ -8,19 +8,20 @@ server:
 data:
   database:
     driver: postgres
-    source: "host=127.0.0.1 user=admin password=admin123 dbname=devdb port=5432 sslmode=disable TimeZone=Asia/Jakarta"
+    source: "host=192.168.90.5 user=postgres password=4dm1n166 dbname=karyawan port=5432 sslmode=disable TimeZone=Asia/Jakarta"
   redis:
     # employers_db: 4
-    addr: 127.0.0.1:6379
+    # addr: 127.0.0.1:6379
+    addr: 192.168.1.220:6379
     password: ""
     username: ""
     read_timeout: 0.2s
     write_timeout: 0.2s
     TTL: 1000
-  kafka:
-    addr: 127.0.0.1:19092
-    department_topic: "department_topic"
-    biometrics_topic: "biometrics_topic"
-    partition: 0
-    read_timeout: 0.2s
-    write_timeout: 0.2s
+  # kafka:
+  #   addr: 127.0.0.1:19092
+  #   department_topic: "department_topic"
+  #   biometrics_topic: "biometrics_topic"
+  #   partition: 0
+  #   read_timeout: 0.2s
+  #   write_timeout: 0.2s

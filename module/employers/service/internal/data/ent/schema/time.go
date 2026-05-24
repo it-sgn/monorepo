@@ -15,6 +15,8 @@ type TimeMixin struct {
 
 func (TimeMixin) Fields() []ent.Field {
 	return []ent.Field{
+		field.String("created_by").Optional(),
+		field.String("updated_by").Optional(),
 		field.Time("create_time").
 			Immutable().
 			Default(time.Now),

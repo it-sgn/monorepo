@@ -13,6 +13,10 @@ const (
 	Label = "employers"
 	// FieldID holds the string denoting the id field in the database.
 	FieldID = "id"
+	// FieldCreatedBy holds the string denoting the created_by field in the database.
+	FieldCreatedBy = "created_by"
+	// FieldUpdatedBy holds the string denoting the updated_by field in the database.
+	FieldUpdatedBy = "updated_by"
 	// FieldCreateTime holds the string denoting the create_time field in the database.
 	FieldCreateTime = "create_time"
 	// FieldUpdateTime holds the string denoting the update_time field in the database.
@@ -39,6 +43,10 @@ const (
 	FieldDepartCode = "depart_code"
 	// FieldStatus holds the string denoting the status field in the database.
 	FieldStatus = "status"
+	// FieldKodePerusahaan holds the string denoting the kode_perusahaan field in the database.
+	FieldKodePerusahaan = "kode_perusahaan"
+	// FieldKodeCabang holds the string denoting the kode_cabang field in the database.
+	FieldKodeCabang = "kode_cabang"
 	// Table holds the table name of the employers in the database.
 	Table = "employers"
 )
@@ -46,6 +54,8 @@ const (
 // Columns holds all SQL columns for employers fields.
 var Columns = []string{
 	FieldID,
+	FieldCreatedBy,
+	FieldUpdatedBy,
 	FieldCreateTime,
 	FieldUpdateTime,
 	FieldDeleteTime,
@@ -59,6 +69,8 @@ var Columns = []string{
 	FieldKodeFinger,
 	FieldDepartCode,
 	FieldStatus,
+	FieldKodePerusahaan,
+	FieldKodeCabang,
 }
 
 // ValidColumn reports if the column name is valid (part of the table columns).
@@ -88,6 +100,16 @@ type OrderOption func(*sql.Selector)
 // ByID orders the results by the id field.
 func ByID(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldID, opts...).ToFunc()
+}
+
+// ByCreatedBy orders the results by the created_by field.
+func ByCreatedBy(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldCreatedBy, opts...).ToFunc()
+}
+
+// ByUpdatedBy orders the results by the updated_by field.
+func ByUpdatedBy(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldUpdatedBy, opts...).ToFunc()
 }
 
 // ByCreateTime orders the results by the create_time field.
@@ -153,4 +175,14 @@ func ByDepartCode(opts ...sql.OrderTermOption) OrderOption {
 // ByStatus orders the results by the status field.
 func ByStatus(opts ...sql.OrderTermOption) OrderOption {
 	return sql.OrderByField(FieldStatus, opts...).ToFunc()
+}
+
+// ByKodePerusahaan orders the results by the kode_perusahaan field.
+func ByKodePerusahaan(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldKodePerusahaan, opts...).ToFunc()
+}
+
+// ByKodeCabang orders the results by the kode_cabang field.
+func ByKodeCabang(opts ...sql.OrderTermOption) OrderOption {
+	return sql.OrderByField(FieldKodeCabang, opts...).ToFunc()
 }

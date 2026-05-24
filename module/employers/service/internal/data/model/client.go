@@ -252,8 +252,8 @@ func (c *EmployersClient) Update() *EmployersUpdate {
 }
 
 // UpdateOne returns an update builder for the given entity.
-func (c *EmployersClient) UpdateOne(e *Employers) *EmployersUpdateOne {
-	mutation := newEmployersMutation(c.config, OpUpdateOne, withEmployers(e))
+func (c *EmployersClient) UpdateOne(_m *Employers) *EmployersUpdateOne {
+	mutation := newEmployersMutation(c.config, OpUpdateOne, withEmployers(_m))
 	return &EmployersUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
@@ -270,8 +270,8 @@ func (c *EmployersClient) Delete() *EmployersDelete {
 }
 
 // DeleteOne returns a builder for deleting the given entity.
-func (c *EmployersClient) DeleteOne(e *Employers) *EmployersDeleteOne {
-	return c.DeleteOneID(e.ID)
+func (c *EmployersClient) DeleteOne(_m *Employers) *EmployersDeleteOne {
+	return c.DeleteOneID(_m.ID)
 }
 
 // DeleteOneID returns a builder for deleting the given entity by its id.

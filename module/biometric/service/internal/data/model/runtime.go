@@ -18,11 +18,11 @@ func init() {
 	biometricFields := schema.Biometric{}.Fields()
 	_ = biometricFields
 	// biometricDescCreateTime is the schema descriptor for create_time field.
-	biometricDescCreateTime := biometricMixinFields0[0].Descriptor()
+	biometricDescCreateTime := biometricMixinFields0[2].Descriptor()
 	// biometric.DefaultCreateTime holds the default value on creation for the create_time field.
 	biometric.DefaultCreateTime = biometricDescCreateTime.Default.(func() time.Time)
 	// biometricDescUpdateTime is the schema descriptor for update_time field.
-	biometricDescUpdateTime := biometricMixinFields0[1].Descriptor()
+	biometricDescUpdateTime := biometricMixinFields0[3].Descriptor()
 	// biometric.DefaultUpdateTime holds the default value on creation for the update_time field.
 	biometric.DefaultUpdateTime = biometricDescUpdateTime.Default.(func() time.Time)
 	// biometric.UpdateDefaultUpdateTime holds the default value on update for the update_time field.

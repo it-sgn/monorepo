@@ -17,6 +17,10 @@ type Biometric struct {
 	config `json:"-"`
 	// ID of the ent.
 	ID int64 `json:"id,omitempty"`
+	// CreatedBy holds the value of the "created_by" field.
+	CreatedBy string `json:"created_by,omitempty"`
+	// UpdatedBy holds the value of the "updated_by" field.
+	UpdatedBy string `json:"updated_by,omitempty"`
 	// CreateTime holds the value of the "create_time" field.
 	CreateTime time.Time `json:"create_time,omitempty"`
 	// UpdateTime holds the value of the "update_time" field.
@@ -55,7 +59,7 @@ func (*Biometric) scanValues(columns []string) ([]any, error) {
 		switch columns[i] {
 		case biometric.FieldID:
 			values[i] = new(sql.NullInt64)
-		case biometric.FieldFingercode, biometric.FieldFinger0, biometric.FieldFinger1, biometric.FieldFinger2, biometric.FieldFinger3, biometric.FieldFinger4, biometric.FieldFinger5, biometric.FieldFinger6, biometric.FieldFinger7, biometric.FieldFinger8, biometric.FieldFinger9:
+		case biometric.FieldCreatedBy, biometric.FieldUpdatedBy, biometric.FieldFingercode, biometric.FieldFinger0, biometric.FieldFinger1, biometric.FieldFinger2, biometric.FieldFinger3, biometric.FieldFinger4, biometric.FieldFinger5, biometric.FieldFinger6, biometric.FieldFinger7, biometric.FieldFinger8, biometric.FieldFinger9:
 			values[i] = new(sql.NullString)
 		case biometric.FieldCreateTime, biometric.FieldUpdateTime, biometric.FieldDeleteTime:
 			values[i] = new(sql.NullTime)
@@ -68,7 +72,7 @@ func (*Biometric) scanValues(columns []string) ([]any, error) {
 
 // assignValues assigns the values that were returned from sql.Rows (after scanning)
 // to the Biometric fields.
-func (b *Biometric) assignValues(columns []string, values []any) error {
+func (_m *Biometric) assignValues(columns []string, values []any) error {
 	if m, n := len(values), len(columns); m < n {
 		return fmt.Errorf("mismatch number of scan values: %d != %d", m, n)
 	}
@@ -79,93 +83,105 @@ func (b *Biometric) assignValues(columns []string, values []any) error {
 			if !ok {
 				return fmt.Errorf("unexpected type %T for field id", value)
 			}
-			b.ID = int64(value.Int64)
+			_m.ID = int64(value.Int64)
+		case biometric.FieldCreatedBy:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field created_by", values[i])
+			} else if value.Valid {
+				_m.CreatedBy = value.String
+			}
+		case biometric.FieldUpdatedBy:
+			if value, ok := values[i].(*sql.NullString); !ok {
+				return fmt.Errorf("unexpected type %T for field updated_by", values[i])
+			} else if value.Valid {
+				_m.UpdatedBy = value.String
+			}
 		case biometric.FieldCreateTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field create_time", values[i])
 			} else if value.Valid {
-				b.CreateTime = value.Time
+				_m.CreateTime = value.Time
 			}
 		case biometric.FieldUpdateTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field update_time", values[i])
 			} else if value.Valid {
-				b.UpdateTime = value.Time
+				_m.UpdateTime = value.Time
 			}
 		case biometric.FieldDeleteTime:
 			if value, ok := values[i].(*sql.NullTime); !ok {
 				return fmt.Errorf("unexpected type %T for field delete_time", values[i])
 			} else if value.Valid {
-				b.DeleteTime = value.Time
+				_m.DeleteTime = value.Time
 			}
 		case biometric.FieldFingercode:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field fingercode", values[i])
 			} else if value.Valid {
-				b.Fingercode = value.String
+				_m.Fingercode = value.String
 			}
 		case biometric.FieldFinger0:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger0", values[i])
 			} else if value.Valid {
-				b.Finger0 = value.String
+				_m.Finger0 = value.String
 			}
 		case biometric.FieldFinger1:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger1", values[i])
 			} else if value.Valid {
-				b.Finger1 = value.String
+				_m.Finger1 = value.String
 			}
 		case biometric.FieldFinger2:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger2", values[i])
 			} else if value.Valid {
-				b.Finger2 = value.String
+				_m.Finger2 = value.String
 			}
 		case biometric.FieldFinger3:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger3", values[i])
 			} else if value.Valid {
-				b.Finger3 = value.String
+				_m.Finger3 = value.String
 			}
 		case biometric.FieldFinger4:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger4", values[i])
 			} else if value.Valid {
-				b.Finger4 = value.String
+				_m.Finger4 = value.String
 			}
 		case biometric.FieldFinger5:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger5", values[i])
 			} else if value.Valid {
-				b.Finger5 = value.String
+				_m.Finger5 = value.String
 			}
 		case biometric.FieldFinger6:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger6", values[i])
 			} else if value.Valid {
-				b.Finger6 = value.String
+				_m.Finger6 = value.String
 			}
 		case biometric.FieldFinger7:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger7", values[i])
 			} else if value.Valid {
-				b.Finger7 = value.String
+				_m.Finger7 = value.String
 			}
 		case biometric.FieldFinger8:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger8", values[i])
 			} else if value.Valid {
-				b.Finger8 = value.String
+				_m.Finger8 = value.String
 			}
 		case biometric.FieldFinger9:
 			if value, ok := values[i].(*sql.NullString); !ok {
 				return fmt.Errorf("unexpected type %T for field finger9", values[i])
 			} else if value.Valid {
-				b.Finger9 = value.String
+				_m.Finger9 = value.String
 			}
 		default:
-			b.selectValues.Set(columns[i], values[i])
+			_m.selectValues.Set(columns[i], values[i])
 		}
 	}
 	return nil
@@ -173,74 +189,80 @@ func (b *Biometric) assignValues(columns []string, values []any) error {
 
 // Value returns the ent.Value that was dynamically selected and assigned to the Biometric.
 // This includes values selected through modifiers, order, etc.
-func (b *Biometric) Value(name string) (ent.Value, error) {
-	return b.selectValues.Get(name)
+func (_m *Biometric) Value(name string) (ent.Value, error) {
+	return _m.selectValues.Get(name)
 }
 
 // Update returns a builder for updating this Biometric.
 // Note that you need to call Biometric.Unwrap() before calling this method if this Biometric
 // was returned from a transaction, and the transaction was committed or rolled back.
-func (b *Biometric) Update() *BiometricUpdateOne {
-	return NewBiometricClient(b.config).UpdateOne(b)
+func (_m *Biometric) Update() *BiometricUpdateOne {
+	return NewBiometricClient(_m.config).UpdateOne(_m)
 }
 
 // Unwrap unwraps the Biometric entity that was returned from a transaction after it was closed,
 // so that all future queries will be executed through the driver which created the transaction.
-func (b *Biometric) Unwrap() *Biometric {
-	_tx, ok := b.config.driver.(*txDriver)
+func (_m *Biometric) Unwrap() *Biometric {
+	_tx, ok := _m.config.driver.(*txDriver)
 	if !ok {
 		panic("model: Biometric is not a transactional entity")
 	}
-	b.config.driver = _tx.drv
-	return b
+	_m.config.driver = _tx.drv
+	return _m
 }
 
 // String implements the fmt.Stringer.
-func (b *Biometric) String() string {
+func (_m *Biometric) String() string {
 	var builder strings.Builder
 	builder.WriteString("Biometric(")
-	builder.WriteString(fmt.Sprintf("id=%v, ", b.ID))
+	builder.WriteString(fmt.Sprintf("id=%v, ", _m.ID))
+	builder.WriteString("created_by=")
+	builder.WriteString(_m.CreatedBy)
+	builder.WriteString(", ")
+	builder.WriteString("updated_by=")
+	builder.WriteString(_m.UpdatedBy)
+	builder.WriteString(", ")
 	builder.WriteString("create_time=")
-	builder.WriteString(b.CreateTime.Format(time.ANSIC))
+	builder.WriteString(_m.CreateTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("update_time=")
-	builder.WriteString(b.UpdateTime.Format(time.ANSIC))
+	builder.WriteString(_m.UpdateTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("delete_time=")
-	builder.WriteString(b.DeleteTime.Format(time.ANSIC))
+	builder.WriteString(_m.DeleteTime.Format(time.ANSIC))
 	builder.WriteString(", ")
 	builder.WriteString("fingercode=")
-	builder.WriteString(b.Fingercode)
+	builder.WriteString(_m.Fingercode)
 	builder.WriteString(", ")
 	builder.WriteString("finger0=")
-	builder.WriteString(b.Finger0)
+	builder.WriteString(_m.Finger0)
 	builder.WriteString(", ")
 	builder.WriteString("finger1=")
-	builder.WriteString(b.Finger1)
+	builder.WriteString(_m.Finger1)
 	builder.WriteString(", ")
 	builder.WriteString("finger2=")
-	builder.WriteString(b.Finger2)
+	builder.WriteString(_m.Finger2)
 	builder.WriteString(", ")
 	builder.WriteString("finger3=")
-	builder.WriteString(b.Finger3)
+	builder.WriteString(_m.Finger3)
 	builder.WriteString(", ")
 	builder.WriteString("finger4=")
-	builder.WriteString(b.Finger4)
+	builder.WriteString(_m.Finger4)
 	builder.WriteString(", ")
 	builder.WriteString("finger5=")
-	builder.WriteString(b.Finger5)
+	builder.WriteString(_m.Finger5)
 	builder.WriteString(", ")
 	builder.WriteString("finger6=")
-	builder.WriteString(b.Finger6)
+	builder.WriteString(_m.Finger6)
 	builder.WriteString(", ")
 	builder.WriteString("finger7=")
-	builder.WriteString(b.Finger7)
+	builder.WriteString(_m.Finger7)
 	builder.WriteString(", ")
 	builder.WriteString("finger8=")
-	builder.WriteString(b.Finger8)
+	builder.WriteString(_m.Finger8)
 	builder.WriteString(", ")
 	builder.WriteString("finger9=")
-	builder.WriteString(b.Finger9)
+	builder.WriteString(_m.Finger9)
 	builder.WriteByte(')')
 	return builder.String()
 }

@@ -12,6 +12,8 @@ var (
 	// EmployersColumns holds the columns for the "employers" table.
 	EmployersColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeInt64, Increment: true},
+		{Name: "created_by", Type: field.TypeString, Nullable: true},
+		{Name: "updated_by", Type: field.TypeString, Nullable: true},
 		{Name: "create_time", Type: field.TypeTime},
 		{Name: "update_time", Type: field.TypeTime},
 		{Name: "delete_time", Type: field.TypeTime, Nullable: true},
@@ -25,6 +27,8 @@ var (
 		{Name: "kode_finger", Type: field.TypeString},
 		{Name: "depart_code", Type: field.TypeString},
 		{Name: "status", Type: field.TypeInt32, Default: 0},
+		{Name: "kode_perusahaan", Type: field.TypeString},
+		{Name: "kode_cabang", Type: field.TypeString},
 	}
 	// EmployersTable holds the schema information for the "employers" table.
 	EmployersTable = &schema.Table{

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package attendance_report.v1;
+
+import "google/api/annotations.proto"; // For HTTP mapping
+import "openapiv3/annotations.proto";
+
+option go_package = "api/attendance_report/v1;v1";
+option java_multiple_files = true;
+option java_package = "attendance_report.v1";
+
+option (openapi.v3.document) = {
+    info: {
+        title: "attendance_report service",
+        version: "0.0.1",
+        contact: {
+            name: "fuadhs",
+            url: "http://localhost:8001",
+            email: "fuadhasan2@gmail.com"
+        },
+        description: "attendance_report service";
+    },
+};
+service ReportService {
+  rpc GenerateDepartmentHistoryClock(GenerateRequest) returns (GenerateReply);
+}
+message GenerateRequest {
+  string department_code = 1;
+  string start_date = 2; // format: YYYY-MM-DD
+  string end_date = 3;
+}
+
+message GenerateReply {
+  string pdf_url = 1; // PDF link dari Minio / CDN
+}

@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package attendance_raw.v1;
+
+option go_package = "api/attendance_raw/v1;v1";
+service AttendanceService {
+  rpc GetAttendanceReport(GetAttendanceReportRequest) returns (GetAttendanceReportResponse);
+}
+
+// Pesan utama untuk laporan
+message AttendanceReport {
+  string NamaPerusahaan = 1;
+  string Cabang = 2;
+  string Department = 3;
+  string Jabatan = 4;
+  string DibuatOleh = 5;
+  string DiperiksaOleh = 6;
+  string DisetujuiOleh = 7;
+
+  repeated Karyawan Karyawan = 8;
+}
+
+// Informasi per karyawan
+message Karyawan {
+  string karyaname = 1;
+  string periode = 2;
+  repeated Absensi Data = 3;
+}
+
+// Data absensi per hari
+message Absensi {
+  string tanggal = 1;
+  string evaluasi = 2;
+  repeated Status Status = 3;
+}
+
+// Status clock in/out
+message Status {
+  string ClockIn = 1;
+  string ClockOut = 2;
+}
+
+// Request kosong, bisa digunakan untuk gRPC endpoint
+message GetAttendanceReportRequest {
+  string depart_code = 1;
+  string start = 2;
+  string end = 3;
+}
+
+// Response berisi report
+message GetAttendanceReportResponse {
+  AttendanceReport report = 1;
+}

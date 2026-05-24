@@ -1,0 +1,115 @@
+syntax = "proto3";
+
+package shiftschedule.service.v1;
+
+import "google/api/annotations.proto";
+import "openapiv3/annotations.proto";
+
+
+option go_package = "api/shiftschedule/service/v1;v1";
+option (openapi.v3.document) = {
+    info: {
+        title: "Shift service",
+        version: "0.0.1",
+        contact: {
+            name: "fuadhs",
+            url: "http://localhost:8000",
+            email: "fuadhasan2@gmail.com"
+        },
+        description: "Shift service";
+    },
+};
+
+service ShiftSchedule {
+  rpc CreateShiftSchedule (CreateShiftScheduleRequest) returns (CreateShiftScheduleResponse) {
+    option (google.api.http) = {
+      post: "/v1/shift-schedules"
+      body: "*"
+    };
+  }
+  rpc GetShiftScheduleID (GetShiftScheduleRequest) returns (GetShiftScheduleResponse) {
+    option (google.api.http) = {
+      get: "/v1/shift-schedules/{id}"
+    };
+  }
+  rpc ListShiftSchedule (ListShiftScheduleRequest) returns (ListShiftScheduleResponse) {
+    option (google.api.http) = {
+      get: "/v1/shift-schedules"
+    };
+  }
+  rpc UpdateShiftSchedule (UpdateShiftScheduleRequest) returns (UpdateShiftScheduleResponse) {
+    option (google.api.http) = {
+      put: "/v1/shift-schedules/{id}"
+      body: "*"
+    };
+  }
+  rpc DeleteShiftSchedule (DeleteShiftScheduleRequest) returns (DeleteShiftScheduleResponse) {
+    option (google.api.http) = {
+      delete: "/v1/shift-schedules/{id}"
+    };
+  }
+}
+
+message ShiftScheduleData {
+  int64 id = 1; // Unique ID
+  string schedule_code = 2;
+  string karyacode = 3;
+  string tanggal = 4; // YYYY-MM-DD
+  string depart_code = 5;
+  string shift_id = 6; // Reference to Shift.id
+  string created_by = 7;
+}
+
+message CreateShiftScheduleRequest {
+  string schedule_code = 1;
+  string karyacode = 2;
+  string tanggal = 3;
+  string depart_code = 4;
+  string shift_id = 5;
+  string created_by = 6;
+}
+
+message CreateShiftScheduleResponse {
+  ShiftScheduleData schedule = 1;
+}
+
+message GetShiftScheduleRequest {
+  int64 id = 1;
+}
+
+message GetShiftScheduleResponse {
+  ShiftScheduleData schedule = 1;
+}
+
+message ListShiftScheduleRequest {
+  uint32 pn = 1;
+  uint32 pSize = 2;
+}
+
+message ListShiftScheduleResponse {
+  repeated ShiftScheduleData schedules = 1;
+  string next_page_token = 2;
+  int32 total_size = 3;
+}
+
+message UpdateShiftScheduleRequest {
+  int64 id = 1;
+  string schedule_code = 2;
+  string karyacode = 3;
+  string tanggal = 4;
+  string depart_code = 5;
+  string shift_id = 6;
+  string created_by = 7;
+}
+
+message UpdateShiftScheduleResponse {
+  ShiftScheduleData schedule = 1;
+}
+
+message DeleteShiftScheduleRequest {
+  int64 id = 1;
+}
+
+message DeleteShiftScheduleResponse {
+  bool success = 1;
+}

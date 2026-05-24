@@ -17,7 +17,7 @@ import (
 )
 
 // NewHTTPServer new a HTTP server.
-func NewHTTPServer(c *conf.Server, as *service.EmployersService, logger log.Logger) *http.Server {
+func NewHTTPServer(c *conf.Server, svc *service.EmployersService, logger log.Logger) *http.Server {
 	opts := []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),
@@ -40,7 +40,7 @@ func NewHTTPServer(c *conf.Server, as *service.EmployersService, logger log.Logg
 
 	// v1.RegisterEmployersHTTPServer(srv, as)
 
-	empv1.RegisterEmployersHTTPServer(srv, as)
+	empv1.RegisterEmployersHTTPServer(srv, svc)
 	// bioV1.RegisterBiometricHTTPServer(srv, bs)
 
 	return srv

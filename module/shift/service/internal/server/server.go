@@ -1,0 +1,39 @@
+package server
+
+import (
+	"mall-go/module/shift/service/internal/conf"
+
+	consul "github.com/go-kratos/kratos/contrib/registry/consul/v2"
+	"github.com/go-kratos/kratos/v2/registry" // ✅ pakai alias grpcx
+	"github.com/google/wire"
+	consulAPI "github.com/hashicorp/consul/api"
+)
+
+// ProviderSet is server providers.
+// var ProviderSet = wire.NewSet(NewHTTPServer, NewGRPCServer, NewRegistrar, NewDiscovery, NewBiometricClient, NewDepartmentClient)
+var ProviderSet = wire.NewSet(NewHTTPServer, NewGRPCServer, NewRegistrar, NewDiscovery)
+
+func NewRegistrar(conf *conf.Registry) registry.Registrar {
+	c := consulAPI.DefaultConfig()
+	c.Address = conf.Consul.Address
+	c.Scheme = conf.Consul.Scheme
+	cli, err := consulAPI.NewClient(c)
+	if err != nil {
+		panic(err)
+	}
+	r := consul.New(cli, consul.WithHealthCheck(false))
+	return r
+}
+
+// // NewDiscovery returns a service discovery using Consul.
+func NewDiscovery(conf *conf.Registry) registry.Discovery {
+	c := consulAPI.DefaultConfig()
+	c.Address = conf.Consul.Address
+	c.Scheme = conf.Consul.Scheme
+	cli, err := consulAPI.NewClient(c)
+	if err != nil {
+		panic(err)
+	}
+	r := consul.New(cli)
+	return r
+}

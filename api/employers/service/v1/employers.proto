@@ -1,18 +1,11 @@
 syntax = "proto3";
 
-// package employers.service;
 package employers.service.v1;
 
 import "google/api/annotations.proto";
 import "openapiv3/annotations.proto";
 
 option go_package = "api/employers/service/v1;v1";
-// option go_package = "api/ums/v1;v1";
-// option go_package = "api/sys/v1;v1";
-// option go_package = "api/sms/v1;v1";
-// option java_multiple_files = true;
-// option java_package = "api.employers.service";
-
 option (openapi.v3.document) = {
     info: {
         title: "Employers service",
@@ -27,26 +20,31 @@ option (openapi.v3.document) = {
 };
 
 service Employers {
-	rpc CreateEmployers (CreateEmployersRequest) returns (CreateEmployersReply){
+	rpc CreateEmployers (CreateEmployersRequest) returns (CreateEmployersResponse){
 		option (google.api.http) = {
 		post: "/v1/employers"
 		body: "*"
 	  };
 	};
-	rpc UpdateEmployers (UpdateEmployersRequest) returns (UpdateEmployersReply){
+	rpc UpdateEmployers (UpdateEmployersRequest) returns (UpdateEmployersResponse){
 	  option (google.api.http) = {
       put: "/v1/employers/{id}"
       body: "*"
      };
 	};
-	rpc DeleteEmployers (DeleteEmployersRequest) returns (DeleteEmployersReply){
+	rpc DeleteEmployers (DeleteEmployersRequest) returns (DeleteEmployersResponse){
 		option (google.api.http) = {
         delete: "/v1/employers/{id}"
       };
 	};
-	rpc GetEmployersID (GetEmployersIDRequest) returns (GetEmployersIDReply){
+	rpc GetEmployersID (GetEmployersIDRequest) returns (GetEmployersIDResponse){
 		option (google.api.http) = {
 		get: "/v1/employers/{id}"
+	 };
+	};
+  rpc GetEmployersKode (GetEmployersKodeRequest) returns (GetEmployersKodeResponse){
+		option (google.api.http) = {
+		get: "/v1/employers/{karya_code}"
 	 };
 	};
   rpc GetEmployersDetail (GetEmployerDetailRequest) returns (GetEmployersDetailResponse){
@@ -54,16 +52,35 @@ service Employers {
 		get: "/v1/employer/{id}"
 	 };
 	};
-	rpc ListEmployers (ListEmployersRequest) returns (ListEmployersReply){
+	rpc ListEmployers (ListEmployersRequest) returns (ListEmployersResponse){
     option (google.api.http) = {
 		get: "/v1/employer/list"
 	 };
   };
-  rpc ListEmployersNext (ListEmployersTokenReq) returns (ListEmployersReplyNextToken){
+  rpc ListEmployersNext (ListEmployersTokenReq) returns (ListEmployersResponseNextToken){
     option (google.api.http) = {
 		get: "/v1/employers/listnext"
 	 };
   };
+
+  rpc GetEmployersByFilter(GetEmployersByFilterRequest) returns (GetEmployersByFilterResponse){
+  option (google.api.http) = {
+      get: "/v1/employers/filter"
+    };
+  };
+  rpc GetEmployersFilterDepartCode(GetEmployersFilterDepartCodeRequest) returns (GetEmployersFilterDepartCodeResponse){
+  option (google.api.http) = {
+      get: "/v1/employers/depart"
+    };
+  };  
+  rpc GetPerusahaan(GetPerusahaanRequest)returns (GetPerusahaanResponse){};
+  rpc GetCabang(GetCabangRequest)returns (GetCabangResponse){};
+// rpc BulkUpdateDepartment(BulkUpdateDepartmentRequest) returns (BulkUpdateDepartmentResponse) {
+//   option (google.api.http) = {
+//     put: "/v1/employers/bulk-update-department"
+//     body: "*"
+//   };
+// }
 
 }
 
@@ -95,98 +112,117 @@ message EmployersRecord {
   int64 id = 1;
   string nosap = 2;
   string nip = 3;
-  string Karya_code = 4;
-  string Karya_name = 5;
+  string karya_code = 4;
+  string karya_name = 5;
   string disp_name = 6;
   string pass_mesin = 7;
   string rfid_card = 8;
   repeated Finger finger = 9;
   repeated Department department = 10;
   int32 status = 11;
-  string created_at = 12;
-  string updated_at = 13;
+  string kode_perusahaan = 12;
+  string kode_cabang = 14;
+  string created_at = 15;
+  string updated_at = 16;
 }
 
 message CreateEmployersRequest {
   int64 id = 1;
   string nosap = 2;
   string nip = 3;
-  string Karya_code = 4;
-  string Karya_name = 5;
+  string karya_code = 4;
+  string karya_name = 5;
   string disp_name = 6;
   string pass_mesin = 7;
   string rfid_card = 8;
   string kode_finger = 9; 
   string departcode = 10;
   int32 status = 11;
-  string created_at = 12;
-  string updated_at = 13;
+  string kode_perusahaan = 12;
+  string kode_cabang = 14;
+  string created_at = 15;
+  string updated_at = 16;
 }
-message CreateEmployersReply {
+message CreateEmployersResponse {
   int64 id = 1;
   string nosap = 2;
   string nip = 3;
-  string Karya_code = 4;
-  string Karya_name = 5;
+  string karya_code = 4;
+  string karya_name = 5;
   string disp_name = 6;
   string pass_mesin = 7;
   string rfid_card = 8;
   string kode_finger = 9; 
   string departcode = 10;
   int32 status = 11;
-  string created_at = 12;
-  string updated_at = 13;
+  string kode_perusahaan = 12;
+  string kode_cabang = 14;
+  string created_at = 15;
+  string updated_at = 16;
 }
 
 message UpdateEmployersRequest {
 	int64 id = 1;
   string nosap = 2;
   string nip = 3;
-  string Karya_code = 4;
-  string Karya_name = 5;
+  string karya_code = 4;
+  string karya_name = 5;
   string disp_name = 6;
   string pass_mesin = 7;
   string rfid_card = 8;
   string kode_finger = 9; 
   string departcode = 10;
   int32 status = 11;
-  string created_at = 12;
-  string updated_at = 13;
-	// EmployersRecord employers = 2;
+  string kode_perusahaan = 12;
+  string kode_cabang = 14;
+  string created_at = 15;
+  string updated_at = 16;
 }
-message UpdateEmployersReply {
+message UpdateEmployersResponse {
 	// EmployersRecord employers = 1;
   int64 id = 1;
   string nosap = 2;
   string nip = 3;
-  string Karya_code = 4;
-  string Karya_name = 5;
+  string karya_code = 4;
+  string karya_name = 5;
   string disp_name = 6;
   string pass_mesin = 7;
   string rfid_card = 8;
   string kode_finger = 9; 
   string departcode = 10;
   int32 status = 11;
-  string created_at = 12;
-  string updated_at = 13;
+  string kode_perusahaan = 12;
+  string kode_cabang = 14;
+  string created_at = 15;
+  string updated_at = 16;
 }
 
 message DeleteEmployersRequest {
 	int64 id = 1;
 }
-message DeleteEmployersReply {
+message DeleteEmployersResponse {
 	 bool success = 1;
 }
 
 message GetEmployersIDRequest {
 	int64 id = 1;
 }
-message GetEmployersIDReply {
+
+message GetEmployersKodeRequest{
+  string karya_code = 1;
+}
+message GetEmployersKodeResponse{
+  string nosap = 1;
+  string nip = 2;  
+  string karya_code = 3;
+  string karya_name = 4;
+}
+message GetEmployersIDResponse {
   int64 id = 1;
   string nosap = 2;
   string nip = 3;
-  string Karya_code = 4;
-  string Karya_name = 5;
+  string karya_code = 4;
+  string karya_name = 5;
   string disp_name = 6;
   string pass_mesin = 7;
   string rfid_card = 8;
@@ -194,8 +230,10 @@ message GetEmployersIDReply {
   // KodeFinger kode_finger = 9; 
   string departcode = 10;
   int32 status = 11;
-  string created_at = 12;
-  string updated_at = 13;
+  string kode_perusahaan = 12;
+  string kode_cabang = 14;
+  string created_at = 15;
+  string updated_at = 16;
 }
 
 message GetEmployerDetailRequest{
@@ -205,8 +243,8 @@ message GetEmployersDetailResponse{
   int64 id = 1;
   string nosap = 2;
   string nip = 3;
-  string Karya_code = 4;
-  string Karya_name = 5;
+  string karya_code = 4;
+  string karya_name = 5;
   string disp_name = 6;
   string pass_mesin = 7;
   string rfid_card = 8;
@@ -216,17 +254,47 @@ message GetEmployersDetailResponse{
   repeated Finger finger = 9;
   repeated Department department = 10;
   int32 status = 11;
-  string created_at = 12;
-  string updated_at = 13;
+  string kode_perusahaan = 12;
+  string kode_cabang = 14;
+  string created_at = 15;
+  string updated_at = 16;
 }
   
+message GetPerusahaanRequest{
+  string departcode =1;
+}
+
+  
+message GetCabangRequest{
+  string departcode =1;
+}
+
+message Perusahaan {
+  string kode_perusahaan = 1;
+  string nama_perusahaan = 2;
+  string kode_cabang = 3;
+  string cabang = 4;
+  string karya_code = 5; // tambahkan ini
+}
+message Cabang {
+  string kode_perusahaan = 1;
+  string nama_perusahaan = 2;
+  string kode_cabang = 3;
+  string cabang = 4;
+}
+message GetCabangResponse{
+  repeated Cabang cabang = 1;
+}
+message GetPerusahaanResponse{
+  repeated Perusahaan perusahaan = 1;
+}
 
 
 message ListEmployersRequest {
   uint32 pn = 1;
   uint32 pSize = 2;
 }
-message ListEmployersReply {
+message ListEmployersResponse {
   int32 total = 1;
   repeated EmployersRecord employers = 2;
 }
@@ -235,10 +303,41 @@ message ListEmployersTokenReq {
   int32 page_size = 1;
   string page_token = 2;
 }
-message ListEmployersReplyNextToken {
+message ListEmployersResponseNextToken {
     // repeated EmployersRecord results = 1;
     repeated EmployersRecord employers = 1;
     string next_token = 2;
 }
 
  
+// message EmployerData {
+//   string Karya_code = 1;
+//   string Karya_name = 2;
+//   string department = 3;
+// }
+message DepartData {
+  string depart_code = 1;
+  string depart_name = 2;
+}
+message EmployerItem {
+	string karya_code = 1;
+	string karya_name = 2;
+  string department = 3;
+  string kode_perusahaan = 4;
+  string kode_cabang = 5;
+}
+
+message GetEmployersByFilterRequest {
+  repeated string karya_codes = 1 [json_name = "karya_codes"];
+}
+message GetEmployersByFilterResponse {
+  repeated EmployerItem result = 1;
+}
+
+message GetEmployersFilterDepartCodeRequest{
+    string departcode = 1;
+}
+
+message GetEmployersFilterDepartCodeResponse {
+  repeated EmployerItem result = 1;
+}

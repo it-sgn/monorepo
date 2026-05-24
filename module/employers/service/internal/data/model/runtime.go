@@ -18,11 +18,11 @@ func init() {
 	employersFields := schema.Employers{}.Fields()
 	_ = employersFields
 	// employersDescCreateTime is the schema descriptor for create_time field.
-	employersDescCreateTime := employersMixinFields0[0].Descriptor()
+	employersDescCreateTime := employersMixinFields0[2].Descriptor()
 	// employers.DefaultCreateTime holds the default value on creation for the create_time field.
 	employers.DefaultCreateTime = employersDescCreateTime.Default.(func() time.Time)
 	// employersDescUpdateTime is the schema descriptor for update_time field.
-	employersDescUpdateTime := employersMixinFields0[1].Descriptor()
+	employersDescUpdateTime := employersMixinFields0[3].Descriptor()
 	// employers.DefaultUpdateTime holds the default value on creation for the update_time field.
 	employers.DefaultUpdateTime = employersDescUpdateTime.Default.(func() time.Time)
 	// employers.UpdateDefaultUpdateTime holds the default value on update for the update_time field.
